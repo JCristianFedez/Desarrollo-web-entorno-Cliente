@@ -1,0 +1,39 @@
+<!-- Escribir un programa que pida ingresar la coordenada de un punto en el plano,
+ es decir dos valores enteros x e y.
+Posteriormente imprimir en pantalla en qué cuadrante se ubica dicho punto.
+ (1º Cuadrante si x > 0 Y y > 0 , 2º Cuadrante: x < 0 Y y > 0, etc.)
+
+Extra:
+ Prepara el programa para que trabaje con números decimales
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej04</title>
+  </head>
+  <body>
+    <script>
+      var x = parseFloat(prompt("Introduce la cordenada X: ", ""));
+      var y = parseFloat(prompt("Introduce la cordenada Y: ", ""));
+
+      document.write("Cordenadas ===== X=" + x + ", Y=" + y + "<br>");
+
+      if (x > 0 && y > 0) {
+        document.write("Las cordenadar corresponden al primer cuadrnte");
+      } else {
+        if (x < 0 && y > 0) {
+          document.write("Las cordenadar corresponden al segundo cuadrnte");
+        } else {
+          if (x < 0 && y < 0) {
+            document.write("Las cordenadar corresponden al tercer cuadrnte");
+          } else {
+            document.write("Las cordenadar corresponden al cuarto cuadrnte");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

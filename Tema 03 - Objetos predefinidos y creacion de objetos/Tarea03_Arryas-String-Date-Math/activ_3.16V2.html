@@ -1,0 +1,38 @@
+<!-- Crea una función llamada volumenCono que calcule el volumen de un 
+    cono a partir del radio y de la altura. Utiliza posteriormente esta 
+    función mediante un programa que solicite al usuario el radio y la 
+    altura y posteriormente le muestre el volumen del cono.
+(Debes hacer los cálculos usando las posibilidades que te ofrece la clase
+ Math, como operaciones matemáticas y constantes)
+ El volumen de un cono viene dado por la fórmula de V indicada en la imagen:
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 3.16</title>
+</head>
+<body>
+    <form action="#">
+        <p id="sol"></p>
+        RADIO: <input type="number" name="radio" id="radio"><br>
+        ALTURA: <input type="number" name="altura" id="altura"><br>
+        <input type="button" value="calcular" onclick="volumenCono();">
+    </form>
+    <script>
+
+
+
+        function volumenCono(){
+            var radio=document.getElementById("radio").value;
+            var altura=document.getElementById("altura").value;
+            var volumen=(Math.PI*Math.pow(radio,2)*altura)/3;
+            volumen=Math.round((volumen+Number.EPSILON)*100)/100;
+            document.getElementById("sol").innerHTML="El volumen es: "+volumen+" M<sup>2</sup>";
+
+        }
+
+    </script>
+</body>
+</html>

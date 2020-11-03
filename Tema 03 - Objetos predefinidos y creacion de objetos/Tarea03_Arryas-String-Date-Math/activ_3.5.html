@@ -1,0 +1,30 @@
+<!-- Partiendo del siguiente array:
+var miarray= [4,0,4,7,7,5,8,1,8,8,0,2,3,1,2,5,7,3,2,5,1];
+muestra las posiciones ocupadas por el valor 3 usando el método. 
+(Nota: en tu algoritmo debes usar el método indexOf ). -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 3.5</title>
+</head>
+<body>
+    <script>
+        
+        function allOcurencias(array,elemento) {
+            var ocurrencias=new Array();
+            var ind=array.indexOf(elemento);
+            while (ind!=-1) {
+                ocurrencias.push(ind);
+                ind=array.indexOf(elemento,ind+1);
+                }
+            return ocurrencias;
+        }
+var miarray= [4,0,4,7,7,5,8,1,8,8,0,2,3,1,2,5,7,3,2,5,1];
+var ocurrencias=allOcurencias(miarray,3);
+console.log(ocurrencias);
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!-- Cargar los sueldos de un conjunto de empleados. 
+    Finalizar la carga al ingresar cero. Mostrar por 
+    pantalla los sueldos ordenados de mayor a menor. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <script>
+        var sueldos=new Array();
+        var i=0;
+        do {
+            sueldos[i]=parseInt(prompt("Ingrese el sueldo del empleado "+(i+1)+", [0=finalizar] ",""));
+            i++;
+        } while (sueldos[i-1]!=0);
+
+        document.write("Array inicial: [");
+        sueldos.forEach(element => {
+            document.write(element+", ");
+        });
+        document.write("]<br>");
+
+        sueldos.sort(function(a, b){return b-a});
+        document.write("Array ordenado: [");
+        sueldos.forEach(element => {
+            document.write(element+", ");
+        });
+        document.write("]<br>");
+    </script>
+</body>
+</html>

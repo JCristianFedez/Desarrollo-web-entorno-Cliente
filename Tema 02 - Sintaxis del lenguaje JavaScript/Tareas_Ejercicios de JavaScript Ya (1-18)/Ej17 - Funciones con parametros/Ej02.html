@@ -1,0 +1,38 @@
+<!-- Confeccionar una función a la cual le envíe tres 
+    enteros y los muestre ordenados de menor a mayor. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej02</title>
+  </head>
+  <body>
+    <script>
+        function orderAsc(numeros) {
+            return numeros.sort();
+        }
+
+        var numeros=new Array(3);
+        for (let i = 0; i < numeros.length; i++) {
+            numeros[i] = parseInt(
+            prompt("Introduce el " + (i + 1) + " numero: ", "")
+            );
+         }
+      document.write("Numeros introducidos: ");
+      
+      numeros.forEach(element => {
+          document.write("["+element+"], ");
+      });
+
+      document.write("<br><br>Numeros ordenados: ");
+      numeros=orderAsc(numeros);
+      numeros.forEach(element => {
+          document.write("["+element+"], ");
+      });
+
+      
+    </script>
+  </body>
+</html>

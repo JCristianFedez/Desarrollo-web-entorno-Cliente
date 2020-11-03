@@ -1,0 +1,41 @@
+<!-- Se ingresan tres notas de un alumno, si el promedio es mayor o igual a 4 mostrar 
+    un mensaje 'regular', sino 'reprobado'. 
+
+Extra:
+ Preparar el programa para que trabaje con números decimales y se pueda indicar cuántas 
+notas queremos introducir.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej02</title>
+</head>
+<body>
+    <script>
+        var cantNotas=parseInt(prompt("Cuantas Notas va a introducir: ",""));
+          var promedio=0;
+          var notas = new Array();
+
+          for (let i = 1; i <= cantNotas; i++) {
+            notas[i]=parseFloat(prompt("Ingrese la "+i+"ªnota : ",""));
+            promedio+=notas[i];
+          }
+
+          //Number.EPSILON es para que redonde bien numeros como 1.005, que de 1.01 y no 1
+          promedio=Math.round(((promedio/cantNotas)+Number.EPSILON)*100)/100;
+
+          document.write("Sus notas son: ");
+
+          notas.forEach(element => {
+              document.write(element+", ");
+          });
+
+          if (promedio>=4) {
+              document.write("<br><br>Felicidades su nota es regular con una media de "+promedio);
+          }else{
+            document.write("<br><br>Lo siento esta reaprobado su media es "+promedio+" y necesita minimo un 4");
+          }
+    </script>
+</body>
+</html>

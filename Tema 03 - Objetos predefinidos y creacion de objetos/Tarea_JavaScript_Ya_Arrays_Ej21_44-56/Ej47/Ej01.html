@@ -1,0 +1,38 @@
+<!-- Crear un vector con 5 valores aleatorios comprendidos entre 
+    1 y 1000. Luego extraer los dos últimos elementos sumarlos y 
+    mostrarlos. Imprimir también el tamaño final del vector. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=ç, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <script>
+        var array=new Array(5);
+        for (let i = 0; i < array.length; i++) {
+            array[i]=Math.floor(Math.random()*1000)+1;
+        }
+
+        document.write("Array inicial: [");
+        array.forEach(element => {
+            document.write(element+", ");
+        });
+        document.write("]<br>");
+
+        var sum=0;
+        for (let i = 0; i <2; i++) {
+            sum+=array.pop();
+        }
+        document.write("La suma de los dos ultimos elementos es : "+sum+"<br>");
+
+        document.write("Array final: [");
+        array.forEach(element => {
+            document.write(element+", ");
+        });
+        document.write("], tiene un tamaño de "+array.length+"<br>");
+    </script>
+</body>
+</html>

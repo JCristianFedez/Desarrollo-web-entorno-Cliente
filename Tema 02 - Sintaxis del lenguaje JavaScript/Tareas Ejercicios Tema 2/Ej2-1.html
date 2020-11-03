@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej2-1</title>
+  </head>
+  <body>
+    <script>
+      function verCalificacion(nota) {
+          if(typeof(nota)!="number"){
+              throw new Error("arg. debe ser un numero");
+          }
+        var str;
+        switch (nota) {
+          case 0:
+          case 1:
+          case 2:
+          case 3:
+          case 4:
+            str = "INSUFICIENTE";
+            break;
+          case 5:
+            str = "SUFICIENTE";
+            break;
+          case 6:
+            str = "BIEN";
+            break;
+          case 7:
+          case 8:
+            str = "NOTABLE";
+            break;
+          case 9:
+          case 10:
+            str = "SOBRESALIENTE";
+            break;
+          default:
+            str = "VALOR INCORRECTO";
+            break;
+        }
+        return str;
+      }
+
+      function test() {
+        for (let i = -1; i <= 12; i++) {
+          console.log("Nota "+i+" = "+verCalificacion(i));
+        }
+      }
+      
+    </script>
+    <button onclick="test()">Testeo</button>
+  </body>
+</html>

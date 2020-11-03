@@ -1,0 +1,27 @@
+<!-- Crea una función llamada contarPalabras que tenga como 
+    argumento de entrada una cadena de caracteres y devuelva 
+    el número palabras existentes en la cadena.
+
+Prueba tu función pasándole la frase:
+ "por cien cañones por banda poema de Espronceda"
+Tu función debería devolver:
+8
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 3.8</title>
+</head>
+<body>
+    <script>
+        function contarPalabras(str) {
+            var words=str.split(" ");
+            return words.length;
+        }
+        var oracion="por cien cañones por banda poema de Espronceda";
+        console.log(contarPalabras(oracion));
+    </script>
+</body>
+</html>

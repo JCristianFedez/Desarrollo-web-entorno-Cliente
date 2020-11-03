@@ -1,0 +1,28 @@
+<!-- Se ingresa por teclado un valor entero, mostrar una leyenda que indique si 
+    el número es positivo, cero o negativo. 
+
+Extra:
+Preparar el programa para que trabaje con números decimales-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej02</title>
+  </head>
+  <body>
+    <script>
+      var num = parseFloat(prompt("Introduzca numero: ", ""));
+
+      if (num > 0) {
+        document.write(num + " es un numero positivo");
+      } else {
+        if (num == 0) {
+          document.write(num + " es 0");
+        } else {
+          document.write(num + " es un numero negativo");
+        }
+      }
+    </script>
+  </body>
+</html>

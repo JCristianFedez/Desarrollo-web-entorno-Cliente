@@ -1,0 +1,25 @@
+<!-- Realizar la búsqueda de un string clave en un string fuente.
+     Se deberá ingresar una frase o texto (fuente) y luego la clave
+     a buscar. En caso de encontrarla, imprimir la posición, de lo
+    contrario una leyenda que indique que no está. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej04</title>
+</head>
+<body>
+    <script>
+        var frase=prompt("Introduzca el texto fuente: ","");
+        var palabra=prompt("Introduzca clave a buscar en el texto fuente: ","");
+        var posicion=frase.indexOf(palabra);
+        if(posicion!=-1){
+            document.write("La clave ["+palabra+"] esta en la posicion "+posicion);
+
+        }else{
+            document.write("La clave ["+palabra+"] no se encuentra");
+        }
+        </script>
+</body>
+</html>

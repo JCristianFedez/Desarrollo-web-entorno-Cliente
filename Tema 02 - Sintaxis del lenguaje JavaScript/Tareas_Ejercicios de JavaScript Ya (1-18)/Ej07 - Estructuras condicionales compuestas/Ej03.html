@@ -1,0 +1,31 @@
+<!-- Se ingresa por teclado un número positivo de uno o dos dígitos (1..99) mostrar un mensaje indicando 
+    si el número tiene uno o dos dígitos (recordar de convertir a entero con parseInt para preguntar 
+    posteriormente por una variable entera). Tener en cuenta qué condición debe cumplirse para tener
+     dos dígitos un número entero.
+    
+Extra: 
+Preparar el programa para que se pueda introducir un número de uno a tres dígitos (1 - 999), 
+lo convierta a un entero e indique si el número tiene 1, 2 o 3 dígitos
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej03</title>
+</head>
+<body>
+    <script>
+        var num=parseInt(prompt("Introduzca un numero positivo de 1 a 999: ",""));
+        var numAux=Math.abs(num);
+        var canDigitos=0;
+
+        while (numAux>0) {
+            numAux = parseInt(numAux/10); //El parseInt es necesario ya que si no cuenta decimales
+            canDigitos++;
+        }
+
+        document.write("El numero "+num+" tiene "+canDigitos+" digitos");
+    </script>
+</body>
+</html>

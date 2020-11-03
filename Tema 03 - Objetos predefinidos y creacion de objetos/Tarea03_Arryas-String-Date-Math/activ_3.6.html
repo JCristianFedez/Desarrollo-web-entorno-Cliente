@@ -1,0 +1,34 @@
+<!-- Partiendo del siguiente array:
+ miarray= [4,0,4,7,7,5,8,1,8,8,0,2,3,1,2,5,7,3,2,5,1];
+ ordena sus valores de tal forma que ocupen las primeras posiciones
+  los elementos pares.
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Actividad 3.6</title>
+ </head>
+ <body>
+     <script>
+         function firstPar(array) {
+             for (var i = 0; i < array.length; i++) {
+                 if(array[i]%2==0){
+                     var aux=array[i];
+                     array.splice(i,1);
+                     array.unshift(aux);
+                 }
+                 
+             }
+             return array;
+         }
+
+          miarray= [4,0,4,7,7,5,8,1,8,8,0,2,3,1,2,5,7,3,2,5,1];
+         miarray=firstPar(miarray);
+         console.log(miarray);
+
+     </script>
+ </body>
+ </html>

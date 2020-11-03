@@ -1,0 +1,62 @@
+<!-- 
+A) Crea un literal de función llamado diHola que muestre un alert por
+pantalla con el mensaje “Hola”.
+Invoca al literal de función.
+
+B) Crea un literal de función llamado esPrimo que devuelva true si el 
+número que se le pasa como argumento es primo.
+Invoca al literal de función usando los siguientes números:
+3(si es primo), 6(no es primo), 11(si es primo), 22(no es primo)
+
+C) Crea un literal de función llamado areaRectangulo que devuelva el área 
+de un rectángulo dado sus dos lados.
+Invoca el literal de función pasándole como argumentos 7 y 8 (tu función 
+debería devolver 56)
+
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>literal_funcion</title>
+ </head>
+ <body>
+     <button onclick="diHola();">Funcion Literal diHola</button>
+     <br>
+     <button onclick="console.log(testEsPrimo());">Funcion Literal esPrimo numeros 3,6,11,22</button>
+     <br>
+     <button onclick="console.log(testAreaRectangulo());">Funcion Literal areaRectangulo x=7 y=8</button>
+     <script>
+         var diHola=function(){
+            alert("Hola");
+         }
+
+         var esPrimo=function(num){
+             var primo=true;
+             for (let i = 2; i < num; i++) {
+                primo=(num%i==0)?false:true; 
+                i=(primo)?i:num;//Si no es primo se deja de comprobar
+             }
+             return primo;
+         }
+
+         function testEsPrimo(){
+            var nums=[3,6,11,22];
+            for (const item of nums) {
+                console.log(`${item} es primo = ${esPrimo(item)}`);
+            }
+         }
+
+         function testAreaRectangulo(){
+             var x=7;
+             var y=8;
+             console.log(`El area de un recatngulo de x=${x}, y=${y} es ${areaRectangulo(x,y)}`);
+         }
+
+         var areaRectangulo=function(x,y){
+            return (x*y);
+         }
+     </script>
+ </body>
+ </html>

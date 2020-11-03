@@ -1,0 +1,74 @@
+<!-- Apartado a)
+Crea una función llamada bonoloto que devuelva un array con 6 números 
+aleatorios en el 1 y el 49. Los números aleatorios no pueden repetirse,
+ ya que estamos simulando una bonoloto. Haz también que el array devuelto
+  esté ordenado.
+
+Si invocamos a la función bonoloto(), una posible salida de la función
+ podría ser: [6, 10, 16, 22, 39, 42]
+
+
+ Apartado b)
+Crea una función llamada compruebaDuplicidadArray que le pasemos como
+ argumento de entrada un array de números y devuelva true si tiene algún
+  elemento repetido (o false en caso contrario). Testea tu función usando 
+  un array de valores de entrada (serán arrays de números) y valores
+   esperados (true/false) dependiendo de si tienen valores repetidos o no.
+
+ Apartado c)
+Testea la función creada en el apartado a (bonoloto) usando la función 
+creada en la actividad 3.10b. Genera 100.000 bonolotos comprobando si 
+algunas de las combinaciones tienen números repetidos. Se considera 
+superado el test si ninguna de las combinaciones generadas tiene números 
+repetidos.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 10</title>
+</head>
+<body>
+    <script>
+        function bonoloto(){
+            var arrayNum= new Array(6);
+            for (let i = 0; i < arrayNum.length; i++) {
+                do{
+                    arrayNum[i]=Math.floor((Math.random()*49)+1);
+                }while(arrayNum.indexOf(arrayNum[i])!=i);
+            }
+            return arrayNum;
+        }
+
+        function compruebaDuplicidadArray(arrayNum){
+            //Debuelbe true si ha habido numeros repetidos
+            for (let i = 0; i < arrayNum.length; i++) {
+                if(arrayNum.indexOf(arrayNum[i])!=i)
+                return true;
+            }
+            return false;
+        }
+
+        function testC(cant){
+            //Debuelbe true si ha habido numeros repetidos
+            for (let index = 0; index < cant; index++) {
+                var loteria=bonoloto();
+                if(compruebaDuplicidadArray(loteria)==true){
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        var miLoteria=bonoloto();
+        console.log(miLoteria);
+
+        var arrayNumRep=[1,2,3,4,5,5,5,1];
+        console.log("Debe de dar false => "+compruebaDuplicidadArray(miLoteria));
+        console.log("Debe de dar true => "+compruebaDuplicidadArray(arrayNumRep));
+
+        console.log("Test: Allgun fallo en 100.000 loterias: "+testC(100000));
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+                try {
+                    if (cantPuntos < 0) {
+                        throw new Error("Los puntos no pueden ser negarivos");
+                    } else {
+                        if (this._puntos < cantPuntos) {
+                            throw new Error(`A ${this.nombre} no se le puede quitar ${cantPuntos} ya que solo tiene ${this._puntos}, asi que pasara a tener 0 puntos`);
+                            this._puntos = 0;
+			   } else {
+                            this._puntos -= cantPuntos;
+                        }
+                    }
+                } catch (error) {
+                    console.error(error);
+                    
+                }

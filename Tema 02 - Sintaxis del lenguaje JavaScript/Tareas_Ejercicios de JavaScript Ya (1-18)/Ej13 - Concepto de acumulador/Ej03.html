@@ -1,0 +1,45 @@
+<!-- En una empresa trabajan 5 empleados cuyos sueldos oscilan
+     entre $100 y $500, realizar un programa que lea los sueldos
+      que cobra cada empleado e informe cuántos empleados cobran 
+      entre $100 y $300 y cuántos cobran más de $300. Además el 
+      programa deberá informar el importe que gasta la empresa en sueldos al personal. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej03</title>
+</head>
+<body>
+    <script>
+        var empleados=new Array(5);
+        var mas300=0;
+        var entre100Y300=0;
+        var sueldoTotal=0;
+        var count=0;
+        while (count<empleados.length) {
+            empleados[count]=parseInt(prompt("Introduzca sueldo del "+(count+1)+"º Empleado: ",""));
+            sueldoTotal+=empleados[count];
+
+            if((empleados[count]>=100)&&(empleados[count]<=300)){
+                entre100Y300++;
+            }else{
+                if(empleados[count]>300){
+                    mas300++;
+                }
+            }
+            count++;
+        }
+        document.write("Sueldo trabajadores: ");
+        empleados.forEach(element => {
+            document.write(element+", ");
+        });
+
+        document.write("<br><br>Hay "+entre100Y300+" empleados que cobran entre 100 y 300"+"<br>");
+        document.write("Hay "+mas300+" empleados que cobran mas de 300"+"<br>");
+        document.write("Hay "+(empleados.length-(mas300+entre100Y300))+" empleados que cobran menos de 100"+"<br>");
+        document.write("La empresa paga un total de "+sueldoTotal);
+
+    </script>
+</body>
+</html>

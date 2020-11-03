@@ -1,0 +1,39 @@
+<!-- Crea un formulario HTML que contenga dos botones, 
+    uno llamado Start y otro Stop. Cuando pulsemos el botón 
+    Start iniciaremos un cronómetro. Cuando pulsemos Stop 
+    se mostrará al usuario el número de segundos transcurridos 
+    usando dos decimales. (No es necesario que se muestre el
+     transcurso del cronómetro, solo el tiempo que transcurrido 
+     al pulsar el botón Stop) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 3.14</title>
+</head>
+<body>
+    <p id="crono"></p>
+    <form name="cronometro" action="#">
+        <input type="button" value="Empieza" name="start" onClick="startCrono();">
+        <input type="button" value="Para" name="stop" onclick="stopCrono();">
+
+    </form>
+    <script>
+        var seconds=0;
+        function startCrono() {
+            var starTime= new Date();
+            var starSeconds=starTime.getTime()/1000;
+            seconds=starSeconds;
+        }
+
+        function stopCrono(){
+            var stopTime=new Date();
+            var stopSeconds=stopTime.getTime()/1000;
+            var secondsPasted=Math.round(((stopSeconds-seconds)+Number.EPSILON)*100)/100;
+            document.getElementById("crono").innerHTML=secondsPasted;
+        }
+
+    </script>
+</body>
+</html>

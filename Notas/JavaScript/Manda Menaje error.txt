@@ -1,0 +1,8 @@
+throw new Error("Aqui Mensaje de error");
+
+
+Por Ejemplo:
+            set edad(edad){
+                if(edad<0) throw "La edad no puede ser negativa";
+                else this._edad=edad;
+            }

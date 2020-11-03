@@ -1,0 +1,23 @@
+<!-- Igual al anterior, pero que termine la aplicación sin contemplar 
+    mayúsculas ni minúsculas. Es decir que para salir se pueda teclear fin, Fin o FIN. -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ej01</title>
+    </head>
+    <body>
+        <script>
+            var cantNomb=0;
+            var name;
+            do {
+                name=prompt("Introduzca el nombre numero "+cantNomb+": ","");
+                cantNomb++;
+            } while (name.toLowerCase()!="fin");
+            cantNomb--;
+            document.write("Se han escrito "+cantNomb+" nombres");
+
+        </script>
+    </body>
+    </html>

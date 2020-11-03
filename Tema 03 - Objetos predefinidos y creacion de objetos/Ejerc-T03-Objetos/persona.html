@@ -1,0 +1,134 @@
+<!-- A) Clase Persona
+-Implementar clase Persona con atributos los _nombre, _edad y _fumador. El constructor debe permitir asignar el nombre y la edad, y opcionalmente si es fumador
+(que por defecto será false). 
+-Implementar método get y set para el acceso a los atributos de la clase (el método set para cargar la edad garantizará que la edad no es negativa, lanzando un error
+en dicho caso). 
+-Implementar un método toString que devuelva el nombre, la edad y si es fumador usando plantilla de cadena de caracteres.
+-Implementa un método estático llamada comparaPersonas que reciba como argumento dos objetos persona y devuelva el de mayor edad. 
+-Implementa un método cumplirEdad que incremente en una unidad el número de años (debes usar arrow function para implementarlo). 
+-Implementa una propiedad estática llamada numeroCrosomas que devuelva el número de cromosomas de un ser humano (debe devolver 46, y será consultado usando 
+Persona.numeroCrosomas).
+-Implementa un método de instancia llamado personasConMasEdad al que le pasemos un número variable de objetos personas (usa parámetros Rest en la función) y 
+debe devolver un array conteniendo todas las personas que tengan una edad superior a la de nuestro objeto. 
+-Clase Conductor (hereda de clase Persona)
+-Crea una clase Conductor que herede de la clase Persona y que tenga los atributos para almacenar el tipo de carnet (por ejemplo si tiene el de coche almacenaremos "B1", y 
+si tiene varios estarán separados por como, por ejemplo si tiene el de moto y coche almacenaremos "A2,B1"). También debe tener otro atributo que almacene el número de puntos. 
+-El constructor permitirá indicar el nombre, la edad, el tipo de carnet y opcionalmente los puntos (que será 15 si se omite) . 
+-Implementa un método llamado sancionPuntos que tenga un argumento de entrada con el número de puntos a quitar del carnet (los puntos nunca podrán tener un valor negativo)..
+
+B) Clase Conductor (hereda de clase Persona)
+-Crea una clase Conductor que herede de la clase Persona y que tenga los atributos para almacenar el tipo de carnet (por ejemplo si tiene el de coche almacenaremos "B1", y
+si tiene varios estarán separados por como, por ejemplo si tiene el de moto y coche almacenaremos "A2,B1"). También debe tener otro atributo que almacene el número de puntos. 
+-El constructor permitirá indicar el nombre, la edad, el tipo de carnet y opcionalmente los puntos (que será 15 si se omite) . 
+-Implementa un método llamado sancionPuntos que tenga un argumento de entrada con el número de puntos a quitar del carnet (los puntos nunca podrán tener un valor negativo)..
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persona</title>
+</head>
+
+<body>
+
+
+    <script>
+        class Persona {
+            constructor(_nombre, _edad, _fumador = false) {
+                this._nombre = _nombre;
+                this._edad = _edad;
+                this._fumador = _fumador;
+            }
+
+            get nombre() {
+                return this._nombre;
+            }
+
+            set nombre(nombre) {
+                this._nombre = nombre;
+            }
+
+            get edad() {
+                return this._edad;
+            }
+
+            set edad(edad) {
+                if (edad < 0) throw "La edad no puede ser negativa";
+                else this._edad = edad;
+            }
+
+            get fumador() {
+                return this._fumador;
+            }
+
+            set fumador(fumador) {
+                this._fumador = fumador;
+            }
+
+            toString() {
+                let fuma = (this._fumador) ? "Fumador" : "No fumador";
+                return `Nombre: ${this._nombre}, Edad: ${this.edad}, ${fuma}`;
+            }
+
+            static comparaPersonas(p1, p2) {
+                if (p1.edad > p2.edad) {
+                    return p1;
+                } else if (p2.edad > p1.edad) {
+                    return p2;
+                } else {
+                    let both = [p1, p2];
+                    return both;
+                }
+            }
+
+            //Funcion definida en Arrow
+            cumplirEdad = (cantAnos) => { this._edad += cantAnos };
+
+            static numeroCromosomas = 46;
+
+            static personasConMasEdad(...peolpe) {
+                let mayoresA18 = [];
+                for (let i = 0; i < peolpe.length; i++) {
+                    if (peolpe[i].edad > 17) {
+                        mayoresA18.push(peolpe[i]);
+                    }
+
+                }
+                return mayoresA18;
+            }
+        }//Fin Persona
+
+
+        class Conductor extends Persona {
+            constructor(_nombre, _edad, _carnet, _puntos = 15, _fumador = false) {
+                super(_nombre, _edad, _fumador);
+                this._carnet = _carnet;
+                this._puntos = _puntos;
+            }
+
+            sancionPuntos(cantPuntos) {
+                try {
+                    if (cantPuntos < 0) {
+                        throw "Los puntos no pueden ser negarivos";
+                    } else {
+                        if (this._puntos < cantPuntos) {
+                            throw new Error(`A ${this.nombre} no se le puede quitar ${cantPuntos} ya que solo tiene ${this._puntos}, asi que pasara a tener 0 puntos`);
+                            this._puntos = 0;
+                        } else {
+                            this._puntos -= cantPuntos;
+                        }
+                    }
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

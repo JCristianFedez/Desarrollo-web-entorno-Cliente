@@ -1,0 +1,31 @@
+<!-- Se ingresan un conjunto de 5 alturas de personas por teclado. 
+    Mostrar la altura promedio de las personas. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej02</title>
+</head>
+<body>
+    <script>
+        var altura=new Array();
+        var promedio=0;
+        var count=0;
+        while (count<5) {
+            altura[count]=parseFloat(prompt("Introduzca la altura de la "+(count+1)+"ª persona: ",""));
+            promedio+=Math.round((altura[count]+Number.EPSILON)*100)/100;
+            count++;
+        }
+        
+        promedio=promedio/5;
+        document.write("Alturas: ");
+        altura.forEach(element => {
+            document.write(element+", ");
+        });
+        //Number.EPSILON se le suma para que haga vien la media, que si redondea 1.005 salga 1.01
+        document.write("<br><br>La altura media es: "+Math.round((promedio+Number.EPSILON)*100)/100);
+    </script>
+</body>
+</html>

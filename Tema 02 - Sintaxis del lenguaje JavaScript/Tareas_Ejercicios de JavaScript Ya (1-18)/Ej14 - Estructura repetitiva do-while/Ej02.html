@@ -1,0 +1,64 @@
+<!-- En un banco se procesan datos de las cuentas corrientes de sus clientes. 
+    De cada cuenta corriente se conoce: número de cuenta, nombre del cliente y 
+    saldo actual. El ingreso de datos debe finalizar al ingresar un valor negativo en el número de cuenta.
+Se pide confeccionar un programa que lea los datos de las cuentas corrientes e informe:
+
+a) De cada cuenta: número de cuenta, nombre del cliente y estado de la cuenta según su saldo, sabiendo que:
+Estado de la cuenta	'Acreedor' si el saldo es >0.
+			'Deudor' si el saldo es <0.
+            'Nulo' si el saldo es =0.
+            
+b) La suma total de los saldos acreedores. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej02</title>
+</head>
+<body>
+    <script>
+        var cliente=new Array();
+        var saldoTotal=0;
+        var numeroCuenta;
+        var nombre;
+        var saldo;
+        var contClient=0;
+        var infoClient=0;
+        do {
+            cliente[contClient]=new Array();//Definir array bidimensional
+            numeroCuenta=parseInt(prompt("Introduce Numero de cuenta del "+(contClient+1)+" cliente, para finalizar introduzca un numero negativo: ",""));
+            if(numeroCuenta>=0){
+                nombre=prompt("Introduce nombre del "+(contClient+1)+" cliente: ","");
+                saldo=parseInt(prompt("Introduce el saldo del "+(contClient+1)+" cliente: ",""));
+                saldoTotal+=saldo;
+                cliente[contClient][infoClient]=numeroCuenta;
+                infoClient++;
+                cliente[contClient][infoClient]=nombre;
+                infoClient++;
+                cliente[contClient][infoClient]=saldo;
+                infoClient++;
+                if(saldo>0){
+                    cliente[contClient][infoClient]="Acreedor";
+                }else{
+                    if(saldo<0){
+                        cliente[contClient][infoClient]="Deudor";
+                    }else{
+                        cliente[contClient][infoClient]="Nulo";
+                    }
+                }
+                infoClient=0;
+                contClient++;
+            }
+        } while (numeroCuenta>=0);
+
+        cliente.forEach(element => {
+            element.forEach(dato => {
+                document.write(dato+", ");
+            });
+            document.write("<br>");
+        });
+        document.write("<br><br>La suma total de los acredores es: "+saldoTotal);
+    </script>
+</body>
+</html>

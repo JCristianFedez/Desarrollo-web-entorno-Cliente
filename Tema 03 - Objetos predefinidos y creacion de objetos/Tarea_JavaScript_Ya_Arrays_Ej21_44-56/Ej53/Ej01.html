@@ -1,0 +1,29 @@
+<!-- Crear un vector con los datos de 5 personas. 
+    Luego imprimir por pantalla uno abajo de otro utilizando
+     el método join para generar un string y agregarle entre 
+     elementos la etiqueta html <br>. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <script>
+        var data=new Array(5);
+        for (let i = 0; i < data.length; i++) {
+            data[i]=prompt("Introduzca el nombre de la persona "+(i+1)+": ","");
+            
+        }
+        var dataV2=data.join("<br>");
+
+        document.write(dataV2);
+        
+
+
+
+
+    </script>
+</body>
+</html>

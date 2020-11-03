@@ -1,0 +1,46 @@
+<!-- Solicitar el ingreso alguna de estas palabras (casa, mesa, perro, gato)
+     luego mostrar la palabra traducida en inglés. Es decir, si se ingresa 
+     'casa' debemos mostrar el texto 'house' en la página. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej01</title>
+  </head>
+  <body>
+    <script>
+      var word = prompt("Introduzca una de las siguientes palabras (casa, mesa, perro, gato, blessure, barbecue, chaussure): ","");
+
+      switch (word) {
+        case "casa":
+          document.write("Casa - House");
+          break;
+        case "mesa":
+          document.write("Mesa - Table");
+          break;
+        case "perro":
+          document.write("Perro - Dog");
+          break;
+        case "gato":
+          document.write("Gato - Cat");
+          break;
+        case "blessure":
+          document.write("Blessure - Herida");
+          break;
+        case "blessure":
+          document.write("Barbecue - Barbacoa");
+          break;
+        case "blessure":
+          document.write("Chaussure - Zapato");
+          break;
+
+        default:
+          document.write(
+            "La palabra " + word + " introducida no esta en el traductor"
+          );
+          break;
+      }
+    </script>
+  </body>
+</html>

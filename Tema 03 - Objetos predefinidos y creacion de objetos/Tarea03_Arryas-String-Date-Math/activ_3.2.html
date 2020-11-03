@@ -1,0 +1,24 @@
+<!-- Partiendo del array dias, el cual contiene todos los
+     días de la semana, divide dicho array en dos partes,
+      los días laborables deben estar en un nuevo array 
+      llamado diasLaborables y los días festivos deben estar
+       en un nuevo array diasFestivos. Tendremos que seguir 
+       manteniendo el array original dias con el contenido inicial. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 3.2</title>
+</head>
+<body>
+    <script>
+        var dias=["lunes","martes","miercoles","jueves","viernes","sabado","domingo"];
+        var diasLaborables=dias.slice(0,5);
+        var diasFestivos=dias.slice(5,7);
+        console.log(dias);
+        console.log(diasLaborables);
+        console.log(diasFestivos);
+    </script>
+</body>
+</html>

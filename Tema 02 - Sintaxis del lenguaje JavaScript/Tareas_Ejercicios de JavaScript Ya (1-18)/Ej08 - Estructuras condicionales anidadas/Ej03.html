@@ -1,0 +1,26 @@
+<!-- Confeccionar un programa que permita cargar un número entero positivo de hasta tres 
+    cifras y muestre un mensaje indicando si tiene 1, 2, o 3 cifras. -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ej03</title>
+    </head>
+    <body>
+        <script>
+            var num=parseInt(prompt("Introduzca un numero positivo de 1 a 999: ",""));
+            var numAux=Math.abs(num);
+            var canDigitos=0;
+    
+            while (numAux>0) {
+                numAux = parseInt(numAux/10); //El parseInt es necesario ya que si no cuenta decimales
+                canDigitos++;
+            }
+    
+            document.write("El numero "+num+" tiene "+canDigitos+" digitos");
+        </script>
+    </body>
+    </html>
+
+    

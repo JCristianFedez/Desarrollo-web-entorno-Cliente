@@ -1,0 +1,81 @@
+<!-- Realizar un programa que permita cargar dos listas de 3 valores cada una. 
+    Informar con un mensaje cual de las dos listas tiene un valor acumulado mayor
+     (mensajes 'Lista 1 mayor', 'Lista 2 mayor', 'Listas iguales')
+Tener en cuenta que puede haber dos o más estructuras repetitivas en un algoritmo. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej06</title>
+  </head>
+
+  <body>
+    <script>
+      var lista1 = new Array(3);
+      var lista2 = new Array(3);
+      var lista3 = new Array(3);
+      var listaMayor;
+      var count = 0;
+      var numLista1=0;
+      var numLista2=0;
+      var numLista3=0;
+
+      while (count < lista1.length) {
+        lista1[count] = parseInt(
+          prompt("Ingrese el " + (count + 1) + " numero de la primera lista: ",""));
+        numLista1+=lista1[count];
+        count++;
+      }
+
+      count = 0;
+      while (count < lista2.length) {
+        lista2[count] = parseInt(
+          prompt("Ingrese el " + (count + 1) + " numero de la segunda lista: ",""));
+        numLista2+=lista2[count];
+        count++;
+      }
+
+      count = 0;
+      while (count < lista3.length) {
+        lista3[count] = parseInt(
+          prompt("Ingrese el " + (count + 1) + " numero de la tercera lista: ",""));
+        numLista3+=lista3[count];
+        count++;
+      }
+
+      document.write("<br>Lista 1: ");
+      lista1.forEach(element => {
+          document.write(element+" - ");
+      });
+
+      document.write("<br>Lista 2: ");
+      lista2.forEach(element => {
+          document.write(element+" - ");
+      });
+
+      document.write("<br>Lista 3: ");
+      lista3.forEach(element => {
+          document.write(element+" - ");
+      });
+
+      document.write("<br><br><br>");
+
+
+      if ((numLista1 > numLista2) && (numLista1 > numLista3)) {
+        document.write("El lista mas grande es la primera");
+      } else {
+        if ((numLista2 > numLista1) && (numLista2 > numLista3)) {
+          document.write("El lista mas grande es la segunda");
+        } else {
+          if ((numLista3 > numLista1) && (numLista3 > numLista2)) {
+            document.write("El lista mas grande es la tercera");
+          }else{
+              document.write("Hay dos o mas listas con el mismo valor ");
+          }
+        }
+      }
+
+    </script>
+  </body>
+</html>

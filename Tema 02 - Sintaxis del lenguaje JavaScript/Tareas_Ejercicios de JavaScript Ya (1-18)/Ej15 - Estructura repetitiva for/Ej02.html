@@ -1,0 +1,23 @@
+<!-- Desarrollar un programa que solicite la carga de 10 números 
+    e imprima la suma de lo últimos 5 valores ingresados. -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ej02</title>
+    </head>
+    <body>
+        <script>
+            var sum=0;
+            var num=new Array(10);
+            for (let i = 0; i < num.length; i++) {
+                num[i]=parseInt(prompt("Introduzca el "+(i+1)+" numero: ",""));
+                if(i>=5){
+                    sum+=num[i];
+                }             
+            }
+            document.write("La suma de los ultimos 5 numeros es: "+sum);
+        </script>
+    </body>
+    </html>

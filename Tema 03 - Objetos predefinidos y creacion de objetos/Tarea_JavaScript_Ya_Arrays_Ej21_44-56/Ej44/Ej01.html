@@ -1,0 +1,31 @@
+<!-- Confeccionar un programa que defina dos array,
+     en uno almacenar los días de la semana y en otro los 
+     nombres de los meses. Emplear dos sintaxis diferentes
+      para crear e inicializar sus componentes. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <script>
+        var meses=new Array("enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre");
+        var dias=["lunes","martes","miercoles","jueves","viernes","sábado","domingo"]; 
+
+        document.write("Meses = [")
+        meses.forEach(element => {
+            document.write(element+", ");
+        });
+        document.write("]<br>");
+
+        document.write("Dias = [")
+        dias.forEach(element => {
+            document.write(element+", ");
+        });
+        document.write("]<br>");
+    </script>
+</body>
+</html>

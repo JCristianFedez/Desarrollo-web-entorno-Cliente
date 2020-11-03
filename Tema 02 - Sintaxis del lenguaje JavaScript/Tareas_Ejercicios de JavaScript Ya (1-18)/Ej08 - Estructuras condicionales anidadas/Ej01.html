@@ -1,0 +1,32 @@
+<!-- Se cargan por teclado tres números distintos. Mostrar por pantalla el mayor de ellos. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej01</title>
+  </head>
+  <body>
+    <script>
+      var n1 = parseInt(prompt("Introduce el primer numero: ", ""));
+      var n2 = parseInt(prompt("Introduce el segundo numero: ", ""));
+      var n3 = parseInt(prompt("Introduce el tercer numero: ", ""));
+
+      document.write("N1= " + n1 + ", N2= " + n2 + ",N3=" + n3+"<br><br>");
+      
+      if ((n1 > n2) && (n1 > n3)) {
+        document.write("El numero mas grande es :" + n1);
+      } else {
+        if ((n2 > n1) && (n2 > n3)) {
+          document.write("El numero mas grande es :" + n2);
+        } else {
+          if ((n3 > n1) && (n3 > n2)) {
+            document.write("El numero mas grande es :" + n3);
+          }else{
+              document.write("Hay dos o tres numeros repetidos");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

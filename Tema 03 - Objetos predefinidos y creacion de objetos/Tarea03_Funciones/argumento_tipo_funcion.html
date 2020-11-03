@@ -1,0 +1,55 @@
+<!-- Crea una función llamada procesarCadenas que tenga dos argumentos de 
+entrada, una función (indicará cómo procesar la cadena de texto) y una 
+cadena de texto. Dicha función devolverá un string con la cadena de texto
+manipulada según la función dada como primer argumento.
+
+Crea los siguientes literales de función:
+Literal de función llamado pasarAMayusculas que tenga un argumento de tipo
+string y devuelva dicho string pasado todo a mayúsculas.
+Literal de función llamado pasarAMinusculas que tenga un argumento de tipo
+string y devuelva dicho string pasado todo a minúsculas.
+Literal de función llamado pasarPrimeraLetraAMayusculas que tenga un 
+rgumento de tipo string y devuelva dicho string con la primera letra de 
+cada palabra en mayúsculas (por ejemplo si le pasamos como entrada
+“en un lugar de la mancha” devolverá “En Un Lugar De La Mancha”
+Invoca a la función procesarCadenas con la frase “en un lugar de la mancha” 
+y con cada uno de los tres literales de función creados anteriormente.
+ Examina que la función devuelve el texto procesado correctamente.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Argumento_tipo_funcion</title>
+</head>
+<body>
+    <button  onclick="console.log(procesarCadenas(pasarAMayusculas,string));">pasarAMayusculas</button>
+    <br>
+    <button onclick="console.log(procesarCadenas(pasarAMinusculas,string));">pasarAMinusculas</button>
+    <br>
+    <button onclick="console.log(procesarCadenas(pasarPrimeraLetraAMayusculas,string));">pasarPrimeraLetraAMayusculas </button>
+    <script>
+        var string="en un lugar de la mancha";
+        function procesarCadenas(f,str){
+            return (f(str));
+        }
+
+        var pasarAMayusculas=function(str){
+            return (str.toUpperCase());
+        }
+        var pasarAMinusculas=function(str){
+            return (str.toLowerCase());
+        }
+        var pasarPrimeraLetraAMayusculas =function(str){
+            var arrayString=str.split(" ");//Divido el string en un array
+            for (let i = 0; i < arrayString.length; i++) {
+                //Cojo la primera letra de cada elemento del array y la pongo en mayuscula y le agrego el resto
+                arrayString[i]=arrayString[i][0].toUpperCase()+arrayString[i].slice(1);
+            }
+            var strCapitalized=arrayString.join(" ");//Vuelvo a pasar a string
+            return strCapitalized;
+        }
+    </script>
+</body>
+</html>

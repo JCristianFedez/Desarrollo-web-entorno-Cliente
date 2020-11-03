@@ -1,0 +1,39 @@
+<!-- Elaborar una función que reciba tres enteros y retorne el promedio.
+ -->
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ej04</title>
+      </head>
+      <body>
+        <script>
+          function avgNum(array) {
+            var avg = 0;
+            array.forEach(element => {
+                avg+=element;
+            });
+            avg/=array.length;
+            return avg;
+          }
+    
+          var numeros = new Array(3);
+          for (let i = 0; i < numeros.length; i++) {
+            numeros[i] = parseInt(
+              prompt("Introduce el " + (i + 1) + " numero: ", "")
+            );
+          }
+
+          document.write("Numeros introducidos: ");
+          
+          numeros.forEach(element => {
+              document.write("["+element+"], ");
+          });
+    
+          var promedio=avgNum(numeros);
+          document.write("<br><br>El promedio es: "+promedio);
+        </script>
+      </body>
+    </html>
+    

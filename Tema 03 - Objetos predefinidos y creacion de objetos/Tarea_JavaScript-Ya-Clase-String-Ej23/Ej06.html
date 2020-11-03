@@ -1,0 +1,54 @@
+<!-- Cargar un String por teclado e implementar las siguientes funciones:
+a) Imprimir la primera mitad de los caracteres de la cadena.
+b) Imprimir el último carácter.
+c) Imprimirlo en forma inversa.
+d) Imprimir cada carácter del String separado con un guión.
+e) Imprimir la cantidad de vocales almacenadas. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej06</title>
+</head>
+<body>
+    <script>
+        var str=prompt("Introduzca un string: ","");
+
+        var primeraMitad=str.substr(0,str.length/2);
+
+        var ultimoCar=str.charAt(str.length-1);
+
+        var strrev="";
+        var wordStr=str.length;
+        while(wordStr>=0){
+            strrev=strrev+str.charAt(wordStr);
+            wordStr--;
+        }
+
+        var caractSep="";
+        for (let i = 0; i < str.length; i++) {
+            caractSep=caractSep+str.charAt(i)+"-";
+            
+        }
+
+        var cantVocal=0;
+        for (let i = 0; i < str.length; i++) {
+            if(str.charAt(i)=="a"||
+                str.charAt(i)=="e"||
+                str.charAt(i)=="i"||
+                str.charAt(i)=="o"||
+                str.charAt(i)=="u")
+                {
+                    cantVocal++;
+                }
+        }
+        document.write("String: "+str+"<br><br>");
+        document.write("Mitad de caracteres "+primeraMitad+"<br>");
+        document.write("Ultimo caracter "+ultimoCar+"<br>");
+        document.write("Inversa: "+strrev+"<br>");
+        document.write("Caracter separado por guion: "+caractSep+"<br>");
+        document.write("Cantidad de vocales: "+cantVocal+"<br>");
+    </script>
+</body>
+</html>

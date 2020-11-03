@@ -1,0 +1,26 @@
+<!-- Crear un vector de 10 elementos. Inicializar los valores 
+    del vector cuando se crea. Inicializar dos variables que 
+    resulten de llamar primero al método toString() y la segunda 
+    variable inicializarla llamando al método join() sin parámetros.
+     Mostrar un mensaje si el resultado de la ejecución de los dos 
+     métodos retorna el mismo valor (empleando un if para comparar los string) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <script>
+        var list=[1,2,3,4,5,6,7,8,9,10];
+        var callString=list.toString();
+        var callJoin=list.join();
+        document.write("Con toString() : "+callString+"<br>");
+        document.write("Con join() : "+callJoin+"<br>");
+
+        (callString==callJoin)? document.write("Ambas son iguales"):document.write("Ambas son diferentes");
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!-- Crear un vector con una lista de valores. Luego 
+    borrar las componentes donde hay un 2 y al mismo 
+    tiempo insertar dos elementos con el valor 1. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <script>
+        var list=new Array(20);
+        for (let i = 0; i < list.length; i++) {
+            list[i]=Math.floor(Math.random()*10);
+        }
+
+        document.write("Array inicial: [");
+        list.forEach(element => {
+            document.write(element+", ");
+        });
+        document.write("]<br>");
+
+        for (let i = 0; i < list.length; i++) {
+            if(list[i]==2){
+                list.splice(i,1,1,1);
+                document.write("a");
+            }
+        }
+
+        document.write("Array final: [");
+        list.forEach(element => {
+            document.write(element+", ");
+        });
+        document.write("]<br>");
+    </script>
+</body>
+</html>

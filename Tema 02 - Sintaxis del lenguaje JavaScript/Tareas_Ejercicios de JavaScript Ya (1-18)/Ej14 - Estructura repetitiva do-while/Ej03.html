@@ -1,0 +1,68 @@
+<!-- Se realizó un censo provincial y se desea procesar la información obtenida
+     en dicho censo. De cada una de las personas censadas se tiene la siguiente
+      información: número de documento, edad y sexo ('femenino' o 'masculino')
+Se pide confeccionar un programa que lea los datos de cada persona censada (para
+ finalizar ingresar el valor cero en el número de documento) e informar:
+ 
+a)	Cantidad total de personas censadas.
+b)	Cantidad de varones.
+c)	Cantidad de mujeres.
+d)	Cantidad de varones cuya edad varía entre 16 y 65 años. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej03</title>
+</head>
+<body>
+    <script>
+        var personas=new Array();
+        var numeroDoc;
+        var edad;
+        var sexo;
+        var contPersona=0;
+        var infoPersona=0;
+        var totalPersonas=0;
+        var cantVarones=0;
+        var cantVarones16_65=0;
+        var cantMujeres=0;
+        do {
+            personas[contPersona]=new Array();//Definir array bidimensional
+            numeroDoc=parseInt(prompt("Introduce Numero del documento de la "+(contPersona+1)+"ª persona, para finalizar introduzca 0: ",""));
+            if(numeroDoc!=0){
+                personas[contPersona][infoPersona]=numeroDoc;
+                infoPersona++;
+
+                edad=parseInt(prompt("Introduce edad de la "+(contPersona+1)+"ª persona: ",""));
+                personas[contPersona][infoPersona]=edad;
+                infoPersona++;
+
+                do{
+                    sexo=prompt("Introduce el sexo de la "+(contPersona+1)+"ª persona ('femenino' o 'masculino'): ","");
+                }while((sexo!="masculino")&&(sexo!="femenino"));
+                personas[contPersona][infoPersona]=sexo;
+                infoPersona=0;
+
+                if(sexo=="masculino"){
+                    cantVarones++;
+                    if((edad>=16)&&(edad<=65)){
+                        cantVarones16_65++;
+                    }
+                }else{
+                    cantMujeres++;
+                }
+                
+                contPersona++;
+                totalPersonas++;
+            }
+        } while (numeroDoc!=0);
+
+        document.write("Total de personas: "+contPersona+"<br>");
+        document.write("Cantidad de Varones: "+cantVarones+"<br>");
+        document.write("Cantidad de Varones entre 16 y 35 años: "+cantVarones16_65+"<br>");
+        document.write("Cantidad de Mujeres: "+cantMujeres+"<br>");
+    </script>
+</body>
+</html>

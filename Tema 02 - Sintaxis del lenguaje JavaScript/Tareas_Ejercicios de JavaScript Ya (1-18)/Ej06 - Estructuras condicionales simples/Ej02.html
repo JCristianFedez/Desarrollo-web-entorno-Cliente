@@ -1,0 +1,23 @@
+<!-- Solicitar que se ingrese dos veces una clave. Mostrar un mensaje si 
+    son iguales (tener en cuenta que para ver si dos variables tienen el 
+    mismo valor almacenado debemos utilizar el operador ==) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej02</title>
+</head>
+<body>
+    <script>
+        var pass1=prompt("Introduzca su clave: ","");
+        var pass2=prompt("Introduzca su calve de nuevo: ","");
+
+        if (pass1==pass2) {
+            document.write("Contraseña correcta");
+        }else{
+            document.write("Contraseña incorrecta");
+        }
+    </script>
+</body>
+</html>

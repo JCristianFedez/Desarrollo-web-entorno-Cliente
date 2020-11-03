@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej2-5</title>
+  </head>
+  <body>
+    <script>
+              function hexa2decimal(numHex){
+                  var esHex;
+                  var valHex=[0,1,2,3,4,5,6,7,8,9,"a","b","c","d","e","f"];
+
+                  for (let i = 0; i < numHex.length; i++) {//Compruebo si es hexadecimal
+                      esHex=false;
+
+                      valHex.forEach(element => {
+                          if(numHex.charAt(i).toLowerCase()==element){
+                            esHex=true;
+                            }
+                      });
+
+                      if(!esHex){
+                        i=numHex.length+1;
+                        throw new Error("arg. debe ser un numero hexadecimal");
+                      }
+                  }
+                  
+                  return parseInt(numHex,16);
+              }
+
+              function test(){
+                  var allRight=true;
+                  var hex=["a1","0","0F","aB","F0","Cc"];
+                  var dec=[161,0,15,171,240,204];
+
+                  for (var indice in hex) {
+                if(hexa2decimal(hex[indice])==dec[indice]){
+                    console.log(hex[indice]+" => [ESPERADO: "+dec[indice]+"] ,[DEVUELTO=>CORRECTO="+hexa2decimal(hex[indice])+"]");
+                }else{
+                    console.log(hex[indice]+" => [ESPERADO: "+dec[indice]+"] ,[DEVUELTO=>FALLA="+hexa2decimal(hex[indice])+"]");
+                    allRight=false;
+                }
+                if(allRight){
+                    console.log("Todo correcto");
+                }else{
+                    console.log("Algun fallo");
+                }
+            }
+              }
+    </script>
+    <button onclick="test();">Test</button>
+  </body>
+</html>

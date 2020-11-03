@@ -1,0 +1,35 @@
+<!-- Crear un vector de 10 elementos con valores aleatorios comprendidos
+     entre 0 y 1000. Buscar el menor y luego generar otro vector a partir
+      de dicha posición hasta el final. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <script>
+        var list=new Array(10);
+        for (let i = 0; i < list.length; i++) {
+            list[i]=Math.floor(Math.random()*1001);       
+        }
+
+        document.write("Array inicial: [");
+        list.forEach(element => {
+            document.write(element+", ");
+        });
+        document.write("]<br>");
+        
+        var valMin=Math.min(...list);
+        var posMin=list.indexOf(valMin);
+        var list2=list.slice(posMin);
+
+        document.write("Array final: [");
+        list2.forEach(element => {
+            document.write(element+", ");
+        });
+        document.write("]<br>");
+    </script>
+</body>
+</html>

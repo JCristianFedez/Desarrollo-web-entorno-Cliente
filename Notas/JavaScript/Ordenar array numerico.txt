@@ -1,0 +1,6 @@
+Ordenar array numerico ascendente:
+arrayNumbers.sort(function (a, b){return a-b;})
+
+
+Ordenar array numerico descendente:
+arrayNumbers.sort(function (a, b){return b-a;})

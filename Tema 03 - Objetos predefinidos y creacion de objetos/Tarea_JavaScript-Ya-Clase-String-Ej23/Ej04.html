@@ -1,0 +1,26 @@
+<!-- Ingresar una palabra o texto por teclado y determinar 
+    si es o no una palabra palíndromo. (Palabra que se lee 
+    de igual manera de adelante hacia atrás, que de atrás hacia delante) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej04</title>
+</head>
+<body>
+    <script>
+        var word=prompt("Ingrese una palabra: ","");
+        var revWord="";
+        var wordStr=word.length;
+
+        while(wordStr>=0){
+            revWord=revWord+word.charAt(wordStr);
+            wordStr--;
+        }
+
+        var esPol=(word==revWord)? "si" : "no";
+        document.write("La palabra "+word+" "+esPol+" es polindroma");
+    </script>
+</body>
+</html>

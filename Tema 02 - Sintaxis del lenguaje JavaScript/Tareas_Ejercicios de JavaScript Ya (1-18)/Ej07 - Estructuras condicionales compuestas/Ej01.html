@@ -1,0 +1,36 @@
+<!-- Realizar un programa que lea por teclado dos números, si el primero es mayor al 
+    segundo informar su suma y diferencia, en caso contrario informar el producto y 
+    la división del primero respecto al segundo. 
+
+Extra: 
+Preparar el programa para que trabaje con números decimales-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <script>
+        var n1=parseFloat(prompt("Introduzca el primer numero: ",""));
+        var n2=parseFloat(prompt("Introduzca el segundo numero: ",""));
+
+        if(n1>n2){
+            //Number.EPSILON es para que redonde bien numeros como 1.005, que de 1.01 y no 1
+            var suma=Math.round(((n1+n2)+Number.EPSILON)*100)/100;
+            var resta=Math.round(((n1-n2)+Number.EPSILON)*100)/100;
+
+            document.write(n1 +" + "+n2+" = "+suma+"<br>");
+            document.write(n1 +" - "+n2+" = "+resta);
+        }else{
+            var producto=Math.round(((n1*n2)+Number.EPSILON)*100)/100;
+            var division=Math.round(((n1/n2)+Number.EPSILON)*100)/100;
+            document.write(n1 +" x "+n2+" = "+producto+"<br>");
+            document.write(n1 +" / "+n2+" = "+division);
+
+        }
+
+    </script>
+</body>
+</html>

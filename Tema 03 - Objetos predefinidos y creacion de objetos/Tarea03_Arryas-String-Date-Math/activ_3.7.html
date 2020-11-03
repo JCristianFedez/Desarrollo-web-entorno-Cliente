@@ -1,0 +1,26 @@
+<!-- A partir de array ['lunes', 'martes', 'miércoles']
+     haz las operaciones necesarias para mostrar por la
+      consola de depuración las cadenas 'Lunes', 'Martes', 
+      'Miércoles'. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 3.7</title>
+</head>
+<body>
+    <script>
+        function capitalize(array){
+            for (let i = 0; i < array.length; i++) {
+                array[i]=array[i].charAt(0).toUpperCase()+array[i].slice(1);
+                
+            }
+            return array.join(", ");
+        }
+        var dias=["lunes","martes","miercoles"];
+        diasCapitalizados=capitalize(dias);
+        console.log(diasCapitalizados);
+    </script>
+</body>
+</html>

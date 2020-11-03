@@ -1,0 +1,23 @@
+<!-- Cree un objeto Date con tu fecha de nacimiento. Proporciona 
+    dicha fecha en milisegundos al constructor del objeto Date.
+ (Nota: debes averiguar previamente el número de días transcurridos
+  desde el 1/1/1970 hasta la fecha de tu nacimiento y luego convertirlo 
+  a milisegundos). Para ello puedes usar la siguiente web:
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 3.12</title>
+</head>
+<body>
+    <script>
+        var milisegundos=Date.parse("December 16, 2000");
+        var miNacimiento=new Date(milisegundos);
+        var milisegundosMiNac=miNacimiento.getTime();
+        console.log(milisegundosMiNac);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!-- Realizar un programa que lea los lados de 4 triángulos, e informar:
+a) De cada uno de ellos, qué tipo de triángulo es: equilátero
+ (tres lados iguales), isósceles (dos lados iguales), o escaleno (ningún lado igual)
+b) Cantidad de triángulos de cada tipo.
+c) Tipo de triángulo del que hay menor cantidad. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ej05</title>
+</head>
+
+<body>
+  <script>
+    var triangulo = new Array(4);
+    var equilatero = 0;
+    var isosceles = 0;
+    var escaleno = 0;
+    for (let i = 0; i < triangulo.length; i++) {
+      triangulo[i] = new Array();
+      for (let j = 0; j < 3; j++) {
+        triangulo[i][j] = parseInt(prompt("Introduzca el " +(j + 1) +"º lado del triangulo numero " +(i + 1) +": ",""));
+      }
+    }
+    for (let i = 0; i < triangulo.length; i++) {
+      if (triangulo[i][0] == triangulo[i][1] &&
+        triangulo[i][0] == triangulo[i][2]) {
+        document.write("El triangulo numero " + (i + 1) + " es equilatero<br>");
+        equilatero++;
+      } else {
+        if (
+          triangulo[i][0] == triangulo[i][1] ||
+          triangulo[i][0] == triangulo[i][2] ||
+          triangulo[i][1] == triangulo[i][2]
+        ) {
+          document.write(
+            "El triangulo numero " + (i + 1) + " es isosceles<br>"
+          );
+          isosceles++;
+        } else {
+          document.write(
+            "El triangulo numero " + (i + 1) + " es escaleno<br>"
+          );
+          escaleno++;
+        }
+      }
+    }
+    document.write("Hay " + equilatero + " triangulos equilateros<br>");
+    document.write("Hay " + isosceles + " triangulos isosceles<br>");
+    document.write("Hay " + escaleno + " triangulos escalenos<br>");
+    if (equilatero < isosceles && equilatero < escaleno) {
+      document.write("Se ingresaron menos triángulos equiláteros");
+    } else {
+      if (isosceles < escaleno) {
+        document.write("Se ingresaron menos triángulos isósceles");
+      } else {
+        document.write("Se ingresaron menos triángulos escalenos");
+      }
+    }
+  </script>
+</body>
+
+</html>

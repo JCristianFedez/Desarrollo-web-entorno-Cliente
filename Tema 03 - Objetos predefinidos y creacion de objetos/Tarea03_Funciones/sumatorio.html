@@ -1,0 +1,29 @@
+<!-- Crea una función llamada sumatorio que devuelva la suma de un número 
+variable de argumentos (de tipo number). Para ello utiliza arguments. 
+Esta función podremos invocarla posteriormente con llamadas del tipo:
+sumatorio(5,8,1,2)
+sumatorio(3,2,5,1,1,2)
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sumatorio</title>
+  </head>
+  <body>
+    <script>
+      function sumatorio(/**/) {
+        var sum = 0;
+        
+        for (const key in arguments) {
+            sum+=arguments[key];
+        }
+        return sum;
+      }
+
+      console.log(sumatorio(5, 8, 1, 2));
+      console.log(sumatorio(3, 2, 5, 1, 1, 2));
+    </script>
+  </body>
+</html>

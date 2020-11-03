@@ -1,0 +1,80 @@
+<!-- Se cuenta con la siguiente información:
+Las edades de 5 estudiantes del turno mañana.
+Las edades de 6 estudiantes del turno tarde.
+Las edades de 11 estudiantes del turno noche.
+Las edades de cada estudiante deben ingresarse por teclado.
+a) Obtener el promedio de las edades de cada turno (tres promedios).
+b) Imprimir dichos promedios (promedio de cada turno).
+c) Mostrar por pantalla un mensaje que indique cual de los 
+   tres turnos tiene un promedio de edades mayor. -->
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Ej08</title>
+   </head>
+   <body>
+       <script>
+           var morning=new Array(5);
+           var afternoon=new Array(6);
+           var night=new Array(11);
+           var avgMorning=0;
+           var avgAfternoon=0;
+           var avgNight=0;
+
+           for (let i = 0; i < morning.length; i++) {
+               morning[i]=parseInt(prompt("Edad del alumno numero "+(i+1)+" de la mañana: ",""));
+               avgMorning+=morning[i];
+           }
+           avgMorning/=morning.length;
+
+           for (let i = 0; i < afternoon.length; i++) {
+               afternoon[i]=parseInt(prompt("Edad del alumno numero "+(i+1)+" de la tarde: ",""));
+               avgAfternoon+=afternoon[i];
+           }
+           avgAfternoon/=afternoon.length;
+
+           for (let i = 0; i < night.length; i++) {
+               night[i]=parseInt(prompt("Edad del alumno numero "+(i+1)+" de la mañana: ",""));
+               avgNight+=night[i];
+           }
+           avgNight/=night.length;
+
+           morning.forEach(element => {
+               document.write("["+element+"],");
+           });
+           document.write("<br>");
+
+           afternoon.forEach(element => {
+               document.write("["+element+"],");
+           });
+           document.write("<br>");
+
+           night.forEach(element => {
+               document.write("["+element+"],");
+           });
+           document.write("<br>");
+
+           document.write("Media alumnos de la mañana: "+avgMorning+"<br>");
+           document.write("Media alumnos de la tarde: "+avgAfternoon+"<br>");
+           document.write("Media alumnos de la noche: "+avgNight+"<br>");
+
+           if((avgMorning>avgAfternoon)&&(avgMorning>avgNight)){
+               document.write("La media mayor es la de la mañana");
+           }else{
+               if((avgAfternoon>avgMorning)&&(avgAfternoon>avgNight)){
+                document.write("La media mayor es la de la tarde");
+
+               }else{
+                if((avgAfternoon>avgMorning)&&(avgAfternoon>avgNight)){
+                    document.write("La media mayor es la de la noche");
+
+                }else{
+                    document.write("No hay una media mayor que el resto");
+                }
+               }
+           }
+       </script>
+   </body>
+   </html>

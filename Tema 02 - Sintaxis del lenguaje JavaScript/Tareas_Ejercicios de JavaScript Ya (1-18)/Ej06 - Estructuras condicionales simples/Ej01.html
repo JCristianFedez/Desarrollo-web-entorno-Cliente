@@ -1,0 +1,49 @@
+<!-- 
+Se ingresan tres notas de un alumno, si el promedio es mayor o igual a 
+siete mostrar el mensaje 'Promocionado'. Tener en cuenta que para obtener 
+el promedio debemos operar suma=nota1+nota2+nota3; y luego hacer promedio=suma/3;
+Cuando cargamos una nota y queremos convertir inmediatamente el valor ingresado 
+a entero podemos hacer:
+nota1=prompt('Ingrese primer nota:','');
+nota1=parseInt(nota1); 
+
+Extra: 
+Prepara el programa para que pregunte al usuario cuántas notas quiere introducir. 
+Además las notas podrán tener decimales.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej01</title>
+  </head>
+  <body>
+      <script>
+          var cantNotas=parseInt(prompt("Cuantas Notas va a introducir: ",""));
+          var promedio=0;
+          var notas = new Array();
+
+          for (let i = 1; i <= cantNotas; i++) {
+            notas[i]=parseFloat(prompt("Ingrese la "+i+"ªnota : ",""));
+            promedio+=notas[i];
+          }
+
+          //Number.EPSILON es para que redonde bien numeros como 1.005, que de 1.01 y no 1
+          promedio=Math.round(((promedio/cantNotas)+Number.EPSILON)*100)/100;
+
+          document.write("Sus notas son: ");
+
+          notas.forEach(element => {
+              document.write(element+", ");
+          });
+
+          if (promedio>=7) {
+              document.write("<br><br>Felicidades esta promocionado con una media de "+promedio);
+          }else{
+            document.write("<br><br>Lo siento no esta promocionado su media es "+promedio+" y necesita minimo un 7");
+          }
+          
+      </script>
+  </body>
+</html>

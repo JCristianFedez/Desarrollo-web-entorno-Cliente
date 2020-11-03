@@ -1,0 +1,36 @@
+<!-- Escribir un programa que lea 10 notas de alumnos 
+    y nos informe cuántos tienen notas mayores o iguales 
+    a 7 y cuántos menores. 
+
+Extras:
+ Prepara el programa para se puedan introducir números decimales.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <script>
+        var notaAlum = new Array();
+        var notaMayIgual=0;
+        var count=0;
+        while (count<10) {
+            notaAlum[count]=parseFloat(prompt("Introduzca nota del "+(count+1)+" alumno: ","" )); 
+            if(notaAlum[count]>=7){
+                notaMayIgual++;
+            }   
+            count++;
+        }
+        document.write("Notas de los alumnos son: ");
+        notaAlum.forEach(element => {
+            document.write(element+", ");
+        });
+
+        document.write("<br><br>Hay "+notaMayIgual+" alumnos con notas mayores o iguales a 7 y "+(notaAlum.length-notaMayIgual)+" alumnos con notas inferiores a 7");
+
+        </script>
+</body>
+</html>

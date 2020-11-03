@@ -1,0 +1,51 @@
+<!-- Realizar un programa que pida la carga de dos vectores numéricos. 
+    Obtener la suma de los dos vectores, dicho resultado guardarlo en un 
+    tercer vector del mismo tamaño. Sumar componente a componente.
+El tamaño del vector es a elección. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej02</title>
+</head>
+<body>
+    <script>
+        var sizeArray=parseInt(prompt("Indtroduze el tamaño de los arrays: ",""));
+        var array1=new Array(sizeArray);
+        var array2=new Array(sizeArray);
+        var arraySum=new Array(sizeArray);
+
+        for (let i = 0; i < array1.length; i++) {
+            array1[i]=parseInt(prompt("Introduzca el "+(i+1)+" numero del primer array: ",""));             
+        }
+
+        for (let i = 0; i < array2.length; i++) {
+            array2[i]=parseInt(prompt("Introduzca el "+(i+1)+" numero del segundo array: ",""));             
+        }
+
+        for (let i = 0; i < arraySum.length; i++) {
+            arraySum[i]=array1[i]+array2[i];
+        }
+        
+        document.write("Array 1 = [");
+        array1.forEach(element => {
+            document.write(element+", ");
+        });
+        document.write("]<br>");
+        
+        document.write("Array 2 = [");
+        array2.forEach(element => {
+            document.write(element+", ");
+        });
+        document.write("]<br>");
+        
+        document.write("Array suma = [");
+        arraySum.forEach(element => {
+            document.write(element+", ");
+        });
+        document.write("]<br>");
+    </script>
+</body>
+</html>

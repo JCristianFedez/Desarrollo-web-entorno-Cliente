@@ -1,0 +1,20 @@
+<!-- Calcula los milisegundos hasta tu próximo cumpleaños y
+     muéstralos por pantalla.
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Actividad 3.13</title>
+ </head>
+ <body>
+     <script>
+         var proxCumple=new Date(2021,11,17);
+         var fechaActual=new Date();
+         var miliFaltantes=(proxCumple.getTime()-fechaActual.getTime());
+         console.log("Quedan "+miliFaltantes+" milisegundos");
+         document.write("Quedan "+miliFaltantes+" milisegundos para tu cumpleaños");
+     </script>
+ </body>
+ </html>

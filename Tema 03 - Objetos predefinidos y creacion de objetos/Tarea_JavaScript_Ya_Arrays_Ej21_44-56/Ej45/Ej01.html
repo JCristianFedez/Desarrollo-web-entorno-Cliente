@@ -1,0 +1,48 @@
+<!--Crear un vector con 10 valores aleatorios comprendidos
+    entre 1 y 500. Luego crear otros dos vectores y copiar
+    los elementos menores a 250 en el segundo vector y los 
+    mayores o iguales a 250 en el tercer vector. Imprimir
+    los tamaños del segundo y tercer vector. Imprimir los
+    tres vectores. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <script>
+        var arrayFull= new Array(10);
+        var arrayLess250=new Array();
+        var arrayHigert249=new Array();
+        for (let i = 0; i < arrayFull.length; i++) {
+            arrayFull[i]=Math.floor((Math.random()*500)+1);
+        }
+
+        arrayFull.forEach(element => {
+            (element>250)? arrayLess250.push(element):arrayHigert249.push(element);
+        });
+        
+
+        document.write("Array Completo = [");
+        arrayFull.forEach(element => {
+            document.write(element+", ");
+        });
+        document.write("]<br>");
+
+        document.write("Array menors a 250 = [");
+        arrayLess250.forEach(element => {
+            document.write(element+", ");
+        });
+        document.write("]<br>");
+
+        document.write("Array Mayores o iguales a 250 = [");
+        arrayHigert249.forEach(element => {
+            document.write(element+", ");
+        });
+        document.write("]<br>");
+    </script>
+</body>
+</html>

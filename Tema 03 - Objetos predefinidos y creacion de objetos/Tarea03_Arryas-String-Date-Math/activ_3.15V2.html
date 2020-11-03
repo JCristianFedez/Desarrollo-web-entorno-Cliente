@@ -1,0 +1,37 @@
+<!-- Crea una función llamada grados2radianes que tenga como argumento de entrada un 
+    argumento de tipo que contendrá un ángulo expresado en grados (un valor decimal 
+    entre 0 y 360) y devolverá el correspondiente valor expresado en radianes.
+
+Para hacer la conversión utiliza la siguiente fórmula:
+(Debes hacer los cálculos usando las posibilidades que te ofrece la clase Math, 
+como operaciones matemáticas y constantes)
+
+Para testear los resultados devueltos por la función puedes usar el siguiente
+ conversor entre grados y radianes online:
+https://convertlive.com/es/u/convertir/grados/a/radianes#180
+
+Utiliza la función con un programa que pida al usuario el ángulo en grados y
+ muestre posteriormente el valor en radianes.
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Actividad 3.15</title>
+ </head>
+ <body>
+     <form action="#">
+         <p id="sol"></p>
+         <input type="number" name="grado" id="grado" min=0 max=360><br>
+         <input type="button" value="calcular" onclick="grados2radianes();">
+     </form>
+     <script>
+         function grados2radianes(){
+          var angulo=document.getElementById("grado").value;
+          var radian=angulo*Math.PI/180;
+          document.getElementById("sol").innerHTML=radian;
+         }
+     </script>
+ </body>
+ </html>

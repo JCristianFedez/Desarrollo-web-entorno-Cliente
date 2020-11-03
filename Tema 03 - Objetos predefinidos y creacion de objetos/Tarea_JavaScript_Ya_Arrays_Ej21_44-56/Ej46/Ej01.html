@@ -1,0 +1,28 @@
+<!-- Crear un vector disperso que representen premios de una rifa. 
+    Las posiciones indican los números que tienen premio. Almacenar
+     en dichas posiciones los premios. Genera 10 premios con los montos 1000,2000,3000 etc.
+La cantidad de números de la rifa son 1000.
+Generar valores aleatorios para los números con premio.
+Imprimir Los números con premio y los montos de los mismos. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <script>
+        var arrayDisp=new Array();
+        for (let i = 1; i <= 10; i++) {
+            arrayDisp[Math.floor(Math.random()*1001)]=i*1000;
+        }
+        for (const key in arrayDisp) {
+            if(arrayDisp[key]!="empty"){
+                document.write("Posicion: "+key+", Premio: "+arrayDisp[key]+"<br>");
+            }
+        }
+    </script>
+</body>
+</html>

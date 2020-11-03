@@ -1,0 +1,27 @@
+<!-- Se ingresan por teclado tres números, si todos los valores
+     ingresados son menores a 10, imprimir en la página la leyenda
+      ' Todos los números son menores a diez'. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej03</title>
+  </head>
+  <body>
+    <script>
+      var n1 = parseFloat(prompt("Introduce el Primer numero: ", ""));
+      var n2 = parseFloat(prompt("Introduce el segundo numero: ", ""));
+      var n3 = parseFloat(prompt("Introduce el tercer numero: ", ""));
+
+      document.write("N1= "+n1+", N2= "+n2+", N3= "+n3+"<br>");
+
+      if((n1<10)&&(n2<10)&&(n3<10)){
+          document.write("Todos los numeros son menores a diez");
+      }else{
+        document.write("No todos los numeros son menores a diez");
+      }
+    </script>
+  </body>
+</html>

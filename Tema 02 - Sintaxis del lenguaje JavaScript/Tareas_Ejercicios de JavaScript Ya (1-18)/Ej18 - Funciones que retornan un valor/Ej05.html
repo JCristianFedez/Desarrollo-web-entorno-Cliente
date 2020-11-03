@@ -1,0 +1,37 @@
+<!-- Confeccionar una función que solicite la carga de 5
+     valores por teclado y retorne su suma -->
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Ej05</title>
+     </head>
+     <body>
+         <script>
+             function suma(array){
+                 var sum=0;
+                 array.forEach(element => {
+                     sum+=element;
+                 });
+                 return sum;
+             }
+
+              var numeros = new Array(5);
+          for (let i = 0; i < numeros.length; i++) {
+            numeros[i] = parseInt(
+              prompt("Introduce el " + (i + 1) + " numero: ", "")
+            );
+          }
+
+          document.write("Numeros introducidos: ");
+          
+          numeros.forEach(element => {
+              document.write("["+element+"], ");
+          });
+
+          var suma=suma(numeros);
+          document.write("<br><br>La suma de los numeros es : "+suma);
+         </script>
+     </body>
+     </html>

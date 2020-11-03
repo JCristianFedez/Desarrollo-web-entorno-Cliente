@@ -1,0 +1,28 @@
+<!-- Desarrollar una función que retorne la cantidad de dígitos 
+    que tiene una variable entera positiva de hasta 5 dígitos.
+
+Extra: Prepara el programa para que pueda trabajar con números de hasta 7 dígitos-->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ej03</title>
+    </head>
+    <body>
+        <script>
+            function cantDig(num){
+                num=Math.abs(num);
+                var digitos=1;
+                while (num>=10) {
+                    digitos++;
+                    num/=10;
+                }
+                return digitos;
+            }
+            var numero=parseInt(prompt("Introduce un numero y se te informara cundos digitos tiene: ",""));
+            var digitos=cantDig(numero);
+            document.write("El numero "+numero+" tiene "+digitos);
+        </script>
+    </body>
+    </html>

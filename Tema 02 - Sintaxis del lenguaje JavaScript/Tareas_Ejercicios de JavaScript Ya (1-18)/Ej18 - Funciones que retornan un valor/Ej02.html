@@ -1,0 +1,43 @@
+<!-- Elaborar una función a la cual le envíe el valor
+     del lado de un cuadrado y me retorne su perímetro. 
+    
+    Extra:
+Crea otra función a la que se le pase el radio y la altura de un cilindro y devuelva el volumen-->
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Ej02</title>
+     </head>
+     <body>
+         <script>
+             
+             function perSqr(lado){
+                 return lado*4;
+             }
+
+             function volCil(radio,altura){
+                 //Number.EPSILON es para que redonde perfectamente, si redondea 1.005 que de 1.01 de resultado
+                 var volumen=Math.round(((Math.PI*Math.pow(radio,2)*altura)+Number.EPSILON)*100)/100;
+                 return volumen;
+             }
+
+             var lado=parseInt(prompt("Longitud del lado del cuadrado: ",""));
+             var radio=parseInt(prompt("Introduzca el radio del cilindro: ",""));
+             var altura=parseInt(prompt("Introduzca la altura del cilindro: ",""));
+
+             var perimetroSqr=perSqr(lado);
+             var volumenCil=volCil(radio,altura);
+             document.write("CUADRADO");
+             document.write("<br>Lado = "+lado);
+             document.write("<br>Perimetro = "+perimetroSqr);
+             document.write("<br><br>---------------------------------------<br>");
+             document.write("<br>CILINDRO");
+             document.write("<br>Radio = "+radio);
+             document.write("<br>Altura = "+altura);
+             document.write("<br>Volumen = "+volumenCil);
+
+         </script>
+     </body>
+     </html>

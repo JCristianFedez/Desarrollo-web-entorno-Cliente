@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej2-4</title>
+</head>
+<body>
+    <script>
+        function europea2talla(europea){
+            if (typeof(europea)!="string") {
+            throw new Error("arg. debe ser texto");
+            }
+
+            var talla;
+            
+            if(europea.toLowerCase()=="xs" || europea.toLowerCase()=="s"){
+                talla="Pequeña";
+            }else{
+                if(europea.toLowerCase()=="m"){
+                    talla="Mediana";
+                }else{
+                    if(europea.toLowerCase()=="l" || europea.toLowerCase()=="xl" || europea.toLowerCase()=="xxl"){
+                        talla="Grande";
+                    }else{
+                        talla="Talla inexistente";
+                    }
+                }
+            }
+            return talla;
+        }
+
+        function test(){
+            var tallasEuropeas = ["XS", "xs", "S", "s", "M", "m", "L", "l", "XL", "xl", "XXL", "xxl"];
+            tallasEuropeas.forEach(element => {
+                console.log(element+" => "+europea2talla(element));
+            });
+        }
+
+        function test2(){
+            var tallasEuropeas = ["XS", "xs", "S", "s","M","m", "L", "l", "XL", "xl", "XXL", "xxl"];
+            var valoresEsperados =["Pequeña", "Pequeña", "Pequeña", "Pequeña","Mediana", "Mediana","Grande", "Grande", "Grande", "Grande", "Grande", "Grande"];
+            var allRight=true;
+
+            for (var indice in tallasEuropeas) {
+                if(europea2talla(tallasEuropeas[indice])==valoresEsperados[indice]){
+                    console.log(tallasEuropeas[indice]+" => [ESPERADO: "+valoresEsperados[indice]+"] ,[DEVUELTO=>CORRECTO="+europea2talla(tallasEuropeas[indice])+"]");
+                }else{
+                    console.log(tallasEuropeas[indice]+" => [ESPERADO: "+valoresEsperados[indice]+"] ,[DEVUELTO=>FALLA="+europea2talla(tallasEuropeas[indice])+"]");
+                    allRight=false;
+                }
+                if(allRight){
+                    console.log("Todo correcto");
+                }else{
+                    console.log("Algun fallo");
+                }
+            }
+      }
+    </script>
+    <button onclick="test()">Test1</button>
+    <button onclick="test2()">Test2</button>
+</body>
+</html>

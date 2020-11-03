@@ -1,0 +1,22 @@
+<!-- Realizar un programa que permita cargar una dirección de
+     mail e implementar una función que verifique si el String 
+     tiene cargado el carácter @. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej05</title>
+</head>
+<body>
+    <script>
+        var mail=prompt("Introduzca tu correo: ","");
+        var esMail=mail.includes("@");
+        if(esMail){
+            document.write("El correo introducido tiene @");
+        }else{
+            document.write("El correo introducido no tiene @");
+        }
+    </script>
+</body>
+</html>

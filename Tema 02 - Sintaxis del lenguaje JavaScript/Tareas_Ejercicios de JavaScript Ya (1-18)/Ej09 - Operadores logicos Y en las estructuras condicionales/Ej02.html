@@ -1,0 +1,29 @@
+<!-- Se ingresan tres valores por teclado, si todos son iguales se imprime 
+    la suma del primero con el segundo y a este resultado se lo multiplica 
+    por el tercero (tener en cuenta que puede haber tres condiciones simples) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej02</title>
+</head>
+<body>
+    <script>
+        var n1=parseFloat(prompt("Introduce el Primer numero: ",""));
+        var n2=parseFloat(prompt("Introduce el segundo numero: ",""));
+        var n3=parseFloat(prompt("Introduce el tercer numero: ",""));
+
+        if ((n1==n2)&&(n1==n3)) {
+            var suma = n1+n2;
+            var producto=suma*n3;
+            document.write("Todos los numeros son iguales<br>");
+            document.write(n1+" + "+n2+" = "+suma+"<br>");
+            document.write(suma+" x "+n3+" = "+producto+"<br>");
+        }else{
+            document.write("No todos los numeros son iguales");
+
+        }
+    </script>
+</body>
+</html>

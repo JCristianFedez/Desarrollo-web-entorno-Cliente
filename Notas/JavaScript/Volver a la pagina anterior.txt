@@ -1,0 +1,10 @@
+Volver a la pagina anterior:
+
+	<script>window.history.back();<script>
+
+
+
+Volver n paginas atras:
+
+	<script>window.history.go(-n)</script>
+

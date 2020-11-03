@@ -1,0 +1,34 @@
+<!-- Confeccionar una función a la cual le envíe tres
+     enteros y retorne el mayor de ellos.
+. -->
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ej01</title>
+      </head>
+      <body>
+        <script>
+          function mayorNum(array) {
+            var menor = Math.max(...numeros);
+            return menor;
+          }
+    
+          var numeros = new Array(3);
+          for (let i = 0; i < numeros.length; i++) {
+            numeros[i] = parseInt(
+              prompt("Introduce el " + (i + 1) + " numero: ", "")
+            );
+          }
+          document.write("Numeros introducidos: ");
+          
+          numeros.forEach(element => {
+              document.write("["+element+"], ");
+          });
+    
+          document.write("<br><br>El numero mayor introducido es: "+mayorNum(numeros));
+        </script>
+      </body>
+    </html>
+    

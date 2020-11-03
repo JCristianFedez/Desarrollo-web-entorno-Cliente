@@ -1,0 +1,74 @@
+<!-- Desarrollar un programa que permita cargar 5 números enteros y luego nos 
+    informe cuántos valores fueron pares y cuántos impares.
+Emplear el operador "%" en la condición de la estructura condicional.
+	if (valor%2==0)
+El operador "%" retorna el resto de la división valor / 2. Por ejemplo: 12 % 2, 
+retorna 0; 13 % 2, retorna 1, porque el resto de dividir 13 en 2 es 1. 
+
+Extra:
+ Prepara el programa para que calcule cuántos valores son divisibles entre 3 y cuántos no.-->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Ej07</title>
+ </head>
+ <body>
+     <script>
+         var count =0;
+         var numeros = new Array(5);
+         var numPares = new Array();
+         var numImpares = new Array();
+         var numDivEntre3 = new Array();
+         var numNoDivEntre3 = new Array();
+         console.log(numeros.length);
+
+         while (count<numeros.length) {
+             numeros[count]=parseInt(prompt("Introduzca el "+(count+1)+"º numero: ",""));
+
+             if (numeros[count]%2==0){
+                numPares[numPares.length]=numeros[count];
+             }else{
+                numImpares[numImpares.length]=numeros[count];
+             }
+
+             if (numeros[count]%3==0){
+                numDivEntre3[numDivEntre3.length++]=numeros[count];
+             }else{
+                numNoDivEntre3[numNoDivEntre3.length++]=numeros[count];
+             }
+             count++;
+         }
+
+         document.write("Lista de Numeros: ","");
+         numeros.forEach(element => {
+             document.write(element+" - ");
+         });
+
+         document.write("<br><br>");
+         document.write("Numeros Pares = ");
+         numPares.forEach(element => {
+             document.write(element+", ");
+         });
+
+         document.write("<br>");
+         document.write("Numeros Impares = ");
+         numImpares.forEach(element => {
+             document.write(element+", ");
+         });
+
+         document.write("<br>");
+         document.write("Numeros divisibles entre 3 = ");
+         numDivEntre3.forEach(element => {
+             document.write(element+", ");
+         });
+
+         document.write("<br>");
+         document.write("Numeros no divisivles entre 3 = ");
+         numNoDivEntre3.forEach(element => {
+             document.write(element+", ");
+         });
+     </script>
+ </body>
+ </html>

@@ -1,0 +1,37 @@
+<!-- Confeccionar un programa que permita cargar el nombre de un usuario y su mail 
+por teclado. Mostrar posteriormente los datos en la página HTML. 
+
+Extra: 
+Modifica el programa para que también se pueda introducir los siguientes datos del 
+usuario: DNI, edad y fecha de nacimiento. Estos nuevos datos también se deberán volcar a la página web.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <script>
+        var usuario;
+        var mail;
+        var dni;
+        var edad;
+        var fechaNacimiento;
+
+        usuario=prompt("Introduzca nombre","Name");
+        mail=prompt("Introduzca mail","Ejemplo@gmail.com");
+        dni=prompt("Introduzca dni","00000000Z");
+        edad=parseInt(prompt("Introduzca edad","99"));
+        fechaNacimiento=prompt("Introduzca fecha de nacimiento","DD/MM/AAAA");
+
+        document.write("Nombre: "+usuario+"<br>");
+        document.write("Mail: "+mail+"<br>");
+        document.write("DNI: "+dni+"<br>");
+        document.write("Edad: "+edad+"<br>");
+        document.write("Fecha de Nacimiento: "+fechaNacimiento+"<br>");
+
+
+    </script>
+</body>
+</html>

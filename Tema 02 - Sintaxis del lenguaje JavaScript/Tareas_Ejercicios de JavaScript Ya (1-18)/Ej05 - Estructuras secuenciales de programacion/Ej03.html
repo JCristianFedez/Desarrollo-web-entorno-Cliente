@@ -1,0 +1,29 @@
+<!-- Realizar un programa que lea cuatro valores numéricos e informar su suma y producto.
+
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej03</title>
+</head>
+<body>
+    <script>
+        var n1;
+        var n2;
+        var n3;
+        var n4;
+        n1=parseInt(prompt("Introduzca el primer numero: ",""));
+        n2=parseInt(prompt("Introduzca el segundo numero: ",""));
+        n3=parseInt(prompt("Introduzca el tercer numero: ",""));
+        n4=parseInt(prompt("Introduzca el cuarto numero: ",""));
+
+        var suma = n1+n2+n3+n4;
+        var producto= n1*n2*n3*n4;
+        document.write(n1+" + "+n2+" + "+n3+" + "+n4+" = "+suma+"<br>");
+        document.write(n1+" x "+n2+" x "+n3+" x "+n4+" = "+producto);
+    </script>
+</body>
+</html>

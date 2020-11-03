@@ -1,0 +1,39 @@
+<!-- Crea una función llamada calculaPromedio que tenga como 
+    argumento de entrada un array de números y devuelva el
+     promedio. Los números del array pueden ser enteros o 
+     decimales. El array de números podría ser disperso. 
+     El valor de salida debe estar redondeado a dos decimales.
+
+Prueba tu función pasándole el siguiente array disperso:
+[6.5,,8.9,,5.2]
+Tu función debería devolver:
+6.87
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 3.9</title>
+</head>
+<body>
+    <script>
+        function calculaPromedio(arrayNum) {
+            var avg=0;
+            var cont=0;
+            arrayNum.forEach(element => {
+                if(element!=null){
+                    avg+=element;
+                    cont++;
+                }
+            });
+            avg/=cont;
+            //Number.EPSILON se asegura de redondear correctamente
+            avg=Math.round((avg+Number.EPSILON)*100)/100;
+            return avg
+        }
+        var numeros=[6.5,,8.9,,5.2];
+        console.log(calculaPromedio(numeros));
+    </script>
+</body>
+</html>

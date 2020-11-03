@@ -1,0 +1,74 @@
+<!-- Crea un objeto utilizando la notación literal de objeto que permita 
+almacenar los siguientes datos referente a una cuenta bancaria: el titular
+ y el saldo. El objeto debe tener también un método para ingresar dinero y 
+otro para extraerlo.
+Crea un array de objetos cuenta y ordénalos de menor a mayor saldo.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuenta</title>
+</head>
+
+<body>
+<button onclick="cuenta1.ingresarDinero(20);console.log('Carlos tiene: '+cuenta1.saldo+' euros');">Ingresar 20 Euros a Carlos</button>
+<br>
+<button onclick="cuenta1.extraerDinero(20);console.log('Carlos tiene: '+cuenta1.saldo+' euros');">Retirar 20 Euros a Carlos</button>
+<br>
+<button onclick="cuenta2.ingresarDinero(20);console.log('Maria tiene: '+cuenta2.saldo+' euros');">Ingresar 20 Euros a Maria</button>
+<br>
+<button onclick="cuenta2.extraerDinero(20);console.log('Maria tiene: '+cuenta2.saldo+' euros');">Retirar 20 Euros a Maria</button>
+<br>
+<button onclick="cuenta3.ingresarDinero(20);console.log('Daniel tiene: '+cuenta3.saldo+' euros');">Ingresar 20 Euros a Daniel</button>
+<br>
+<button onclick="cuenta3.extraerDinero(20);console.log('Daniel tiene: '+cuenta3.saldo+' euros');">Retirar 20 Euros a Daniel</button>
+<br>
+<button onclick="ordenarClientes(...cuentas);">Ordenar saldo de menor a mayor</button>
+
+    <script>
+        var cuenta1={
+            titular:"Carlos",
+            saldo:0,
+            ingresarDinero(cantidad){
+                this.saldo+=cantidad;
+            },
+            extraerDinero(cantidad){
+                this.saldo-=cantidad;
+            }
+        }
+        var cuenta2={
+            titular:"Maria",
+            saldo:100,
+            ingresarDinero(cantidad){
+                this.saldo+=cantidad;
+            },
+            extraerDinero(cantidad){
+                this.saldo-=cantidad;
+            }
+        }
+        var cuenta3={
+            titular:"Daniel",
+            saldo:20,
+            ingresarDinero(cantidad){
+                this.saldo+=cantidad;
+            },
+            extraerDinero(cantidad){
+                this.saldo-=cantidad;
+            }
+        }
+        var cuentas=[cuenta1,cuenta2,cuenta3];
+
+        function ordenarClientes(...cuentas){
+            cuentas.sort(function (a,b){
+                return (a.saldo - b.saldo)
+            })
+            console.log(cuentas);
+            //console.log(JSON.stringify(cuentas));
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!-- Crea una función llamada mayorEltoArray que tenga como argumento
+    de entrada un array de números y devuelva el valor más alto. 
+    Pruébalo con el array [232,56,33,876,32,985,729,36,184]; tu
+    función debería devolver el número 985.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 3.11</title>
+</head>
+<body>
+    <script>
+        function mayorEltoArray(arrayNum){
+            var max=Number.MIN_VALUE;
+            arrayNum.forEach(element => {
+                if(element>max){
+                    max=element;
+                }
+            });
+            return max;
+        }
+        var numbers=[232,56,33,876,32,985,729,36,184];
+        var mayor=mayorEltoArray(numbers);
+        console.log("El mayor es "+mayor);
+    </script>
+</body>
+</html>

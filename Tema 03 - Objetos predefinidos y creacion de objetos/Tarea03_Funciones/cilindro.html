@@ -1,0 +1,64 @@
+<!-- Sabiendo que el volumen de un cilindro de radio r y altura h viene
+dado por la superficie de la base (r2) multiplicada por la altura h, crea
+una función llamada volumenCilindro con dos argumentos de entrada
+(el radio y la altura) que devuelva el volumen del cilindro. La función 
+volumenCilindro debe utilizar para el cálculo una función interna anidada
+ llamada superficieCirculo que devuelva la superficie de un círculo.
+
+Mide el tiempo que tarda en ejecutarse la función volumenCilindro expresando el resultado en microsegundos.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Cilindro</title>
+  </head>
+
+  <body>
+      <p id="sol"></p>
+      <form action="#">
+          <label>Altura: <input type="number" name="altura" id="altura"></label>
+          <br>
+          <label>Radio: <input type="number" name="radio" id="radio"></label>
+          <br>
+          <input type="button" value="calcular" onclick="test();">
+          <!-- <button type="button" onclick="test();">Calcular</button> -->
+      </form>
+      <br><br>
+      <button onclick="medirTiempo();">Calcular tiempo de ejecucion</button>
+
+      <script>
+        function volumenCilindro(radio, altura) {
+          function superficieCirculo(radio) {
+            return Math.PI * Math.pow(radio, 2);
+          }
+          return superficieCirculo(radio) * altura;
+        }
+
+        function medirTiempo(){
+          //Mido el tiempo que tardaria la funcion en ejecutarse 1 millon de veces
+          const NUM_EJECUCIONES=1000000;
+          var tInicio=Date.now();
+
+          for (let index = 0; index <NUM_EJECUCIONES; index++) {
+            volumenCilindro(1,1);
+          }
+
+          var tFin=Date.now();
+
+          var tiempoTotal=(tFin-tInicio)/NUM_EJECUCIONES;
+          console.log("La funcion volumenCilindro() tarda en ejecutarse "+tiempoTotal+" msg");
+        }
+
+        function test(){
+            var altura=document.getElementById("altura").value;
+            var radio=document.getElementById("radio").value;
+            var volumen=volumenCilindro(radio,altura);
+            document.getElementById("sol").innerHTML=volumen;
+        }
+          
+      </script>
+  </body>
+</html>

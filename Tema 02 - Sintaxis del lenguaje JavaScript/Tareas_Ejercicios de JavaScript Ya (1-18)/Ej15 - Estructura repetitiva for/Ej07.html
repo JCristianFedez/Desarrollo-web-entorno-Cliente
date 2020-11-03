@@ -1,0 +1,50 @@
+<!-- Se realiza la carga de 10 valores enteros por teclado. Se desea conocer:
+a) La cantidad de valores negativos ingresados.
+b) La cantidad de valores positivos ingresados.
+c) La cantidad de múltiplos de 15.
+d) El valor acumulado de los números ingresados que son pares. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej07</title>
+</head>
+<body>
+    <script>
+        var negativos=0;
+        var positivos=0;
+        var multiplos15=0;
+        var acumuladoPares=0;
+        var numeros=new Array(10);
+
+        for (let i = 0; i < 10; i++) {
+            numeros[i]=parseInt(prompt("Ingrese el "+(i+1)+" numero: ",""));
+            if(numeros[i]<0){
+                negativos++;
+            }else{
+                positivos++;
+            }
+
+            if(numeros[i]%15==0){
+                multiplos15++;
+            }
+
+            if(numeros[i]%2==0){
+                acumuladoPares+=numeros[i];
+            }
+        }
+
+        numeros.forEach(element => {
+            document.write("["+element+"],");
+        });
+        document.write("<br>");
+
+        document.write("Negaivos: "+negativos+"<br>");
+        document.write("Positivos: "+positivos+"<br>");
+        document.write("Multiplos de 15: "+multiplos15+"<br>");
+        document.write("Pares acumulados: "+acumuladoPares+"<br>");
+    </script>
+</body>
+</html>

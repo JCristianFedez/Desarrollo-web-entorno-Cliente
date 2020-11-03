@@ -1,0 +1,32 @@
+<!-- Elaborar una función a la cual le enviemos 
+    tres enteros y muestre el menor. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej01</title>
+  </head>
+  <body>
+    <script>
+      function menorNum(array) {
+        var menor = Math.min(...numeros);
+        return menor;
+      }
+
+      var numeros = new Array(3);
+      for (let i = 0; i < numeros.length; i++) {
+        numeros[i] = parseInt(
+          prompt("Introduce el " + (i + 1) + " numero: ", "")
+        );
+      }
+      document.write("Numeros introducidos: ");
+      
+      numeros.forEach(element => {
+          document.write("["+element+"], ");
+      });
+
+      document.write("<br><br>El numero menor introducido es: "+menorNum(numeros));
+    </script>
+  </body>
+</html>

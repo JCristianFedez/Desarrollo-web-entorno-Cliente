@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej2-2</title>
+  </head>
+  <body>
+    <script>
+      function verCalificacionDecimal(nota) {
+        if (typeof nota != "number") {
+          throw new Error("arg. debe ser un numero");
+        }
+
+        var str;
+
+        if (nota >= 0 && nota <= 10) {
+          if (nota < 5) {
+            str = "INSUFICIENTE";
+          } else {
+            if (nota < 6) {
+              str = "SUFICIENTE";
+            } else {
+              if (nota < 7) {
+                str = "BIEN";
+              } else {
+                if (nota < 9) {
+                  str = "NOTABLE";
+                } else {
+                  if (nota <= 10) {
+                    str = "SOBRESALIENTE";
+                  }
+                }
+              }
+            }
+          }
+        } else {
+          str = "VALOR INCORRECTO";
+        }
+
+
+
+        return str;
+      }
+
+      function test() {
+          var funciona="CORRECTO";
+          var allRight=true;
+        var nota = [-1.5, 0, 3.5, 4.9, 5.6, 6.9, 8.9, 9.1, 10, 11];
+        var valoresEsperados = [
+          "VALOR INCORRECTO",
+          "INSUFICIENTE",
+          "INSUFICIENTE",
+          "INSUFICIENTE",
+          "SUFICIENTE",
+          "BIEN",
+          "NOTABLE",
+          "SOBRESALIENTE",
+          "SOBRESALIENTE",
+          "VALOR INCORRECTO",
+        ];
+
+        for (let i = 0; i < nota.length; i++) {
+
+            if(valoresEsperados[i]!=verCalificacionDecimal(nota[i])){
+                funciona="Falla y da "+verCalificacionDecimal(nota[i]);
+              allRight=false;
+              }
+
+          console.log(
+            "NOTA = " +
+              nota[i] +
+              ", [VALOR ESPERADO = " +
+              valoresEsperados[i] +
+              "], [VALOR DEVUELTO " +
+              funciona+"]");
+        }
+
+        if(allRight){
+          console.log("PASA => Ha superado todas las comprobaciones");
+        }else{
+          console.log("NO PASA => No ha superado todas las comprobaciones");
+        }
+
+      }
+    </script>
+    <button onclick="test()">Test</button>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej2-3</title>
+</head>
+<body>
+    <script>
+        function comprobarEsPar(numero){
+            if (numero % 1 != 0) {
+          throw new Error("arg. debe ser un numero entero");
+            }
+            if(numero%2==0){
+                return true;
+            }
+            return false;
+        }
+
+        function test1(){
+            for (let i = 0; i <=100 ; i++) {
+                console.log("Numero "+i+" es par => "+comprobarEsPar(i));              
+            }
+        }
+
+        function test2(){
+            var correcto=true;
+            var valoresEntrada=[1,2,5,8,9,12,16];
+            var valoresEsperados=[false,true,false,true,false,true,true];
+            for (let i = 0; i <valoresEntrada.length ; i++) {
+                console.log("Numero "+valoresEntrada[i]+" es "+valoresEsperados[i]+" => "+comprobarEsPar(i));    
+                if(comprobarEsPar(valoresEntrada[i])!=valoresEsperados[i]){
+                    correcto=false;
+                }          
+            }
+            if(correcto){
+                console.info("Todo Corecto");
+            }else{
+                console.error("Ha habido fallos");
+            }
+        }
+        
+    </script>
+    <button onclick="test1()">Test1</button>
+    <button onclick="test2()">Test2</button>
+</body>
+</html>

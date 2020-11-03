@@ -1,0 +1,28 @@
+<!-- Se debe desarrollar un programa que pida el ingreso del precio de un 
+    artículo y la cantidad que lleva el cliente. Mostrar lo que debe abonar
+     el comprador (Ingresar por teclado un precio sin decimales, es decir un 
+     entero: 2, 7, 90 etc.) 
+    
+Extra:
+Modifica el programa para que pueda trabajar con precios decimales.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej04</title>
+</head>
+<body>
+    <script>
+        var precio;
+        var cantidad;
+
+        precio=parseFloat(prompt("Introduzca el precio del articulo: ",""));
+        cantidad=parseFloat(prompt("Introduzca la cantidad de articulos que se va a llevar: ",""));
+
+        var aPagar=Math.round(((precio*cantidad)+Number.EPSILON)*100)/100;//Number.EPSILON es para que redonde bien numeros como 1.005, que de 1.01 y no 1
+        document.write("Por "+cantidad+" articulos de "+precio+" euros debe abonar "+aPagar+"€");
+    </script>
+</body>
+</html>
