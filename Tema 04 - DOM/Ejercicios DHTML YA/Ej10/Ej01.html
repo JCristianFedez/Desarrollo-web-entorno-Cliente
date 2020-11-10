@@ -1,14 +1,38 @@
 <!-- Problema:Confeccionar una página que muestre dos div que contengan
      3 párrafos cada uno. Cuando se presione un botón ocultar todos 
      los párrafos del segundo div. -->
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ej01</title>
-    </head>
-    <body>
-        
-    </body>
-    </html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+
+<body>
+    <div>
+        <p>Parrafo 1 Div1</p>
+        <p>Parrafo 2 Div1</p>
+        <p>Parrafo 3 Div1</p>
+    </div>
+    <div>
+        <p>Parrafo 1 Div2</p>
+        <p>Parrafo 2 Div2</p>
+        <p>Parrafo 3 Div2</p>
+    </div>
+    <br>
+    <button onclick="ocultarDiv(2)">Ocultar Segundo Div</button>
+</body>
+<script>
+        function ocultarDiv(n) {
+        let myDiv = document.getElementsByTagName("div");
+        let myPSecond = myDiv[n-1].getElementsByTagName("p");
+        for (let i = 0; i < myPSecond.length; i++) {
+            myPSecond[i].style.visibility = "hidden";
+        }
+    }
+    
+</script>
+
+</html>
