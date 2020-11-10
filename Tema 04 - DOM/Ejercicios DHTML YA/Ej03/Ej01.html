@@ -1,0 +1,32 @@
+<!-- Problema:Permitir cambiar el tamaño de la fuente de un párrafo. 
+    Para esto crear tres botones (fuente pequeña (10), fuente mediana(13)
+    y fuente grande(20))
+ -->
+<DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ej01</title>
+    </head>
+
+    <body>
+        <p id="myP">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nihil perferendis quod nemo illo
+            explicabo quaerat libero et tenetur dolore repellat debitis at earum placeat cumque, eius reiciendis natus
+            voluptatem!</p>
+        <br>
+        <button onclick="changedFont(10);">Fuente 10</button>
+        <button onclick="changedFont(13);">Fuente 13</button>
+        <button onclick="changedFont(20);">Fuente 20</button>
+
+        <script>
+            window.onload = function () {
+                function changedFont(size) {
+                    document.getElementById("myP").style.fontSize = size + "px";
+                }
+            }
+        </script>
+    </body>
+
+    </html>

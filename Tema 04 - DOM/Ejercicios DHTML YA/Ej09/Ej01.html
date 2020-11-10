@@ -1,0 +1,39 @@
+<!-- Problema:Confeccionar una página que fije el color rojo a 
+todos los párrafos. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione exercitationem nisi animi aut cumque ullam.
+        Dolores, distinctio accusantium? Voluptatem eveniet dolor recusandae natus soluta libero minima unde excepturi
+        ratione vitae!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione exercitationem nisi animi aut cumque ullam.
+        Dolores, distinctio accusantium? Voluptatem eveniet dolor recusandae natus soluta libero minima unde excepturi
+        ratione vitae!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione exercitationem nisi animi aut cumque ullam.
+        Dolores, distinctio accusantium? Voluptatem eveniet dolor recusandae natus soluta libero minima unde excepturi
+        ratione vitae!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione exercitationem nisi animi aut cumque ullam.
+        Dolores, distinctio accusantium? Voluptatem eveniet dolor recusandae natus soluta libero minima unde excepturi
+        ratione vitae!</p>
+
+    <br>
+    <button onclick="toRed();">P a rojo</button>
+    <script>
+        function toRed() {
+            let myParrafos = document.getElementsByTagName("p");
+            for (let i = 0; i < myParrafos.length; i++) {
+                myParrafos[i].style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
