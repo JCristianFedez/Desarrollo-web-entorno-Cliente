@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>JavaScript</title>
+	<meta charset="utf-8" >
+	<script>
+	    function comprobarEsPar(numero)
+		{
+			return (numero % 2 ==0 );
+		}
+		
+		function medirTiempo1(){
+			// Medimos el tiempo de ejecución usando una sóla llamada a la función
+			var t1=Date.now();
+			comprobarEsPar(17);
+			var t2=Date.now();
+			var tiempoTotal=t2 - t1 ; //Obtendremos los msg que ha tardado en ejecutarse
+			console.log("Tiempo en ejecutarse una vez la función comprobarEsPar=" + tiempoTotal + " msg");
+		}
+
+		function medirTiempo2(){
+			// Medimos el tiempo de ejecución usando varias llamadas a la función
+			const NUM_EJECUCIONES=1000000; // Invocaremos a la función 1000000 veces
+			var t1=Date.now();
+			
+			for(i=0;i<NUM_EJECUCIONES;i++){
+				comprobarEsPar(17);
+			}
+			
+			var t2=Date.now();
+			
+			var tiempoTotal=(t2 - t1) / NUM_EJECUCIONES ; //Obtendremos los msg que ha tardado en ejecutarse una sóla vez dividiendo por el tiempo total por el número de ejecucions
+			console.log("Tiempo en ejecutarse una vez la función comprobarEsPar=" + tiempoTotal + " msg");
+		}
+	
+	</script>
+</head>
+<body>
+<p>JavaScript Template</p>
+<span> Comprueba paridad </span>
+<br/>
+<input type="button" onclick="medirTiempo1();" value="Medir tiempo una sóla ejecución" />
+<input type="button" onclick="medirTiempo2();" value="Medir tiempo varias ejecuciones" />
+
+</body>
+</html>

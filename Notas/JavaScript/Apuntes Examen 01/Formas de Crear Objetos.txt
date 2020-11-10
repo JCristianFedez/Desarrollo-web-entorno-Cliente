@@ -1,0 +1,29 @@
+En JS podemos crear objetos (Objects) que están constituidos por propiedades y métodos.
+
+Existen tres formas de crear objetos:
+
+ Notación literal de objeto:
+var persona = {
+                         nombre: "Pedro",
+                          edad: 30,
+                          cumplirAños: function(){
+                               this.edad++
+                            }
+                         }
+2. Mediante el uso de new:
+var persona = new Object ();
+persona.nombre="Vanesa";
+persona.edad = 30;
+persona.cumplirAños = function () { this.edad++;};
+
+3. Mediante función constructora:
+function Persona (nombre,edad){
+     this.nombre = nombre;
+     this.edad = edad;
+     this.cumplirAños = function (){ this.edad++;};
+}
+var persona1 =new Persona ("Pedro",30);
+persona1.cumplirAños();
+
+
+Nota:  independientemente de la manera usada para crear el objeto, nombre y edad serían propiedades y cumplirAños() sería un método

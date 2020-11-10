@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejemplo de JavaScript</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<script>
+  //Si el primer valor es mayor o igual al segundo luego sumarlos y restarlos, sin
+  //efectuar su producto
+  var v1=parseInt(prompt("Ingrese primer valor"));
+  var v2=parseInt(prompt("Ingrese segundo valor"));
+  if (v1>=v2) {
+    var resu;
+    resu=v1+v2;
+    document.write('La suma es:'+resu+'<br>');
+    resu=v1-v2;
+    document.write('La resta es:'+resu+'<br>');
+  } else {
+    var producto=v1*v2;
+    document.write('El producto es:'+producto);
+  }
+  document.write(resu);
+  document.write(producto);
+</script>
+
+</body>
+</html>

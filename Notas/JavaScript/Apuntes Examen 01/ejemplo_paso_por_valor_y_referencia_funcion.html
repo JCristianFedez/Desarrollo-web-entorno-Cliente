@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Paso por valor y referencia en funciones</title>
+</head>
+<body>
+<h3> Ejemplo paso por valor y referencia </h3>
+<hr>
+<input type="button" onclick="testear();" value="Probar" >
+<script>
+	function miFuncion(numero,array,cadena,booleano,objetoDate,objeto){
+		//numero será un argumento de tipo number => valor primitivo => paso por valor
+		//array será un tipo object => paso por referencia
+		//cadena será un argumento de tipo inmutable => valor no cambia
+		//booleano será un argumento de tipo boolean => valor primitivo => paso por valor
+		//objetoDate será un argumento de tipo object => paso por referencia
+		//objeto será un argumento de object => paso por referencia
+		numero++;
+		array.push("Nuevo Elto");
+		cadena="Nueva cadena";
+		booleano=true;
+		objetoDate.setYear(2050);
+		objeto.nombre="Claudia";
+	}
+	
+	//Función constructora Persona
+	function Persona(nombre,edad){
+		this.nombre=nombre;
+		this.edad=edad;
+	}
+	
+	function testear(){
+		var numero=18;
+		var array=[0,1,2,3];
+		var nombre="Javier";
+		var fumador=false;
+		var fecha=new Date(); //Cargamos fecha actual
+		var persona1=new Persona("Javier",45);
+		
+		console.log("Valores de las variables ANTES de invocar la función");
+		console.log("numero:"+numero);
+		console.log("array:"+ array.toString());
+		console.log("nombre:" + nombre);
+		console.log("fumador:" + fumador);
+		console.log("fecha:"+ fecha.toString()); 
+		console.log("persona1.nombre:" + persona1.nombre);
+		
+		miFuncion(numero,array,nombre,fumador,fecha,persona1);
+		
+		console.log("");
+		console.log("Valores de las variables DESPUÉS de invocar la función");
+		console.log("numero:"+numero);
+		console.log("array:"+ array.toString());
+		console.log("nombre:" + nombre);
+		console.log("fumador:" + fumador);
+		console.log("fecha:"+ fecha.toString()); 
+		console.log("persona1.nombre:" + persona1.nombre);
+		
+	}
+</script>
+</body>
+</html>

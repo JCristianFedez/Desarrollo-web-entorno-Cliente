@@ -1,0 +1,6 @@
+let cuentas=[
+            {titular:'Carlos',saldo:10000},
+            {titular:'Lidia',saldo:12500},
+            {titular:'Alicia',saldo:8500},
+            {titular:'Felipe',saldo:9000}
+        ];

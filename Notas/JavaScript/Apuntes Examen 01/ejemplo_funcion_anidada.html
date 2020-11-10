@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>JavaScript</title>
+	<meta charset="utf-8" >
+	<script>
+	   function hipotenusa(lado1,lado2){
+			function cuadrado(valor){ // Función anidada dentro de hipotenusa()
+				return valor * valor;
+			}
+			var hipotenusa= Math.sqrt(cuadrado(lado1) + cuadrado(lado2));
+			return hipotenusa;
+	   }
+	   
+	   
+	   function test(){
+		 var lado1=12,lado2=27;
+		 var hipot= hipotenusa (lado1,lado2);
+		 document.write("La hipotenusa de un triángulo rectángulo de lados " + lado1 + " y " + lado2 + " es " + hipot + "<br>");
+	   }
+	
+	</script>
+</head>
+<body>
+<p>JavaScript Template</p>
+<span> Ejemplo funciones anidadas </span>
+<input type="button" onclick="test();" value="Pulsar" />
+
+</body>
+</html>

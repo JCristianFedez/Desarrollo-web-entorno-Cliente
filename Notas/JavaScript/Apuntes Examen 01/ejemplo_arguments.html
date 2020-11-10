@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>JavaScript</title>
+	<meta charset="utf-8" >
+	<script>
+	
+		// La siguiente función puede trabajar con distinto número de argumentos
+		// gracias al uso de arguments
+	   function promedio (/*  */){
+		var sum=0;
+		var eltos=0;
+		for (var i=0;i < arguments.length; i++){
+			if(arguments[i]!=undefined){ // Preparamos nuestro algoritmo para que pueda funcionar con arrays no densos
+				sum += arguments[i];
+				eltos++;
+			}
+			
+		}
+		return sum/eltos;
+	   }
+	   
+	   
+	   
+	   
+	   
+	   function test(){
+		 var promedio1=promedio(2,5,8); // Invocamos la función promedio con 3 argumentos
+		 var promedio2=promedio(2,9,6,12,8); // Invocamos la función promedio con 5 argumentos
+		 document.write("El promedio de (2,5,8) es " + promedio1 + "<br>");
+		 document.write("El promedio de (2,9,6,12,8) es " + promedio2 + "<br>");
+	   }
+	
+	</script>
+</head>
+<body>
+<p>JavaScript Template</p>
+<span> Ejemplo arguments </span>
+<input type="button" onclick="test();" value="Pulsar" />
+
+</body>
+</html>

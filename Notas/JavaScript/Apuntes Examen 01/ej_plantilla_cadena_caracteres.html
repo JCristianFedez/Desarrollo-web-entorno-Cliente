@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejemplo de JavaScript</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<script>
+  function mayor(v1,v2) {
+    if (v1>v2)
+      return v1;
+    else
+      return v2;
+  }
+
+  const valor1=parseInt(prompt('Ingrese primer valor:'));
+  const valor2=parseInt(prompt('Ingrese segundo valor:'));
+  document.write(`La suma de ${valor1} y ${valor2} es ${valor1+valor2}`);
+  document.write("<br>");
+  document.write(`El mayor de ${valor1} y ${valor2} es ${mayor(valor1,valor2)}`);
+</script>
+
+</body>
+</html>

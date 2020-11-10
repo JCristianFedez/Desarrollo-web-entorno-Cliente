@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>JavaScript</title>
+	<meta charset="utf-8" >
+	<script>
+	
+		// Un literal de función consiste en declarar un variable a que le asignamos una función
+		// Para invocar el literal de función tendremos que referenciar a la variable:
+		// Por ejemplo: esPar(7)
+	   var esPar= function (numero){
+			return (numero % 2 == 0);
+	   }
+	   
+	   
+	   
+	   function test(){
+		 var num=7;
+		 if (esPar(num))  console.log(`El número ${num} es par`);
+		 else console.log(`El número ${num} es impar`);
+		 
+		 alert("Ver resultados en consola depuración");
+	   }
+	
+	</script>
+</head>
+<body>
+<h1> Ejemplo literal de función </h1>
+<input type="button" onclick="test();" value="Pulsar" />
+
+</body>
+</html>

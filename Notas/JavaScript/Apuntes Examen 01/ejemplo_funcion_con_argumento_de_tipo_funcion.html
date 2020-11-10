@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>JavaScript</title>
+	<meta charset="utf-8" >
+	<script>
+	
+		// Declaración literal de función sumar
+	   var sumar= function (a,b){
+			return (a+b);
+	   }
+	   
+	   // Declaración literal de función restar
+	    var restar= function (a,b){
+			return (a-b);
+	   }
+	   
+	   // En esta función el primer argumento tipooperación será una función
+	   function procesarDatos(tipooperacion, n1, n2){
+		
+		// Invocamos a la función que nos llega en el primer parámetro y le pasamos los otros dos argumentos n1 y n2
+		alert(`El resultado es: ${tipooperacion(n1,n2)}`);
+	   
+	   }
+	   
+	   
+	   function test(){
+		 // Invocamos a la función procesarDatos con la función sumar
+		 procesarDatos(sumar, 7, 5);
+		 
+		 // Volvemos a invocar a la función procesarDatos esta vez con la función restar
+		 procesarDatos(restar, 7, 5);
+		 
+	   }
+	
+	</script>
+</head>
+<body>
+<h1> Ejemplo de función con argumentos de tipo función </h1>
+<input type="button" onclick="test();" value="Pulsar" />
+
+</body>
+</html>

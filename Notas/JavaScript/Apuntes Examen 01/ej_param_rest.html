@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejemplo de JavaScript</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<script>
+
+  function sumar(...valores) {
+    let suma=0;
+    for(let x=0;x<valores.length;x++)
+      suma+=valores[x];
+    return suma;
+  }
+
+  document.write(sumar(10, 2, 44, 3));
+  document.write('<br>');
+  document.write(sumar(1, 2));
+  document.write('<br>');
+  document.write(sumar());
+  document.write('<br>');
+
+</script>
+
+</body>
+</html>

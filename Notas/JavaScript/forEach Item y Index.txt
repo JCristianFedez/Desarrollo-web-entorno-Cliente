@@ -1,0 +1,6 @@
+ cuentas.forEach((item,index) => {
+                console.log(`titular:${item.titular}, saldo:${item.saldo}`);
+            });
+
+item es el valor del array
+index es la posicion

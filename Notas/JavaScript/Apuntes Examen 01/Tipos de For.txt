@@ -1,0 +1,39 @@
+Formas de recorrer un array
+
+var provincias=['Huesca','Zaragoza','Teruel'];
+
+for (var i=0; i < provincias.length ; i++){
+
+	alert(provincias[i]);
+
+}
+
+
+
+// for in => iteramos los índices
+
+for (var indice in provincias){
+
+	alert(provincias[indice]);
+
+}
+
+
+
+// for of => iteramos los items
+
+for (var item of provincias){
+
+	alert(item);
+
+}
+
+
+
+// Método forEach
+
+provincias.forEach(function(item,index){
+
+	alert("item=" + item + " indice=" + index);
+
+});

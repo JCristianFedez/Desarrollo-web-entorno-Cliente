@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejemplo de JavaScript</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<script>
+  
+  const cliente1 = {
+     nombre: 'Juan',
+     saldo: 0,
+     imprimir: function () //Nombre método tradicional
+     {
+       document.write(this.nombre+'<br>');
+       document.write(this.saldo+'<br>');
+     },
+     depositar(monto) {  //Nombre método abreviado
+       this.saldo=this.saldo+monto;
+     },
+     extraer(monto) { //Nombre método abreviado
+       this.saldo=this.saldo-monto;
+     }                  
+  };
+
+  cliente1.imprimir();
+  cliente1.depositar(1000);
+  document.write('Estado luego de depositar 1000 pesos</br>');
+  cliente1.imprimir();
+  cliente1.extraer(200);
+  document.write('Estado luego de extraer 200 pesos</br>');
+  cliente1.imprimir();
+  
+</script>
+
+</body>
+</html>
