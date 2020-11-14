@@ -1,0 +1,34 @@
+<!-- Confeccionar una página que contenga una lista de tipo 
+    (ul) y definir tres marcas de tipo (li) sin texto. 
+    Luego al presionar un botón agregar un nodo de texto a 
+    cada marca (li).
+ -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <br>
+    <button onClick="agregar();" >Agregar  Li</button>
+
+    <script>
+        function agregar(){
+            let myText;
+            let allLi = document.getElementsByTagName("li");
+            for (let i = 0; i < allLi.length; i++) {
+                myText = document.createTextNode("Li numero "+i);
+                allLi[i].appendChild(myText);
+                
+            }
+        }
+    </script>
+</body>
+</html>

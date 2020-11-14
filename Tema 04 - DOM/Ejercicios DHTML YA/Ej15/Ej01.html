@@ -1,0 +1,36 @@
+<!-- Disponer un div con tres párrafos. Ingresar en un 
+    control de tipo text un valor entero entre 0 y 2. 
+    Luego borrar el párrafo que coincida con el valor 
+    ingresado (el valor ingresado representa la posición 
+    del nodo elemento a borrar). -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej01</title>
+  </head>
+
+  <body>
+    <div id="myDiv">
+      <p>0</p>
+      <p>1</p>
+      <p>2</p>
+    </div>
+    <br />
+    <label for="position">
+      <input type="text" name="position" id="position" />
+    </label>
+    <br />
+    <button onclick="deleteP();">Borrar</button>
+    <script>
+        function deleteP(){
+            let position = document.getElementById("position").value;
+            let myDiv = document.getElementById("myDiv");
+            if(position<myDiv.childElementCount-1){
+                myDiv.removeChild(myDiv.children[position]);
+            }
+        }
+    </script>
+  </body>
+</html>

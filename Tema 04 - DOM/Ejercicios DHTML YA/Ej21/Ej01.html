@@ -1,0 +1,26 @@
+<!-- Definir un párrafo con la marca h1. Luego, en forma 
+    dinámica, generar un clon de dicha marca y agregarla 
+    en otro div. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <h1>Titulo</h1>
+    <br>
+    <button onclick="cloneH1();">Clonar titulo abajo</button>
+    <br>
+    <div id="myDiv"></div>
+    <script>
+        function cloneH1(){
+            let title = document.getElementsByTagName("h1")[0];
+            let myDiv = document.getElementById("myDiv");
+            let copied = title.cloneNode(true);
+            myDiv.appendChild(copied);
+        }
+    </script>
+</body>
+</html>

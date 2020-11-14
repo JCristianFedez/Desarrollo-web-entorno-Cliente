@@ -1,0 +1,41 @@
+<!-- Disponer un control de tipo select con los valores 
+    enteros entre 0 y 5. Crear tantos controles de tipo 
+    text como indique el control select. Efectuar dicha 
+    creación cuando se dispara el evento onChange. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+
+<body>
+    <select id="myList" onchange="createP();">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <br>
+    <div id="container"></div>
+    <script>
+        function createP() {
+            let cant = document.getElementById("myList").value;
+            let container = document.getElementById("container");
+            while (container.firstChild) {
+                container.removeChild(container.firstChild);
+            }
+            let nodeP;
+            for (let i = 1; i <= cant; i++) {
+                nodeP = document.createElement("p");
+                nodeP.appendChild(document.createTextNode("Parrafo " + i));
+                container.appendChild(nodeP);
+            }
+        }
+    </script>
+</body>
+
+</html>

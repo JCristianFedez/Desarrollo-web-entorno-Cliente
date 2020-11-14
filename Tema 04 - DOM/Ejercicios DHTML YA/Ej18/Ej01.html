@@ -1,0 +1,26 @@
+<!-- Disponer dos enlaces a distintos sitios. Recuperar la 
+    propiedad href del primer enlace y fijar el segundo 
+    enlace con dicho valor. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <a href="https://www.google.es/" id="1">Enlace 1</a>
+    <br>
+    <a href="" id="2">Enlace 2</a>
+    <br>
+    <button onclick="copyHref();">Copiar HREF de Enlace 1 a enlace 2</button>
+    <script>
+        function copyHref(){
+            let a1 = document.getElementById("1");
+            let a2 = document.getElementById("2");
+            let hrefA1 = a1.getAttribute("href");
+            a2.setAttribute("href",hrefA1);
+        }
+    </script>
+</body>
+</html>

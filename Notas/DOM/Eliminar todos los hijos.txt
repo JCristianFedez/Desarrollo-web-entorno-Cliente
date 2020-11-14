@@ -1,0 +1,6 @@
+//Vacia el contenido de container dejando solo el elemento sin hijos           
+
+let container = document.getElementById("container");
+while (container.firstChild) {
+  container.removeChild(container.firstChild);
+}

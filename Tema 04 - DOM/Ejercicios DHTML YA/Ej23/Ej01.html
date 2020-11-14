@@ -1,0 +1,36 @@
+<!-- Definir una lista con tres nombres de paises. Luego 
+    en tiempo de ejecución permitir cambiar el estilo de 
+    la lista. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <ol id="myCountries">
+        <li>España</li>
+        <li>Madagascar</li>
+        <li>Nauru</li>
+    </ol>
+    <br>
+    <select onChange="modList();" id="list">
+        <option value="disc">disc</option>
+        <option value="decimal">decimal</option>
+        <option value="decimal-leading-zero">decimal-leading-zero</option>
+        <option value="lower-latin">lower-latin</option>
+        <option value="upper-latin">upper-latin</option>
+        <option value="initial">initial</option>
+        <option value="upper-roman">upper-roman</option>
+        <option value="lower-roman">lower-roman</option>
+    </select>
+    <script>
+        function modList(){
+            let myCountries = document.getElementById("myCountries");
+            let list = document.getElementById("list").value;
+            myCountries.style.listStyle=list;
+        }
+    </script>
+</body>
+</html>

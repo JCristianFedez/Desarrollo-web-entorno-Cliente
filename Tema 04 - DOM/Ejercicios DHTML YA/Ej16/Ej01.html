@@ -1,0 +1,31 @@
+<!-- Se tiene una tabla sin borde. Confeccionar una función
+ que inicialice la propiedad border de la tabla con el valor
+ 5. -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Problema</title>
+</head>
+
+<body>
+    <table id="tabla1">
+        <tr>
+            <td>11</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>22</td>
+        </tr>
+    </table>
+    <input type="button" value="definir la propiedad border de la  tabla" onClick="definirAtributo()">
+    <script>
+        function definirAtributo(){
+            let myTable = document.getElementById("tabla1");
+            myTable.setAttribute("border","5px solid black");
+        }
+    </script>
+</body>
+
+</html>

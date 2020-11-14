@@ -1,0 +1,36 @@
+<!-- Confeccionar una página que contenga una lista de tipo 
+    (ul) y no defina marcas de tipo (li) inicialmente. Luego
+    al presionar un botón agregar dos marcas de tipo (li)
+    con sus respectivos textos.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+
+<body>
+    <ul>
+
+    </ul>
+    <br>
+    <button onclick="addLi();">Añadir 2 Li</button>
+    <script>
+        function addLi() {
+            let myUl = document.getElementsByTagName("ul");
+            let countAux = myUl[0].getElementsByTagName("li");
+            let count = (countAux.length==0)?0:countAux.length;
+
+            for (let i = count; i < count+2; i++) {
+                myLi = document.createElement("li");
+                myLi.appendChild(document.createTextNode(i));
+                myUl[0].appendChild(myLi);
+            }
+        }
+    </script>
+</body>
+
+</html>

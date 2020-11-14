@@ -1,0 +1,30 @@
+<!-- :Definir un div con tres párrafos. Luego al presionar 
+    un botón mover el div a otro div ubicado debajo del 
+    botón. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <div id="myDiv1">
+        <p>Parrafo 1</p>
+        <p>Parrafo 2</p>
+        <p>Parrafo 3</p>
+    </div>
+    <br>
+    <button onclick="moveDiv();">Mover DIV</button>
+    <br>
+    <div id="myDiv2">
+    </div>
+    <script>
+        function moveDiv(){
+            let myDiv1 = document.getElementById("myDiv1");
+            let myDiv2 = document.getElementById("myDiv2");
+            myDiv2.appendChild(myDiv1);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!-- Se debe crear una página que contenga un div con 5 
+párrafos. Al presionar un botón insertar un nuevo párrafo 
+al principio del div que contiene los 5 párrafos. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <div id="myDiv">
+        <p>Parrafo 1</p>
+        <p>Parrafo 2</p>
+        <p>Parrafo 3</p>
+        <p>Parrafo 4</p>
+        <p>Parrafo 5</p>
+    </div>
+    <br>
+    <button onClick="addP();">Añadir P</button>
+    <script>
+        function addP(){
+            let myDiv = document.getElementById("myDiv");
+            let newP = document.createElement("p");
+            let newText = document.createTextNode("Nuevo Parrafo");
+            let firstP = myDiv.getElementsByTagName("p")[0];
+            newP.appendChild(newText);
+            myDiv.insertBefore(newP,firstP)
+        }
+    </script>
+</body>
+</html>
