@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej03 Cristian fernandez tirado</title>
+</head>
+
+<body>
+    <script>
+        class Persona {
+            constructor(_fullName, _fechaNac) {
+                while (_fullName.includes("  ")) {
+                    _fullName = _fullName.replace("  ", " ");
+                }
+                _fullName = _fullName.trim();
+                this._fullName = _fullName;
+                this._fechaNac = _fechaNac;
+            }
+
+            nombrePila() {
+                return this._fullName.split(" ")[0];
+            }
+
+            primerApellido() {
+                return this._fullName.split(" ")[1];
+            }
+
+            segundoApellido() {
+                return this._fullName.split(" ")[2];
+            }
+
+            igualNombrePila(...misPersonas) {
+                let mismoNombre = [];
+                for (let i = 0; i < misPersonas.length; i++) {
+                    if (this.nombrePila() == misPersonas[i].nombrePila()) {
+                        mismoNombre.push(misPersonas[i]);
+                    }
+                }
+                return mismoNombre;
+            }
+        }
+
+        class Paciente extends Persona {
+            constructor(_fullName, _fechaNac, _estatura, _peso, _sexo) {
+                super(_fullName, _fechaNac);
+                this._estatura = _estatura;
+                this._peso = _peso;
+                //Por si pone sexo mal por defecto se pone H si no ha puesto H ni M
+                if(_sexo!="M"){
+                    this._sexo = "H";
+                }else{
+                    this._sexo = "M";
+                }
+            }
+
+            get peso() {
+                return this._peso;
+            }
+
+            set peso(kilos) {
+                if (kilos > 150 || kilos < 0) {
+                    throw new Error("Peso incorrecto no puede ser negativo o payor a 150");
+                } else {
+                    this._peso = kilos;
+                }
+            }
+
+            toString() {
+                return `Nombre: ${this._fullName}, Fecha Nacimiento: ${this._fechaNac}, Peso: ${this._peso}, Altura: ${this._estatura}`;
+            }
+
+            getIMC() {
+                let imc = this._peso / Math.pow(this._estatura, 2);
+                imc = Math.round(imc * 10) / 10;
+                return imc;
+            }
+
+            getDiagnostico() {
+                let myImc = this.getIMC();
+                let diagnostico;
+                if (this._sexo == "H") {
+                    if (myImc < 18) {
+                        diagnostico = "DESNUTRICION";
+                    } else {
+                        if (myImc < 21) {
+                            diagnostico = "BAJO PESO";
+                        } else {
+                            if (myImc < 26) {
+                                diagnostico = "NORMAL";
+                            } else {
+                                if (myImc < 31) {
+                                    diagnostico = "SOBREPESO";
+                                } else {
+                                    if (myImc < 36) {
+                                        diagnostico = "OBESIDAD";
+                                    } else {
+                                        if (myImc < 40) {
+                                            diagnostico = "OBESIDAD MARCADA";
+                                        } else {
+                                            diagnostico = "OBESIDAD MORDIDA";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    return `Para un hombre con un IMC de ${myImc} el diagnostico es; "${diagnostico}"`;
+                } else {
+                    if (myImc < 17) {
+                        diagnostico = "DESNUTRICION";
+                    } else {
+                        if (myImc < 21) {
+                            diagnostico = "BAJO PESO";
+                        } else {
+                            if (myImc < 25) {
+                                diagnostico = "NORMAL";
+                            } else {
+                                if (myImc < 30) {
+                                    diagnostico = "SOBREPESO";
+                                } else {
+                                    if (myImc < 35) {
+                                        diagnostico = "OBESIDAD";
+                                    } else {
+                                        if (myImc < 40) {
+                                            diagnostico = "OBESIDAD MARCADA";
+                                        } else {
+                                            diagnostico = "OBESIDAD MORDIDA";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    return `Para una mujer con un IMC de ${myImc} el diagnostico es; "${diagnostico}"`;
+                }
+            }
+        }
+
+
+        function testeoDiagnostico(){
+            let peso=[10,20,30,40,50,60,65,80,90,100];
+            let sexo="M";
+            let personaAux;
+            for (let i = 0; i < peso.length; i++) {
+                personaAux=new Paciente("Yo",new Date(10,10,2000),1.30,peso[i],sexo);
+                console.log(personaAux.getDiagnostico());
+            }
+        }
+    </script>
+</body>
+
+</html>

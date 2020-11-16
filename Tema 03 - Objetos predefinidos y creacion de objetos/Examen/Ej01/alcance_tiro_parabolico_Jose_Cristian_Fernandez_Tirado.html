@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01_CristianFernandez</title>
+</head>
+
+<body>
+    <button onclick="console.log(alcanceProyectil(37,15));">AlacenProyectil Valores 37 grados, 15 velocidad</button>
+    <br>
+    <button onclick="testeoAutomatico();">TESTEO</button>
+    <script>
+        function alcanceProyectil(angulo, vel) {
+            let grado = (Math.PI / 180) * angulo;
+            let alcance = (Math.pow(vel, 2) * (Math.sin(2 * grado))) / 9.8;
+            alcance = Math.round(alcance * 10) / 10;
+            return alcance;
+        }
+
+        function testeoAutomatico() { 
+            let valoresEntrada = [
+                [20, 25],
+                [20, 30],
+                [20, 35]
+            ];
+            let valoresEsperados = [41, 59, 80.3];
+            let funciona = true;
+            let alcanceAux;//Solo para acortar el console log
+            for (let i = 0; i < valoresEntrada.length; i++) {
+                alcanceAux=alcanceProyectil(valoresEntrada[i][0], valoresEntrada[i][1]);
+                if (alcanceAux == valoresEsperados[i]) {
+                    console.log(`Angulo: ${valoresEntrada[i][0]}, Velocidad: ${valoresEntrada[i][1]}, Alcance:${alcanceAux}, Alcance esperado: ${valoresEsperados[i]} FUNCIONA`);
+                } else {
+                    funciona=false;
+                    console.error(`Angulo: ${valoresEntrada[i][0]}, Velocidad: ${valoresEntrada[i][1]}, Alcance:${alcanceAux}, Alcance esperado: ${valoresEsperados[i]} NO FUNCIONA`);
+                }
+            }
+            if(funciona){
+                console.log("TODO BIEN");
+            }else{
+                console.error("HA HABIDO ALGUN FALLO");
+            }
+        }
+    </script>
+</body>
+
+</html>
