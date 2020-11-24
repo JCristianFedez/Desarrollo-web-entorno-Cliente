@@ -1,0 +1,39 @@
+<!-- Crea un documento HTML que permita seleccionar el color
+    de los párrafos mediante un desplegable que contenga los
+    colores: Rojo, Verde y Azul -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej_4.17</title>
+</head>
+<body>
+    <h1>Modificacion de tamaño de texto</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam tempora alias dolorem sit ut quibusdam optio. Inventore iusto quam eius vel adipisci aut similique nostrum eum. Vitae, sapiente? Eius, quisquam.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam tempora alias dolorem sit ut quibusdam optio. Inventore iusto quam eius vel adipisci aut similique nostrum eum. Vitae, sapiente? Eius, quisquam.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam tempora alias dolorem sit ut quibusdam optio. Inventore iusto quam eius vel adipisci aut similique nostrum eum. Vitae, sapiente? Eius, quisquam.</p>
+
+    <br>
+    <label for="color">Seleccionar color:    </label>
+        <!-- onChange="modSize()" -->
+        <select name="color" id="color">
+            <option value="red">Rojo</option>
+            <option value="green">Verde</option>
+            <option value="blue">Azul</option>
+        </select>
+        <button onclick="changeColor();">Cambiar</button>
+
+
+    <script>
+        function changeColor(){
+            let color = document.getElementById("color").value;
+            let myP = document.getElementsByTagName("p");
+            for (let i = 0; i < myP.length; i++) {
+                myP[i].style.color=color;
+                
+            }
+        }
+    </script>
+</body>
+</html>

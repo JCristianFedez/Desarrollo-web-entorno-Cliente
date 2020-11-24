@@ -1,0 +1,33 @@
+<!-- Partiendo del siguiente documento HTML inserta texto
+    en cada uno de los párrafos de manera que estén 
+    numerados y además aplica a los párrafos el color
+    especificado en la caja de texto.
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>DOM</title>
+</head>
+
+<body>
+    <script>
+        function addParagraph() {
+            let color = document.getElementById("txtColor").value;
+            let myP = document.getElementsByTagName("p");
+            for (let i = 0; i < myP.length; i++) {
+                myP[i].innerHTML=`Parrafo ${i}`;
+                myP[i].style.color=color;
+            }
+        }
+    </script>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <label>Color del párrafo</label><input type="text" id="txtColor" value="blue" /></br>
+    <input type="button" onclick="addParagraph();" value="Añadir párrafos" />
+</body>
+
+</html>

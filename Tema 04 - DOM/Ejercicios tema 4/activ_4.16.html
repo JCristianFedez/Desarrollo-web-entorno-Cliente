@@ -1,0 +1,39 @@
+<!-- Crea un documento HTML que permita seleccionar el
+ tamaño de fuente de los párrafos mediante un desplegable
+  que contenga los tamaños: Small, Medium y Large. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej_4.16</title>
+</head>
+<body>
+    <h1>Modificacion de tamaño de texto</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam tempora alias dolorem sit ut quibusdam optio. Inventore iusto quam eius vel adipisci aut similique nostrum eum. Vitae, sapiente? Eius, quisquam.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam tempora alias dolorem sit ut quibusdam optio. Inventore iusto quam eius vel adipisci aut similique nostrum eum. Vitae, sapiente? Eius, quisquam.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam tempora alias dolorem sit ut quibusdam optio. Inventore iusto quam eius vel adipisci aut similique nostrum eum. Vitae, sapiente? Eius, quisquam.</p>
+
+    <br>
+    <label for="size">Seleccionar tamaño:</label>
+        <!-- onChange="modSize()" -->
+        <select name="size" id="size">
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+        </select>
+        <button onclick="changeSize();">Cambiar</button>
+    
+
+    <script>
+        function changeSize(){
+            let size = document.getElementById("size").value;
+            let myP = document.getElementsByTagName("p");
+            for (let i = 0; i < myP.length; i++) {
+                myP[i].style.fontSize=size;
+                
+            }
+        }
+    </script>
+</body>
+</html>

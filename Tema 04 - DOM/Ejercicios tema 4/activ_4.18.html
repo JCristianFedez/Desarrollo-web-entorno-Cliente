@@ -1,0 +1,53 @@
+<!-- Crea un documento HTML que contenga tres párrafos y que
+    mediante la propiedad style  display y display haz 
+    que el segundo párrafo se pueda mostrar u ocultar y 
+    además que se pueda elegir si al ocultarlo se reserva 
+    el espacio que ocupaba o no. 
+
+(Nota: modifica la propiedad style display “visible” o 
+“hidden” y la propiedad style display “inline” o “none”) 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej_4.18</title>
+</head>
+
+<body>
+    <h1>Modificacion de tamaño de texto</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam tempora alias dolorem sit ut quibusdam optio.
+        Inventore iusto quam eius vel adipisci aut similique nostrum eum. Vitae, sapiente? Eius, quisquam.</p>
+
+    <p>parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2
+        parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2 parrafo2
+    </p>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam tempora alias dolorem sit ut quibusdam optio.
+        Inventore iusto quam eius vel adipisci aut similique nostrum eum. Vitae, sapiente? Eius, quisquam.</p>
+
+    <br>
+    <label for="display">Seleccionar visibilidad:</label>
+        <input type="checkbox" name="visibility" id="visibility" title="check = visible">
+        <!-- onChange="modSize()" -->
+        <select name="display" id="display">
+            <option value="inline">inline</option>
+            <option value="none">none</option>
+        </select>
+        <button onclick="changedisplay();">Cambiar</button>
+
+    <script>
+        function changedisplay() {
+            let visibility = document.getElementById("visibility").checked;
+            let display = document.getElementById("display").value;
+            let myP = document.getElementsByTagName("p");
+            let auxVisibility = (visibility) ? "visible" : "hidden";
+            myP[1].style.display = display;
+            myP[1].style.visibility = auxVisibility;
+        }
+    </script>
+</body>
+
+</html>
