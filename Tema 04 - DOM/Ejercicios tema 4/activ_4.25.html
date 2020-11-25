@@ -1,0 +1,41 @@
+<!-- Usando JavaScript debes construir dinámicamente una lista
+ desplegable (control HTML select) a partir del array de 
+ strings ["Huelva", "Sevilla", "Córdoba", "Jaén", "Almería",
+  "Granada", "Málaga", "Cádiz"]. Cada option debe tener
+   como id el nombre de la correspondiente provincia. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej 4.25</title>
+  </head>
+
+  <body>
+    <label for="provincias">Provincias</label>
+    <select name="provincias" id="provincias"></select>
+    <button onclick="poblar();">Poblar</button>
+    <script>
+      const PROV = [
+        "Huelva",
+        "Sevilla",
+        "Córdoba",
+        "Jaén",
+        "Almería",
+        "Granada",
+        "Málaga",
+        "Cádiz",
+      ];
+      
+      function poblar(){
+          let mySelect=document.getElementById("provincias");
+          PROV.forEach(element => {
+            let option=document.createElement("option");
+            option.value=element;//Añado el elemento value
+            option.innerHTML=element;
+            mySelect.appendChild(option);
+          });
+      }
+    </script>
+  </body>
+</html>

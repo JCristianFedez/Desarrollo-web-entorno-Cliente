@@ -1,0 +1,62 @@
+<!-- Crea un documento HTML que permita insertar, borrar, 
+    copiar y reemplazar el texto introducido en cuadro 
+    de texto.
+Prepara el ejercicio anterior para que se puedan 
+intercambiar el primer y último elemento de la tabla.
+-->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ej 4.24</title>
+    </head>
+    <body>
+        <label for="texto">Texto</label>
+        <input type="text" name="texto" id="texto">
+        <button onclick="newText();">Insertar texto Nuevo</button>
+        <button onclick="intercambiar();">Intercambiar</button>    
+        <table  id="container">
+    
+            </table>
+        <script>
+            function newText(){
+                let text = document.getElementById("texto").value;
+                let trValue=`<td>${text}</td>`;
+                trValue+="<td><button onclick='copiarEncima(this);'>Copiar encima</button></td>";
+                trValue+="<td><button onclick='borrar(this);'>Borrar</button></td>";
+                trValue+="<td><button onclick='actualizar(this);'>Actualizar</button></td>";
+                
+                let newTr = document.createElement("tr");
+                newTr.innerHTML=trValue;
+                
+                document.getElementById("container").appendChild(newTr);
+    
+            }
+    
+            function copiarEncima(elto){
+                let thisTr=elto.parentElement.parentElement;
+                let copyTr=elto.parentElement.parentElement.cloneNode(true);
+                document.getElementById("container").insertBefore(copyTr,thisTr);
+            }
+    
+            function borrar(elto){
+                elto.parentElement.parentElement.remove();
+            }
+    
+            function actualizar(elto){
+                let text = document.getElementById("texto").value;
+                let thisTr=elto.parentElement.parentElement;
+                thisTr.children[0].textContent=text;
+            }
+
+            function intercambiar(){
+                let table = document.getElementById("container");
+                let firstTr=table.firstElementChild;//Primer Hijo
+                let lastTr=table.lastElementChild;//Ultimo hijo
+                firstTr.replaceWith(lastTr);//Remplazo el primer hijo por el ultimo (Se elimina el primero)
+                table.appendChild(firstTr);//Añado el primer hijo al final
+            }
+        </script>
+    </body>
+    </html>

@@ -11,12 +11,40 @@
 <body>
     <label for="texto">Texto</label>
     <input type="text" name="texto" id="texto">
-    <button>Insertar texto Nuevo</button>
-    <div class="container">
+    <button onclick="newText();">Insertar texto Nuevo</button>
+        <table  id="container">
 
-    </div>
+        </table>
     <script>
-        
+        function newText(){
+            let text = document.getElementById("texto").value;
+            let trValue=`<td>${text}</td>`;
+            trValue+="<td><button onclick='copiarEncima(this);'>Copiar encima</button></td>";
+            trValue+="<td><button onclick='borrar(this);'>Borrar</button></td>";
+            trValue+="<td><button onclick='actualizar(this);'>Actualizar</button></td>";
+            
+            let newTr = document.createElement("tr");
+            newTr.innerHTML=trValue;
+            
+            document.getElementById("container").appendChild(newTr);
+
+        }
+
+        function copiarEncima(elto){
+            let thisTr=elto.parentElement.parentElement;
+            let copyTr=elto.parentElement.parentElement.cloneNode(true);
+            document.getElementById("container").insertBefore(copyTr,thisTr);
+        }
+
+        function borrar(elto){
+            elto.parentElement.parentElement.remove();
+        }
+
+        function actualizar(elto){
+            let text = document.getElementById("texto").value;
+            let thisTr=elto.parentElement.parentElement;
+            thisTr.children[0].textContent=text;
+        }
     </script>
 </body>
 </html>
