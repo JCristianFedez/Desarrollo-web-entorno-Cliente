@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<form>
+<h4>Selecciona una opción:</h4>
+<select id="idSelect">
+  <option>Casa</option>
+  <option>Moto</option>
+  <option>Coche</option>
+  <option>Barco</option>
+</select>
+</form>
+<br>
+<button onclick="borrar()">Borra Selección</button>
+<script>
+function borrar() {
+var sel = document.getElementById("idSelect");
+for(i=(sel.length-1); i>=0; i--)
+{
+   let aBorrar = sel.options[0];
+   aBorrar.parentNode.removeChild(aBorrar);
+}
+}
+</script>
+</body>
+</html>
