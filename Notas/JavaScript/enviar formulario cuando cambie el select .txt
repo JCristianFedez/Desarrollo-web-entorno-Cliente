@@ -1,0 +1,12 @@
+    <form action="#" method="post">
+        <label for="color">Selecciona un color</label>
+        <select name="color" id="color" onchange="this.form.submit();">
+            <option value="red">Rojo</option>
+            <option value="blue">Azul</option>
+            <option value="green">Verde</option>
+            <option value="yellow">Amarillo</option>
+        </select>
+    </form>
+
+//importante
+//onchange="this.form.submit();"
