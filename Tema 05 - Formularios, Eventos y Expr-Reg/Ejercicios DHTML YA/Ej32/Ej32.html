@@ -1,0 +1,21 @@
+<!-- Confeccionar una página que cuando se cierre el navegador o se 
+salga del sitio muestre una ventana recordando la dirección 
+del sitio que acaba de visitar. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej32</title>
+</head>
+<body onload="adios();">
+    <a href="https://www.google.es/">Google</a>
+    <script>
+        function adios(evento){
+            let body = document.getElementsByTagName("body")[0];
+            let direccion=window.location.href;
+            alert(`Esta saliendo de ${direccion}`);
+        }
+    </script>
+</body>
+</html>

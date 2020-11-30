@@ -1,0 +1,40 @@
+<!-- Disponer un título en una marca h1. Luego mostrar la coordenada
+ del mouse cuando ingresa la flecha dentro del título. 
+ Verificar si la coordenada es respecto al título o 
+ respecto a la página. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h1{
+            background-color: lightblue;
+        }
+    </style>
+    <title>Ej31</title>
+</head>
+<body>
+    <h1>Titulo</h1>
+    <p id="cordX"></p>
+    <p id="cordY"></p>
+
+    <script>
+        function cargar(){
+            let title = document.getElementsByTagName("h1")[0];
+            title.onmousemove = posicion;
+
+            let cordX = document.getElementById("cordX");
+            let cordY = document.getElementById("cordY");
+        }
+
+        function posicion(evento){
+            cordX.innerHTML="Cordenada X = "+evento.clientX;
+            cordY.innerHTML="Cordenada Y = "+evento.clientY;
+        }
+
+
+    addEventListener("load", cargar);
+    </script>
+</body>
+</html>
