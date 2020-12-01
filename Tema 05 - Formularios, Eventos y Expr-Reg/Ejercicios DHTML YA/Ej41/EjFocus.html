@@ -1,0 +1,41 @@
+<!-- Disponer dos controles de tipo text con algún contenido. 
+Fijar de color azul su fuente. Al tomar foco el control 
+cambiar a color rojo. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .inputText{
+            color:blue;
+        }
+    </style>
+    <title>Ej41</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <input type="text" name="" class="inputText"  value="Texto prueba">
+        <br>
+        <input type="text" name="" class="inputText" value="Texto prueba">
+        <br>
+
+    </form>
+
+    <script>
+        function cargar(){
+            let myInput = document.getElementsByClassName("inputText");
+            for (let i = 0; i < myInput.length; i++) {
+                myInput[i].onfocus = focus;
+                
+            }
+        }
+
+        function focus(){
+            this.style.color="red";
+        }
+
+        addEventListener("load",cargar);
+    </script>
+</body>
+</html>

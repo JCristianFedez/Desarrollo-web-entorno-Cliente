@@ -1,0 +1,71 @@
+<!-- Implementar un formulario que solicite la carga del nombre 
+de usuario y su clave. Mostrar un mensaje si no se ingresan 
+datos en alguno de los dos controles. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej62</title>
+  </head>
+
+  <body>
+    <form action="#" method="post" id="login">
+      <label for="name">Nombre: </label>
+      <input type="text" name="name" id="myName" />
+      <br />
+      <label for="pass">Contraseña: </label>
+      <input type="password" name="pass" id="pass" />
+      <br />
+      <input type="submit" value="Login" id="button" />
+    </form>
+
+    <script>
+      function cargar() {
+        myForm = document.getElementById("login");
+        let button = document.getElementById("button");
+
+        button.addEventListener("click",comprobarCampos);
+        myForm.addEventListener("invalid", modColoresErrores, true);
+      }
+
+      function comprobarCampos() {
+        let myName = document.getElementById("myName");
+        let pass = document.getElementById("pass");
+        
+        myName.setCustomValidity("");
+        pass.setCustomValidity("");
+
+        if (myName.value.length == 0) {
+          myName.setCustomValidity("Nombre no puede estar vacio");
+        }
+        if (pass.value.length == 0) {
+          pass.setCustomValidity("La contraseña no peude estar vacia");
+        }
+      }
+
+      function modColoresErrores(e) {
+
+        // let elem = e.target;
+        // elem.style.background = "#FFDDDD"; //Ponemos fondo del control rojo si no es válido
+        // if (elem.validity.valid) {
+        //   //Comprobamos si el control es válido
+        //   elem.style.background = "#FFFFFF"; // Ponemos fondo del control blanco si es válido
+        // }
+
+        let inputTexts = myForm.querySelectorAll("input[type=text],input[type=password]");
+        for (let i = 0; i < inputTexts.length; i++) {
+            if(inputTexts[i].validity.valid){
+                inputTexts[i].style.background = "#FFFFFF"; 
+            }else{
+                inputTexts[i].style.background = "#FFDDDD"; 
+            }
+            
+        }
+      }
+      
+      addEventListener("load", cargar);
+
+    </script>
+  </body>
+</html>
