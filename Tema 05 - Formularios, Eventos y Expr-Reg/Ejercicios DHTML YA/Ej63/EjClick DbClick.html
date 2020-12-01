@@ -6,14 +6,26 @@ contenido en el div. -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #num{
+            background-color: bisque;
+        }
+    </style>
     <title>Ej63</title>
 </head>
 <body>
-    <div class="num">2</div>
+    <div id="num">2</div>
     <script>
-
         addEventListener("load",cargar);
         
+        function cargar(){
+            let num = document.getElementById("num");
+            num.addEventListener("dblclick",dobleClick);
+        }
+
+        function dobleClick(ev){
+            ev.target.innerHTML=ev.target.innerHTML*2;
+        }
     </script>
 </body>
 </html>
