@@ -1,0 +1,56 @@
+<!-- Solicitar que se ingrese el nombre y la clave de un 
+  usuario. Mostrar una ventana de alerta si en la clave 
+  se ingresan menos de 7 caracteres o más de 20. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <label for="nombre">Nombre:
+        <input type="text" name="" id="nombre" />
+      </label>
+      <br>
+      <label for="clave">Clave:
+        <input type="text" name="" id="clave" />
+      </label>
+      <br>
+      <input type="submit" value="Enviar">
+      <br>
+    </form>
+
+    <script>
+      addEventListener("load", cargar);
+
+      function cargar() {
+        let nombre = document.getElementById("nombre");
+        let clave = document.getElementById("clave");
+        clave.addEventListener("blur", pierdeFoco, false);
+        // clave.onblur = pierdeFoco2;
+      }
+
+      function pierdeFoco(Elevento) {
+        clave.setCustomValidity("");
+        if(Elevento.target.value.length < 7 || Elevento.target.value.length > 7){
+          clave.setCustomValidity("La contraseña ntiene que tener 7 caracteres minimos y 20 maximos");
+          alert("La contraseña ntiene que tener 7 caracteres minimos y 20 maximos");
+        }
+        //Tabien funciona
+        // if(this.value.length <= 0){
+        //     alert("No puedes dejar el campo vacio 'echo con .onblur'");
+        // }
+      }
+
+      // function pierdeFoco2() {
+      //   if(this.value.length <= 0){
+      //       alert("No puedes dejar el campo vacio 'echo con .onblur'");
+      //   }
+      // }
+
+
+    </script>
+  </body>
+</html>

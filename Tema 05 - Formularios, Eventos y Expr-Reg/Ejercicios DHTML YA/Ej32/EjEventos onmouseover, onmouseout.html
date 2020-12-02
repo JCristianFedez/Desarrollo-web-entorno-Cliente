@@ -1,0 +1,59 @@
+<!-- Modificar el segundo problema resuelto (las casillas de 
+    la tabla que cambian el color cuando ingresamos con el 
+    mouse) para permitir llamar mediante hipervínculos a 
+    distintos programas que administran web-mail 
+    (gmail, hotmail y yahoo). -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 5em;
+        }
+    </style>
+    <title>Ej30</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><a href="http://www.outlook.com">Outlook</a></td>
+            <td><a href="http://www.yahoo.com">Yahoo</a></td>
+            <td><a href="http://www.gmail.com">GMail</a></td>
+        </tr>
+    </table>
+
+    <script>
+        addEventListener("load", cargar);
+
+        function cargar() {
+            let tds = document.getElementsByTagName("td");
+            for (let i = 0; i < tds.length; i++) {
+                tds[i].onmouseover = entro;
+                tds[i].onmouseout = salgo;
+            }
+        }
+
+        function entro() {
+            this.style.backgroundColor = "red";
+        }
+
+        function salgo() {
+            this.style.backgroundColor = "white";
+        }
+    </script>
+</body>
+
+</html>
