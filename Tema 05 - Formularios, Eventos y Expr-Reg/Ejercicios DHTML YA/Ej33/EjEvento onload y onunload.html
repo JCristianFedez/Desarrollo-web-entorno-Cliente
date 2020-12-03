@@ -1,6 +1,5 @@
-<!-- Confeccionar una página que cuando se cierre el navegador o se 
-salga del sitio muestre una ventana recordando la dirección 
-del sitio que acaba de visitar. -->
+<!-- Confeccionar una página que muestre un 
+    mensaje con la función alert inmediatamente después que se cargue. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,13 +7,13 @@ del sitio que acaba de visitar. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ej32</title>
 </head>
-<body onload="adios();">
-    <a href="https://www.google.es/">Google</a>
+<body>
     <script>
-        function adios(){
-            let direccion=window.location.href;
-            alert(`Esta saliendo de ${direccion}`);
+        function cargar(){
+            alert("Bienvenido");
         }
+
+        addEventListener("load",cargar);
     </script>
     
 </body>

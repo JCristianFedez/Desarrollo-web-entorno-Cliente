@@ -1,0 +1,139 @@
+<!-- Implementar un tablero de TaTeTi. Asociar el evento click 
+de los 9 botones a una única función. Alternar entre las 
+"X" y "O". Mostrar un mensaje cuando gana un jugador. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        table,
+        td {
+            border: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        input[type="button"] {
+            display: inline-block;
+            font-size: 2rem;
+        }
+    </style>
+    <title>Ej70</title>
+</head>
+
+<body>
+    <h1 id="ganador"></h1>
+    <table>
+        <tr>
+            <td>
+                <input type="button" id="btn1" name="btn1" value=" " class="boton" />
+            </td>
+            <td>
+                <input type="button" id="btn2" name="btn2" value=" " class="boton" />
+            </td>
+            <td>
+                <input type="button" id="btn3" name="btn3" value=" " class="boton" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" id="btn4" name="btn4" value=" " class="boton" />
+            </td>
+            <td>
+                <input type="button" id="btn5" name="btn5" value=" " class="boton" />
+            </td>
+            <td>
+                <input type="button" id="btn6" name="btn6" value=" " class="boton" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" id="btn7" name="btn7" value=" " class="boton" />
+            </td>
+            <td>
+                <input type="button" id="btn8" name="btn8" value=" " class="boton" />
+            </td>
+            <td>
+                <input type="button" id="btn9" name="btn9" value=" " class="boton" />
+            </td>
+        </tr>
+    </table>
+    <h1 id="jugador">Toca jugar a X</h1>
+
+    <script>
+        let ficha = "X";
+
+        function cargar() {
+            let buttons = document.querySelectorAll("input[type=button]");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].addEventListener("click", marcar, false);
+            }
+        }
+
+        function marcar(ev) {
+            ev.target.value = ficha;
+            ev.target.disabled=true;
+            ficha = ficha == "X" ? "O" : "X";
+            document.getElementById("jugador").innerHTML=`Toca jugar a ${ficha}`;
+            comprobarGanador();
+        }
+
+        function comprobarGanador() {
+            let ganador = " ";
+
+            let b1 = document.getElementById("btn1").value;
+            let b2 = document.getElementById("btn2").value;
+            let b3 = document.getElementById("btn3").value;
+            let b4 = document.getElementById("btn4").value;
+            let b5 = document.getElementById("btn5").value;
+            let b6 = document.getElementById("btn6").value;
+            let b7 = document.getElementById("btn7").value;
+            let b8 = document.getElementById("btn8").value;
+            let b9 = document.getElementById("btn9").value;
+
+            if (b1 == "X" && b2 == "X" && b3 == "X") ganador = "X";
+            else if (b4 == "X" && b5 == "X" && b6 == "X") ganador = "X";
+            else if (b7 == "X" && b8 == "X" && b9 == "X") ganador = "X";
+            else if (b1 == "X" && b4 == "X" && b7 == "X") ganador = "X";
+            else if (b2 == "X" && b5 == "X" && b8 == "X") ganador = "X";
+            else if (b3 == "X" && b6 == "X" && b9 == "X") ganador = "X";
+            else if (b1 == "X" && b5 == "X" && b9 == "X") ganador = "X";
+            else if (b3 == "X" && b5 == "X" && b7 == "X") ganador = "X";
+
+            else if (b1 == "O" && b2 == "O" && b3 == "O") ganador = "O";
+            else if (b4 == "O" && b5 == "O" && b6 == "O") ganador = "O";
+            else if (b7 == "O" && b8 == "O" && b9 == "O") ganador = "O";
+            else if (b1 == "O" && b4 == "O" && b7 == "O") ganador = "O";
+            else if (b2 == "O" && b5 == "O" && b8 == "O") ganador = "O";
+            else if (b3 == "O" && b6 == "O" && b9 == "O") ganador = "O";
+            else if (b1 == "O" && b5 == "O" && b9 == "O") ganador = "O";
+            else if (b3 == "O" && b5 == "O" && b7 == "O") ganador = "O";
+
+            if (ganador != " "){
+                document.getElementById("ganador").innerHTML = `Ha ganado la ${ganador}`;
+                document.getElementById("jugador").remove();
+                let newGame=document.createElement("button");
+                newGame.innerHTML="Jugar de Nuevo";
+                newGame.addEventListener("click",nuevaPartida);
+                document.getElementsByTagName("body")[0].appendChild(newGame);
+                
+            } 
+        }
+
+        function nuevaPartida(){
+            window.location.reload();
+        }
+
+        addEventListener("DOMContentLoaded", cargar);
+    </script>
+</body>
+
+</html>

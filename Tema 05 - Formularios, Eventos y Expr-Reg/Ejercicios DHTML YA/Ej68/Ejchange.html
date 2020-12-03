@@ -1,0 +1,36 @@
+<!-- Confeccionar un formulario que muestre un checkbox que 
+cuando se tilde active un botón (el checkbox debe 
+mostrar un mensaje que diga : "Confirma los términos 
+y condiciones?") -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej68</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <label for="myCheck">Confirma los términos y condiciones?
+            <input type="checkbox" name="myCheck" id="myCheck">
+        </label>
+        <button type="submit" value="Registarse" id="register" disabled>Registrar</button>
+
+    </form>
+
+    <script>
+        function cargar(){
+            let myCheck=document.getElementById("myCheck");
+
+            myCheck.addEventListener("change",checkeado,false);
+        }
+
+        function checkeado(){
+            let btnRegister=document.getElementById("register");
+            btnRegister.disabled=!btnRegister.disabled;
+        }
+
+        addEventListener("DOMContentLoaded",cargar);
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!-- Elaborar un programa que muestre un div de color rojo. 
+Cuando se presione cambiar el color a amarillo y luego 
+de soltar el botón del mouse volver a pintar de rojo. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #myDiv{
+            width: 25vw;
+            height: 25vh;
+            margin: 0 auto;
+            position: absolute;
+            background-color: red;
+        }
+    </style>
+    <title>Ej64</title>
+</head>
+<body>
+    <div id="myDiv"></div>
+    <script>
+        function cargar(){
+            let myDiv=document.getElementById("myDiv");
+            myDiv.addEventListener("mousedown",clickar);
+            myDiv.addEventListener("mouseup",soltar);
+        }
+
+        function clickar(ev){
+            ev.target.style.backgroundColor="yellow";
+        }
+
+        function soltar(ev){
+            ev.target.style.backgroundColor="red";
+        }
+
+        addEventListener("load",cargar);
+    </script>
+</body>
+</html>

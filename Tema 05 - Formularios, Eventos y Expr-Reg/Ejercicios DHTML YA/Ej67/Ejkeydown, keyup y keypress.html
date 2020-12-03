@@ -1,0 +1,43 @@
+<!-- El evento keydown se dispara cuando presionamos cualquier tecla del teclado
+, el evento keyup cuando soltamos una tecla. En cuanto el evento keypress 
+en un principio procesa tanto cuando se la presionó y soltó, el único y 
+gran inconveniente es que la mayoría de los navegadores no dispara el evento
+ keypress para todas las teclas del teclado.
+
+Para probar el evento keyup implementaremos un programa que permita solo 
+ingresar 140 caracteres y nos informe con un mensaje la cantidad de caracteres 
+disponibles para seguir escribiendo. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej67</title>
+</head>
+
+<body>
+    <textarea name="myTextarea" id="myText" cols="30" rows="10" maxlength="140"></textarea>
+    <br>
+    <p id="countCaract">Puedes escribir 140 caracteres mas</p>
+
+    <script>
+        function cargar(){
+            let myText=document.getElementById("myText");
+            let countCaract = document.getElementById("countCaract");
+
+            myText.addEventListener("keyup",soltarTecla,false);
+        }
+
+        function soltarTecla(){
+            let cantCaract=myText.value.length;
+            const MAX_CARACT=myText.maxLength;
+            let restantes=MAX_CARACT-cantCaract;
+            countCaract.innerHTML=`Puedes escribir ${restantes} caracteres mas`;
+        }
+
+        addEventListener("DOMContentLoaded",cargar);
+    </script>
+</body>
+
+</html>

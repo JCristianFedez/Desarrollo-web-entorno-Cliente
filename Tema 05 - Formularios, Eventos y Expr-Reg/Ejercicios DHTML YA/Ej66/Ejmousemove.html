@@ -1,0 +1,46 @@
+<!-- Implementaremos para ver su funcionamiento una página
+que muestre un div que capture el evento mousemove y
+como acción incrementaremos un contador para saber
+la cantidad de veces que se disparó el evento. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #myDiv{
+            width: 25vw;
+            height: 25vh;
+            margin: 0 auto;
+            position: absolute;
+            background-color: red;
+        }
+        p{
+            text-align: center;
+            font-size: 2rem;
+        }
+    </style>
+    <title>Ej66</title>
+</head>
+<body>
+    <div id="myDiv">
+        <p id="count">0</p>
+    </div>
+    
+    <script>
+        function cargar(){
+            let myDiv = document.getElementById("myDiv");
+            let count = document.getElementById("count");
+            myDiv.addEventListener("mousemove",moverRaton);
+        }
+
+        function moverRaton(){
+            let aux=count.innerHTML;
+            aux++;
+            count.innerHTML=aux;
+        }
+
+        addEventListener("load",cargar);
+    </script>
+</body>
+</html>

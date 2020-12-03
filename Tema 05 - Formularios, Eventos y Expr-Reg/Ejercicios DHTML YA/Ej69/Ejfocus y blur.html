@@ -1,0 +1,43 @@
+<!-- Confeccionar un formulario que muestre dos controles 
+de tipo text. El que está con foco mostrar su texto 
+de color rojo y aquel que no está seleccionado el texto 
+se debe mostrar de color negro. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej69</title>
+  </head>
+  <body>
+    <form action="#" method="post">
+        <label for="txt1">Texto 1: 
+            <input type="text" name="" id="txt1" value="Texto Prueba">
+        </label>
+        <br>
+        <label for="txt2">Texto 2: 
+            <input type="text" name="" id="txt2" value="Texto Prueba">
+        </label>
+    </form>
+
+    <script>
+        function cargar(){
+            document.getElementById("txt1").addEventListener("focus",tomaFoco);
+            document.getElementById("txt2").addEventListener("focus",tomaFoco);
+
+            document.getElementById("txt1").addEventListener("blur",pierdeFoco);
+            document.getElementById("txt2").addEventListener("blur",pierdeFoco);
+        }
+
+        function tomaFoco(){
+            this.style.color="red";
+        }
+
+        function pierdeFoco(ev){
+            ev.target.style.color="black";
+        }
+
+      addEventListener("DOMContentLoaded", cargar,false);
+    </script>
+  </body>
+</html>

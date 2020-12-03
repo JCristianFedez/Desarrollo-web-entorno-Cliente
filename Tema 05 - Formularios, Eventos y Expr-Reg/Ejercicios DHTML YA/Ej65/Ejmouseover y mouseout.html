@@ -1,0 +1,35 @@
+<!-- Mostrar un elemento de tipo H1, luego cuando se ingrese con el 
+mouse dentro del mismo cambiar el color a letra roja y color de 
+fondo amarillo, luego cuando se mueva la flecha del mouse fuera 
+del elemento volver al color original. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej65</title>
+</head>
+<body>
+    <h1>Titulo</h1>
+
+    <script>
+        function cargar(){
+            let titulo=document.getElementsByTagName("h1")[0];
+            titulo.addEventListener("mouseover",dentro);
+            titulo.addEventListener("mouseout",fuera);
+        }
+
+        function dentro(){
+            this.style.color="red";
+            this.style.backgroundColor="yellow";
+        }
+
+        function fuera(ev){
+            ev.target.style.backgroundColor="transparent";
+            ev.target.style.color="black";
+        }
+
+        addEventListener("load",cargar);
+    </script>
+</body>
+</html>
