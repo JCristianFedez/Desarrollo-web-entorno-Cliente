@@ -1,0 +1,43 @@
+<!-- Confeccionar una página que muestre dos objetos de la clase 
+RADIO solicitando que seleccione si es mayor de 18 años o no. 
+Al presionar un botón mostrar un alert indicando si puede ingresar 
+al sitio o no. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej29</title>
+</head>
+<body>
+    <form action="">
+        <label for="menor">Menor de 18 años: 
+            <input type="radio" name="edad" id="menor">
+        </label>
+        <br>
+        <label for="mayor">Menor de 18 años: 
+            <input type="radio" name="edad" id="mayor">
+        </label>
+        <br>
+        <input type="button" value="Entrar" id="boton">
+    </form>
+
+    <script>
+        function cargar(){
+            let boton=document.getElementById("boton");
+            boton.addEventListener("click",entrar,false);
+        }
+
+        function entrar(){
+            let menor=document.getElementById("menor");
+            if(menor.checked){
+                alert("No puede entrar");
+            }else{
+                alert("Puede entrar");
+            }
+        }
+
+        addEventListener("DOMContentLoaded",cargar,false);
+    </script>
+</body>
+</html>

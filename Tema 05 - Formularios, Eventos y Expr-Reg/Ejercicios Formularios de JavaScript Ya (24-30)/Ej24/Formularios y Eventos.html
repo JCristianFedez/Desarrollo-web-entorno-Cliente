@@ -1,0 +1,38 @@
+<!-- Crear un formulario con tres botones con las leyendas "1", "2" y "3". 
+Mostrar un mensaje indicando qué botón se presionó.  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej24</title>
+  </head>
+  <body>
+
+    <form action="#" method="post">
+      <input type="button" value="1">
+      <input type="button" value="2">
+      <input type="button" value="3">
+    </form>
+    <br>
+    <div id="mensaje">
+
+    </div>
+    <script>
+      function cargar(){
+        let botones = document.querySelectorAll("input[type=button]");
+        for (let i = 0; i < botones.length; i++) {
+          botones[i].addEventListener("click",showMesaje,false);
+        }
+      }
+
+      function showMesaje(ElEvento){
+        let valor = ElEvento.target.value;
+        document.getElementById("mensaje").innerHTML=`Pulsado el boton ${valor}`;
+      }
+
+
+      addEventListener("DOMContentLoaded",cargar,false);
+    </script>
+  </body>
+</html>

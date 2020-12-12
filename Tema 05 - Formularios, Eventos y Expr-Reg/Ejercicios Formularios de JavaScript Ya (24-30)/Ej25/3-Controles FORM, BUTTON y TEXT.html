@@ -1,0 +1,46 @@
+<!-- Cargar un nombre y un apellido en sendos text. Al presionar 
+    un botón, concatenarlos y mostrarlos en un tercer text 
+    (Tener en cuenta que podemos modificar la propiedad value de un
+     objeto TEXT cuando ocurre un evento) -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej25</title>
+  </head>
+
+  <body>
+      <form action="">
+        <label for="nombre">Nombre: 
+            <input type="text" name="nombre" id="nombre">
+        </label>
+        <br>
+        <label for="apellidos">Apellidos: 
+            <input type="text" name="apellidos" id="apellidos">
+        </label>
+        <br>
+        <label for="fullName">Nombre y apellidos: 
+            <input type="text" name="fullName" id="fullName" disabled>
+        </label>
+        <br>
+        <button type="button">Concatenar</button>
+      </form>
+
+      <script>
+          function cargar(){
+              let butotn=document.getElementsByTagName("button")[0];
+              butotn.addEventListener("click",concatenar,false);
+          }
+
+          function concatenar(){
+              let nombre=document.getElementById("nombre").value;
+              let apellidos=document.getElementById("apellidos").value;
+              let fullName=document.getElementById("fullName");
+              fullName.value=`${nombre}, ${apellidos}`;
+            }
+
+        addEventListener("DOMContentLoaded",cargar,false);
+      </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!-- Confeccionar una página que muestre tres checkbox que permitan 
+seleccionar los deportes que practica el usuario 
+(Fútbol, Básket, Tenis) Mostrar al presionar un botón 
+los deportes que eligió. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej28</title>
+</head>
+<body>
+    <form action="" id="myForm">
+        <label for="futbol">Futbol:
+            <input type="checkbox" name="futbol" id="futbol" value="futbol">
+        </label>
+        <br>
+        <label for="basket">Basket:
+            <input type="checkbox" name="basket" id="basket" value="basket">
+        </label>
+        <br>
+        <label for="tenis">Tenis:
+            <input type="checkbox" name="tenis" id="tenis" value="tenis">
+        </label>
+        <br>
+        <div id="containerRespuesta">
+        </div>
+        <br>
+        <button type="button" id="boton">Tus Deportes</button>
+    </form>
+
+    <script>
+        function cargar(){
+            let boton=document.getElementById("boton");
+            boton.addEventListener("click",misDeportes,false);
+        }
+
+        function misDeportes(){
+            let myForm=document.getElementById("myForm");
+            let myCheck=myForm.querySelectorAll("input[type=checkbox]");
+            let deportes="";
+            for (let i = 0; i < myCheck.length; i++) {
+                deportes+=(myCheck[i].checked)?`${myCheck[i].value} - `:"";
+            }
+            document.getElementById("containerRespuesta").innerHTML=`Tus deportes son: ${deportes}`;
+        }
+
+addEventListener("DOMContentLoaded",cargar,false);
+    </script>
+</body>
+</html>

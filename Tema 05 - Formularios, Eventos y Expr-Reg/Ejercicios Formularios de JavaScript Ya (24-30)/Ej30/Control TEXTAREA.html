@@ -1,0 +1,60 @@
+<!-- Confeccionar una página de visitas a un sitio, solicitar ingresar 
+el nombre de una persona, su mail y los comentarios (TEXTAREA). 
+Mostrar luego llamando a la función alert los datos ingresados. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej30</title>
+</head>
+<body>
+    <form action="">
+        <label for="nombre">Nombre: 
+            <textarea name="nombre" id="nombre" cols="30" rows="1"></textarea>
+        </label>
+        <br>
+        <label for="email">Email: 
+            <textarea name="email" id="email" cols="30" rows="1"></textarea>
+        </label>
+        <br>
+        <label for="comentarios">Comentarios: 
+            <textarea name="comentarios" id="comentarios" cols="30" rows="10"></textarea>
+        </label>
+        <br>
+        <input type="button" value="enviar" id="boton">
+    </form>
+    <br>
+    <div id="respuesta"></div>
+    <script>
+        function cargar(){
+            let boton=document.getElementById("boton");
+            boton.addEventListener("click",enviar,false);
+        }
+
+        function enviar(){
+            let nombre=document.getElementById("nombre").value;
+            let email=document.getElementById("email").value;
+            let comentarios=document.getElementById("comentarios").value;
+            let respuesta=document.getElementById("respuesta");
+            
+            let pNombre=document.createElement("p");
+            let pEmail=document.createElement("p");
+            let pComentario=document.createElement("p");
+
+            pNombre.innerHTML=`Nombre: ${nombre}`;
+            respuesta.appendChild(pNombre);
+
+            pEmail.innerHTML=`Email: ${email}`;
+            respuesta.appendChild(pEmail);
+
+            pComentario.innerHTML=`Comentarios: ${comentarios}`;
+            respuesta.appendChild(pComentario);
+            
+        }
+
+addEventListener("DOMContentLoaded",cargar,false);
+    </script>
+</body>
+</html>

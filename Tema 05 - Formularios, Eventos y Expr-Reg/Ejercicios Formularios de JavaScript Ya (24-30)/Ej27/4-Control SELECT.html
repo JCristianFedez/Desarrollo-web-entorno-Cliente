@@ -1,0 +1,88 @@
+<!-- Confeccionar una página que permita tomar un examen múltiple choice. 
+    Se debe mostrar una pregunta y seguidamente un objeto SELECT con las
+     respuestas posibles. Al presionar un botón mostrar la cantidad de 
+     respuestas correctas e incorrectas (Disponer 4 preguntas y sus 
+     respectivos controles SELECT) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej27</title>
+</head>
+<body>
+   <form action="">
+       <label for="p1">Cuantas patas tiene un gato:  
+           <select name="p1" id="p1">
+               <option value="0">---</option>
+               <option value="0">1</option>
+               <option value="1">4</option>
+               <option value="0">2</option>
+           </select>
+       </label>
+       <br>
+       <label for="p2">El fuego quema:  
+           <select name="p2" id="p2">
+               <option value="0">---</option>
+               <option value="1">Si</option>
+               <option value="0">No</option>
+               <option value="0">El fuego no existe</option>
+           </select>
+       </label>
+       <br>
+       <label for="p3">Que moneda vale mas:  
+           <select name="p3" id="p3">
+               <option value="0">---</option>
+               <option value="0">Dolar</option>
+               <option value="1">Euro</option>
+               <option value="0">Bolivar</option>
+           </select>
+       </label>
+       <br>
+       <label for="p4">La correcta es la ultima:  
+           <select name="p4" id="p4">
+               <option value="0">---</option>
+               <option value="0">Esta no</option>
+               <option value="0">Esta tampoco</option>
+               <option value="1">Esta Si</option>
+           </select>
+       </label>
+       <br>
+       <br>
+       <div id="containerRespuesta" style="display: none;">
+           <label for="respuesta">Preguntas acertadas: 
+               <input type="text" name="respuesta" id="respuesta" disabled>
+           </label>
+       </div>
+       <br>
+       <button type="button" id="corregir">Corregir</button>
+   </form>
+
+    <script>
+        function cargar(){
+            let button=document.getElementById("corregir");
+            button.addEventListener("click",corregir,false);
+        }
+
+        function corregir(){
+            let p1=document.getElementById("p1");
+            let p2=document.getElementById("p2");
+            let p3=document.getElementById("p3");
+            let p4=document.getElementById("p4");
+            let respuesta=document.getElementById("respuesta");
+
+            let aciertos=0;
+            aciertos+=parseInt(p1.options[p1.selectedIndex].value);
+            aciertos+=parseInt(p2.options[p2.selectedIndex].value);
+            aciertos+=parseInt(p3.options[p3.selectedIndex].value);
+            aciertos+=parseInt(p4.options[p4.selectedIndex].value);
+
+            document.getElementById("containerRespuesta").style.display="block";
+            respuesta.value=aciertos;
+
+        }
+
+addEventListener("DOMContentLoaded",cargar,false);
+    </script>
+</body>
+</html>

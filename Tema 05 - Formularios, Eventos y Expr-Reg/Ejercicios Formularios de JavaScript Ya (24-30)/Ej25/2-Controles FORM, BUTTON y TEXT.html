@@ -1,0 +1,41 @@
+<!-- Cargar dos números en objetos de tipo text 
+    y al presionar un botón, mostrar el mayor. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej25</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="text" name="" id="" required>
+        <br>
+        <input type="text" name="" id="" required>
+        <br>
+        <button type="button">Mayor</button>
+    </form>
+    <br>
+    <div id="respuesta"></div>
+    <script>
+        function cargar(){
+            let button=document.getElementsByTagName("button")[0];
+            button.addEventListener("click",muestraMayor,false);
+        }
+
+        function muestraMayor(){
+            let num1=parseInt(document.querySelectorAll("input[type=text]")[0].value);
+            let num2=parseInt(document.querySelectorAll("input[type=text]")[1].value);
+            let respuesta=document.getElementById("respuesta");
+            if(num1>num2)respuesta.innerHTML="El numero mayor es el primero";
+            else if(num1<num2)respuesta.innerHTML="El numero mayor es el segundo";
+            else respuesta.innerHTML="Ambos numeros son iguales";
+        }
+
+        addEventListener("DOMContentLoaded",cargar,false);
+    </script>
+</body>
+
+</html>

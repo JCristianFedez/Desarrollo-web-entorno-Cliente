@@ -1,0 +1,38 @@
+<!-- Confeccionar una página que muestre un objeto SELECT con distintos
+    tipos de pizzas (Jamón y Queso, Muzzarella, Morrones).
+    Al seleccionar una, mostrar en un objeto de tipo TEXT el precio de la misma. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej27</title>
+</head>
+<body>
+    <form action="">
+        <select name="mySelect" id="mySelect">
+            <option value="12">Jamon</option>
+            <option value="7">Queso</option>
+            <option value="6">Muzzarella</option>
+            <option value="8">Morrones</option>
+        </select>
+        <br>
+        <input type="text" name="" id="respuesta" disabled>
+    </form>
+
+    <script>
+        function cargar(){
+            let mySelect=document.getElementById("mySelect");
+            mySelect.addEventListener("change",verPrecio,false);
+        }
+
+        function verPrecio(){
+            let mySelect=document.getElementById("mySelect");
+            let respuesta=document.getElementById("respuesta");
+            respuesta.value=mySelect.options[mySelect.selectedIndex].value;
+        }
+
+addEventListener("DOMContentLoaded",cargar,false);
+    </script>
+</body>
+</html>
