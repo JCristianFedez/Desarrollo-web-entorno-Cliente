@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    var contador=10; // Contador usado para la cuenta atrás
+    var running=false;
+    var refInterval;
+    function iniciarTemporizador(){
+        if(!running){ // Sólo nos interesa iniciar el temporizador si no está iniciado
+            contador=10;
+            document.getElementById('contador').innerHTML=contador;
+            refInterval=setInterval(actualizaContador,1000); //con setInterval estamos indicando que queremos que la función actualizaContador se invoque cada 1000 msg 
+            running=true; // Indicamos que el temporizador está iniciado para evitar futuras llamadas hasta que no se detenga
+        } else{
+            alert("Actualmente está iniciado el temporizador. Espera a que finalice");
+        }
+        
+    }
+
+    
+    // La siguiente función es invocada cada 1000 msg
+    // Mediante el método clearInterval podemos detener el temporizador
+    function actualizaContador(){
+        contador--;
+        document.getElementById('contador').innerHTML=contador;
+         if(contador<=0){
+            clearInterval(refInterval); // Cuando el contador llega a 0 detenemos el temporizador
+            running=false; // Indicamos que el temporizador está detenido para que se pueda iniciar de nuevo al pulsar el butón
+        } 
+    }
+
+    </script>
+    <p id="contador">10</p>
+    <input type="button" onclick="iniciarTemporizador();" value="Iniciar cuenta atrás">
+</body>
+</html>
