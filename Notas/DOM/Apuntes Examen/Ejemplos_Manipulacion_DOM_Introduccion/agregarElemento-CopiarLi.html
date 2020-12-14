@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Modificar el DOM</title>
+	<meta charset="utf-8" >
+</head>
+<body>
+<script>
+	var total=0;
+	function addNewItem(){
+			total++;
+			document.getElementsByTagName('ul')[0].innerHTML += '<li>Elemento' + total + '</li>';
+	}
+	function copiarLista(){
+		var lista=document.getElementsByTagName('ul')[0];
+		lista.insertAdjacentHTML('afterend',lista.outerHTML);
+	}
+</script>
+<div id="elementosTag">
+<h3>Modificar el DOM</h3>
+<input type="button" id="btnNuevoItem" onclick="addNewItem();" value="Agregar nuevo elemento" />
+<input type="button" id="btnCopiarLista" onclick="copiarLista();" value="Copiar lista" />
+<p>Lorem ipsum dolor sit amet</p>
+<ul id="listaItems"></ul>
+</div>
+</body>
+</html>

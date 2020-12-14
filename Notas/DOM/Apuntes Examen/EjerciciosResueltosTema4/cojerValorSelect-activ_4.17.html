@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>DOM</title>
+	<meta charset="utf-8" >
+</head>
+<body>
+<script>
+	function cambiarColor(){
+		var color=document.getElementById("cboColor").value;
+		//alert("Cambiar!" + tamaño);
+		var parrafos=document.getElementsByTagName("p");
+		for(var i=0;i<parrafos.length;i++){
+			//parrafos[i].style="font-size:"+tamaño+"px";
+			parrafos[i].style.color=color;
+		}
+		
+	}
+</script>
+<div id="elementosTag">
+<h3>Modificación de color de texto</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet magna lorem, nec semper ligula laoreet in. Donec volutpat sollicitudin nulla, sit amet rutrum nisi volutpat eget. Fusce mollis leo ut enim volutpat egestas hendrerit vitae augue. </p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet magna lorem, nec semper ligula laoreet in. Donec volutpat sollicitudin nulla, sit amet rutrum nisi volutpat eget. Fusce mollis leo ut enim volutpat egestas hendrerit vitae augue. </p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet magna lorem, nec semper ligula laoreet in. Donec volutpat sollicitudin nulla, sit amet rutrum nisi volutpat eget. Fusce mollis leo ut enim volutpat egestas hendrerit vitae augue. </p>
+</div>
+<label>Seleccionar color:</label>
+<select id="cboColor">
+	<option value="#FF0000">Rojo</option>
+	<option value="green">Verde</option>
+	<option value="blue">Azul</option>
+</input>
+<input type="button" onclick="cambiarColor();" value="Cambiar" />
+</body>
+</html>

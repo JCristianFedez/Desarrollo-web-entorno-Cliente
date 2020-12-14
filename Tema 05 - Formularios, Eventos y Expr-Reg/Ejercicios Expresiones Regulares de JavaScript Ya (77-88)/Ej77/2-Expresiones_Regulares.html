@@ -1,0 +1,38 @@
+<!-- Ingresar una oración por teclado y luego imprimir un 
+mensaje si la oración ingresada contiene la palabra 'hora' -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej77</title>
+</head>
+<body>
+    <form action="">
+        <label for="valor">Valor: 
+            <input type="text" name="valor" id="valor">
+        </label>
+        <br>
+        <input type="submit" value="boton">
+    </form>
+
+    <script>
+        function cargar(){
+            let boton=document.getElementById("boton");
+            boton.addEventListener("click",comprobar);
+        }
+
+        function comprobar(){
+            let texto=document.getElementById("valor");
+            let patron=/hora/;
+            if(patron.test(texto.value)){
+                texto.setCustomValidity("");
+            }else{
+                texto.setCustomValidity("Valor incorrecto");
+            }
+        }
+
+        addEventListener("DOMContentLoaded",cargar,false);
+    </script>
+</body>
+</html>

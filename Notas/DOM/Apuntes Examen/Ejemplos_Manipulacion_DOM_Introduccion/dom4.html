@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript">
+function myFunction() {
+    var x = document.getElementById("myList").innerHTML;
+    document.getElementById("demo").innerHTML = x;
+}
+</script>
+<body>
+<ul id="myList">
+  <li>Coffee</li>
+  <li>Tea</li>
+</ul>
+<p>Click the button get the HTML content of the ul element.</p>
+<button onclick="myFunction()">Try it</button>
+<p id="demo"></p>
+</body>
+</html>

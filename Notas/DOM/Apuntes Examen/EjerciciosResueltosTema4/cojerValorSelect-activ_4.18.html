@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>DOM</title>
+	<meta charset="utf-8" >
+</head>
+<body>
+<script>
+	function aplicar(){
+		var cboVisibility= document.getElementById("cboVisibility");
+		var cboDisplay= document.getElementById("cboDisplay");
+		var parrafos=document.getElementsByTagName("p");
+		parrafos[1].style.visibility= cboVisibility.value;
+		parrafos[1].style.display = cboDisplay.value;
+		
+	}
+</script>
+<div id="elementosTag">
+<h3>Cambiar visibilidad del texto</h3>
+<p>Párrafo 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet magna lorem, nec semper ligula laoreet in. Donec volutpat sollicitudin nulla, sit amet rutrum nisi volutpat eget. Fusce mollis leo ut enim volutpat egestas hendrerit vitae augue. </p>
+
+<p>Párrafo 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet magna lorem, nec semper ligula laoreet in. Donec volutpat sollicitudin nulla, sit amet rutrum nisi volutpat eget. Fusce mollis leo ut enim volutpat egestas hendrerit vitae augue. </p>
+
+<p>Párrafo 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet magna lorem, nec semper ligula laoreet in. Donec volutpat sollicitudin nulla, sit amet rutrum nisi volutpat eget. Fusce mollis leo ut enim volutpat egestas hendrerit vitae augue. </p>
+</div>
+<label>Style visibility:</label>
+<select id="cboVisibility">
+	<option value="visible">visible</option>
+	<option value="hidden">hidden</option>
+</select>
+<label>Style display:</label>
+<select id="cboDisplay">
+	<option value="inline">inline</option>
+	<option value="none">none</option>
+</select>
+<button onclick="aplicar();" >Aplicar</input>
+</body>
+</html>

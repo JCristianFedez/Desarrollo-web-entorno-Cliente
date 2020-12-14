@@ -1,0 +1,9 @@
+var miPieDePagina=document.getElementsById(“pie”);
+miPieDePagina.parentNode.removeChild(miPieDePagina);
+
+//FOMRA 2
+
+var filaABorrar=boton.parentElement.parentElement; // Será un elto tr
+	
+// Manera 1 de eliminar el elto tr
+// filaABorrar.remove();

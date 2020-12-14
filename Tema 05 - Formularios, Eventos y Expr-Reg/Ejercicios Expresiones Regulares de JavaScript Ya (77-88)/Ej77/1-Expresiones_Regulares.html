@@ -1,0 +1,37 @@
+<!-- Validar si se ingresa un valor entero con exactamente 
+tres dígitos. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej77</title>
+</head>
+<body>
+    <form action="">
+        <label for="valor">Valor: 
+            <input type="text" name="valor" id="valor">
+        </label>
+        <br>
+        <input type="submit" value="Comprobar" id="boton">
+    </form>
+    <script>
+        function cargar(){
+            let boton=document.getElementById("boton");
+            boton.addEventListener("click",comprobar);
+        }
+
+        function comprobar(elEvent){
+            let valor=document.getElementById("valor");
+            let patron=/^[0-9]{3}/;
+            if(patron.test(valor.value)){
+                valor.setCustomValidity("");
+            }else{
+                valor.setCustomValidity("Valor incorrecto");
+            }
+        }
+
+        addEventListener("DOMContentLoaded",cargar,false);
+    </script>
+</body>
+</html>

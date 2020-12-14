@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="uft-8" />
+	<title>Acceso DOM</title>
+</head>
+<body>
+<span>Texto</span>
+<input type="text" id="txtCaja">
+<input type="button" onclick="insertar();" value="Insertar texto nuevo">
+<input type="button" onclick="intercambiarPrimeroUltimo();" value="Intercambiar">
+<table id="tabla" style="border:1px dashed greed;"></table>
+<script>
+function insertar(){
+	var texto=document.getElementById('txtCaja').value;
+	var codigoFila="<td>" +  texto + "</td>";
+	codigoFila += "<td><input type='button' onclick='copiarEncima(this);' value='Copiar encima'></td>";
+	codigoFila += "<td><input type='button' onclick='borrar(this);' value='Borrar'></td>";
+	codigoFila += "<td><input type='button' onclick='actualizar(this);' value='Actualizar'></td>";
+	
+	var fila=document.createElement('tr');
+	fila.innerHTML=codigoFila;
+	document.getElementById('tabla').appendChild(fila);
+	
+}
+function borrar(boton){
+	var filaABorrar=boton.parentElement.parentElement; // Será un elto tr
+	
+	// Manera 1 de eliminar el elto tr
+	// filaABorrar.remove();
+	
+	// Manera 2 de eliminar el elto tr
+	document.getElementById('tabla').removeChild(filaABorrar);
+}
+function copiarEncima(boton){
+	var filaActual=boton.parentElement.parentElement;
+	var filaACopiar=boton.parentElement.parentElement.cloneNode(true);
+	document.getElementById('tabla').insertBefore(filaACopiar,filaActual);
+}
+function actualizar(boton){
+	var texto=document.getElementById('txtCaja').value;
+	var filaActual=boton.parentElement.parentElement;
+	filaActual.firstElementChild.innerHTML=texto;
+}
+function intercambiarPrimeroUltimo(){
+	var tabla=document.getElementById('tabla');
+	var clonePrimerElto=tabla.firstElementChild.cloneNode(true);
+	var cloneUltimoElto=tabla.lastElementChild.cloneNode(true);
+	tabla.firstElementChild.outerHTML=cloneUltimoElto.outerHTML;
+	tabla.lastElementChild.outerHTML=clonePrimerElto.outerHTML;
+	
+}
+</script>
+</body>
+</html>

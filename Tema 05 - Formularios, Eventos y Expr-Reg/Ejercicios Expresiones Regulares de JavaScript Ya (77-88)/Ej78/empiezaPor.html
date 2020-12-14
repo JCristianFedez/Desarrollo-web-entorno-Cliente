@@ -1,0 +1,58 @@
+<!-- Ingresar una oración y mostrar un mensaje si la misma 
+comienza con el carácter '-'.
+
+Otro mensaje si comienzo con la palabra 'hora'. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej78</title>
+  </head>
+  <body>
+    <form action="">
+      <label for="valor"
+        >Valor:
+        <input type="text" name="valor" id="valor" />
+      </label>
+      <br />
+      <input type="button" value="Comprobar" id="boton" />
+    </form>
+    <div id="respuesta"></div>
+    <script>
+      function cargar() {
+        let boton = document.getElementById("boton");
+        boton.addEventListener("click", comprobar);
+      }
+
+      function comprobar(elEvent) {
+        let texto = document.getElementById("valor");
+        let respuesta = document.getElementById("respuesta");
+        let myP1 = document.createElement("p");
+        let myP2 = document.createElement("p");
+        let patron1 = /^-/;
+        let patron2 = /^hora/;
+
+        while (respuesta.firstChild) {//Limpio el div
+            respuesta.removeChild(respuesta.firstChild);
+        }
+
+        if (patron1.test(texto.value)) myP1.innerHTML = "Empieza por - ";
+         else myP1.innerHTML = "No empieza por - ";
+
+        
+
+        if (patron2.test(texto.value)) myP2.innerHTML = "Empieza por hora ";
+         else myP2.innerHTML = "No empieza por hora ";
+        
+
+        respuesta.appendChild(myP1);
+        respuesta.insertBefore(myP2,myP1);
+
+        //respuesta.insertAdjacentHTML("afterbegin",myP2.outerHTML);
+      }
+
+      addEventListener("DOMContentLoaded", cargar, false);
+    </script>
+  </body>
+</html>
