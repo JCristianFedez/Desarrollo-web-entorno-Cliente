@@ -1,0 +1,50 @@
+<!-- Ingresar una palabra y mostrar un mensaje si la 
+    misma finaliza con el string 'ón'. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej78</title>
+  </head>
+  <body>
+    <form action="" id="myForm">
+      <label for="valor"
+        >Valor:
+        <input type="text" name="valor" id="valor" />
+      </label>
+      <br />
+      <input type="button" value="Comprobar" id="boton" />
+    </form>
+    <div id="respuesta"></div>
+    <script>
+      function cargar() {
+        let boton = document.getElementById("boton");
+        let myForm = document.getElementById("myForm");
+        boton.addEventListener("click", comprobar);
+        myForm.addEventListener("submit", comprobar);
+
+      }
+
+      function comprobar(elEvent) {
+        let texto = document.getElementById("valor");
+        let respuesta = document.getElementById("respuesta");
+        let myP = document.createElement("p");
+        let patron = /on$/;
+
+        while (respuesta.firstChild) {//Limpio el div
+            respuesta.removeChild(respuesta.firstChild);
+        }
+
+        if (patron.test(texto.value)) myP.innerHTML = "Termina por 'on'";
+         else myP.innerHTML = "No termina por 'on'";
+       
+        respuesta.appendChild(myP);
+        //respuesta.insertAdjacentHTML("afterbegin",myP2.outerHTML);
+        return false;
+      }
+
+      addEventListener("DOMContentLoaded", cargar, false);
+    </script>
+  </body>
+</html>

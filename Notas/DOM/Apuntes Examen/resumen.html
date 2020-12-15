@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="uft-8" />
+	<title>Acceso DOM</title>
+</head>
+<body>
+<div class="button-container">
+    <input type="button" onclick="insertar();" value="Insertar texto nuevo">
+    <input type="button" onclick="intercambiarPrimeroUltimo();" value="Intercambiar">
+    <input type="button" onclick="eliminarTodo();" value="Eliminar todos los elementos" >
+    <input type="button" onclick="clonarTodo();" value="Clonar Todo" >
+    <input type="button" onclick="beforebegin();" value="Ejemplo: beforebegin" >
+    <input type="button" onclick="afterbegin();" value="Ejemplo: afterbegin" >
+    <input type="button" onclick="beforeend();" value="Ejemplo: beforeend" >
+    <input type="button" onclick="afterend();" value="Ejemplo: afterend" >
+</div>
+<br>
+<label for="txtCaja">Texto: 
+    <input type="text" id="txtCaja">
+</label>
+<br>
+<table id="tabla" style="border:1px dashed greed;"></table>
+<script>
+function insertar(){
+	var texto=document.getElementById('txtCaja').value;
+	var codigoFila="<td>" +  texto + "</td>";
+	codigoFila += "<td><input type='button' onclick='copiarEncima(this);' value='Copiar encima'></td>";
+	codigoFila += "<td><input type='button' onclick='borrar(this);' value='Borrar'></td>";
+	codigoFila += "<td><input type='button' onclick='actualizar(this);' value='Actualizar'></td>";
+	
+	var fila=document.createElement('tr');
+	fila.innerHTML=codigoFila;
+	document.getElementById('tabla').appendChild(fila);
+	
+}
+function borrar(boton){
+	var filaABorrar=boton.parentElement.parentElement; // Será un elto tr
+	
+	// Manera 1 de eliminar el elto tr
+	// filaABorrar.remove();
+	
+	// Manera 2 de eliminar el elto tr
+	document.getElementById('tabla').removeChild(filaABorrar);
+}
+
+function copiarEncima(boton){
+	var filaActual=boton.parentElement.parentElement;
+	var filaACopiar=boton.parentElement.parentElement.cloneNode(true);
+	document.getElementById('tabla').insertBefore(filaACopiar,filaActual);
+}
+
+function actualizar(boton){
+	var texto=document.getElementById('txtCaja').value;
+	var filaActual=boton.parentElement.parentElement;
+	filaActual.firstElementChild.innerHTML=texto;
+}
+
+function intercambiarPrimeroUltimo(){
+	var tabla=document.getElementById('tabla');
+	var clonePrimerElto=tabla.firstElementChild.cloneNode(true);
+	var cloneUltimoElto=tabla.lastElementChild.cloneNode(true);
+	tabla.firstElementChild.outerHTML=cloneUltimoElto.outerHTML;
+	tabla.lastElementChild.outerHTML=clonePrimerElto.outerHTML;
+}
+
+function eliminarTodo(){
+    let tabla=document.getElementById("tabla");
+    while(tabla.firstChild){
+        tabla.removeChild(tabla.firstChild);
+    }
+}
+
+function clonarTodo(){
+    let tabla=document.getElementById("tabla");
+    let hijos=tabla.cloneNode(true).children;
+    hijos.id="1";
+    while(hijos.length!=0){
+        tabla.append(hijos[0]);
+    }
+}
+
+function beforebegin(){
+    let tabla=document.getElementById('tabla');
+    var texto=document.getElementById('txtCaja').value;
+	var codigoFila="<td>" +  texto + "</td>";
+	codigoFila += "<td><input type='button' onclick='copiarEncima(this);' value='Copiar encima'></td>";
+	codigoFila += "<td><input type='button' onclick='borrar(this);' value='Borrar'></td>";
+	codigoFila += "<td><input type='button' onclick='actualizar(this);' value='Actualizar'></td>";
+	
+	var fila=document.createElement('tr');
+	fila.innerHTML=codigoFila;
+	tabla.insertAdjacentHTML("beforebegin",fila.outerHTML);
+}
+
+function afterbegin(){
+    let tabla=document.getElementById('tabla');
+    var texto=document.getElementById('txtCaja').value;
+	var codigoFila="<td>" +  texto + "</td>";
+	codigoFila += "<td><input type='button' onclick='copiarEncima(this);' value='Copiar encima'></td>";
+	codigoFila += "<td><input type='button' onclick='borrar(this);' value='Borrar'></td>";
+	codigoFila += "<td><input type='button' onclick='actualizar(this);' value='Actualizar'></td>";
+	
+	var fila=document.createElement('tr');
+	fila.innerHTML=codigoFila;
+	tabla.insertAdjacentHTML("afterbegin",fila.outerHTML);
+}
+
+function beforeend(){
+    let tabla=document.getElementById('tabla');
+    var texto=document.getElementById('txtCaja').value;
+	var codigoFila="<td>" +  texto + "</td>";
+	codigoFila += "<td><input type='button' onclick='copiarEncima(this);' value='Copiar encima'></td>";
+	codigoFila += "<td><input type='button' onclick='borrar(this);' value='Borrar'></td>";
+	codigoFila += "<td><input type='button' onclick='actualizar(this);' value='Actualizar'></td>";
+	
+	var fila=document.createElement('tr');
+	fila.innerHTML=codigoFila;
+	tabla.insertAdjacentHTML("beforeend",fila.outerHTML);
+}
+
+function afterend(){
+    let tabla=document.getElementById('tabla');
+    var texto=document.getElementById('txtCaja').value;
+	var codigoFila="<td>" +  texto + "</td>";
+	codigoFila += "<td><input type='button' onclick='copiarEncima(this);' value='Copiar encima'></td>";
+	codigoFila += "<td><input type='button' onclick='borrar(this);' value='Borrar'></td>";
+	codigoFila += "<td><input type='button' onclick='actualizar(this);' value='Actualizar'></td>";
+	
+	var fila=document.createElement('tr');
+	fila.innerHTML=codigoFila;
+	tabla.insertAdjacentHTML("afterend",fila.outerHTML);
+}
+</script>
+</body>
+</html>

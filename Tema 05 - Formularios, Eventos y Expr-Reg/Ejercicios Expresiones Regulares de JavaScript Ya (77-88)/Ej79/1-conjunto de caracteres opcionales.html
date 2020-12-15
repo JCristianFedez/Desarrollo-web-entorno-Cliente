@@ -1,0 +1,50 @@
+<!-- Controlar si la palabra ingresada comienza con el 
+primer carácter alfabético ya sea en mayúsculas 
+o en minúsculas: -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej79</title>
+</head>
+<body>
+    <form action="">
+        <label for="valor">Valor: 
+            <input type="text" name="valor" id="valor">
+        </label>
+        <br>
+        <input type="button" value="Comprobar" id="boton">
+    </form>
+    <div id="respuesta"></div>
+    <script>
+        function cargar(){
+            let boton=document.getElementById("boton");
+            boton.addEventListener("click",comprobar);
+        }
+
+        function comprobar(elEvent){
+            let respuesta = document.getElementById("respuesta");
+            let myP = document.createElement("p");
+            let valor=document.getElementById("valor");
+
+            while (respuesta.firstChild) {//Limpio el div
+            respuesta.removeChild(respuesta.firstChild);
+            }
+
+            let patron=/^[a-zA-Z]/;
+
+            if(patron.test(valor.value)){
+                valor.setCustomValidity("");
+                myP.innerHTML = "Empieza por letra";
+            }else{
+                myP.innerHTML = "No comienza por letra";
+                valor.setCustomValidity("No comienza por letra");
+            }
+
+            respuesta.appendChild(myP);
+        }
+        addEventListener("DOMContentLoaded",cargar,false);
+    </script>
+</body>
+</html>

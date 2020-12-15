@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <label for="listaProvincias">Provincias:</label>
+    <select id="listaProvincias"></select>
+    <script>
+        function poblarProvincias(){
+            var listaProvincias=document.getElementById('listaProvincias');
+        var provincias=["Huelva", "Sevilla", "Córdoba", "Jaén", "Almería", "Granada", "Málaga", "Cádiz"];
+        for (var i=0; i < provincias.length ; i++){
+            var elto=document.createElement('option');
+            elto.value=provincias[i];
+            elto.innerHTML=provincias[i];
+            listaProvincias.appendChild(elto);
+        }
+        }
+       
+     </script>
+	<input type="button" onclick="poblarProvincias();" value="Poblar">
+</body>
+</html>

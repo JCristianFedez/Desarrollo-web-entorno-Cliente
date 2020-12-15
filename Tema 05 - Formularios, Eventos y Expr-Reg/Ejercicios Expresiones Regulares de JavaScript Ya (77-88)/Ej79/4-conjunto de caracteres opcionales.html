@@ -1,0 +1,38 @@
+<!-- Ingresar una palabra y luego mostrar un mensaje si 
+    contiene una vocal en alguna parte de la palabra.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej79</title>
+</head>
+<body>
+    <form action="">
+        <label for="valor">Valor: 
+            <input type="text" name="valor" id="valor">
+        </label>
+        <br>
+        <input type="submit" value="Comprobar" id="boton">
+    </form>
+    <script>
+        function cargar(){
+            let boton=document.getElementById("boton");
+            boton.addEventListener("click",comprobar);
+        }
+
+        function comprobar(elEvent){
+            let valor=document.getElementById("valor");
+
+            let patron=/[aeiouAEIOUaeiouáéíóúÁÉÍÓÚ]/;
+
+            if(patron.test(valor.value))alert("La palabra contiene ninguna vocal");  
+            else alert("La palabra no contiene alguna vocal");
+                
+        }
+
+        addEventListener("DOMContentLoaded",cargar,false);
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!-- Ingresar todos los caracteres con significada especial 
+    en las expresiones regulares en el siguiente 
+    orden: ^$.*+?=!:|\/()[]{} (es necesario escapar todos 
+    los metacaracteres):
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej79</title>
+</head>
+<body>
+    <form action="">
+        <label for="valor">Ingrese esos caracteres especiales para expresiones regulares en este mismo orden: ^$.*+?=!:|\/()[]{} ','': <br>
+            <textarea name="valor" id="valor" cols="30" rows="10"></textarea>
+        </label>
+        <br>
+        <input type="submit" value="Comprobar" id="boton">
+    </form>
+    <script>
+        function cargar(){
+            let boton=document.getElementById("boton");
+            boton.addEventListener("click",comprobar);
+        }
+
+        function comprobar(elEvent){
+            let valor=document.getElementById("valor");
+
+            let patron=/^\^\$\.\*\+\?\=\!\:\|\\\/\(\)\[\]\{\}$/;
+
+            if(patron.test(valor.value))alert('Orden correcto'); 
+            else alert('Incorrecto');
+                
+        }
+
+        addEventListener("DOMContentLoaded",cargar,false);
+    </script>
+</body>
+</html>

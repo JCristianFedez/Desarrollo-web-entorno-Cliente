@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Acceso al DOM</title>
+    </head>
+    <body>
+        <h3>Lista dinámica</h3>
+		<ul id="miLista"></ul>
+        <hr>
+        <label>Nuevo Texto</label><input type="text" id="txtTexto" />
+		<br>
+		<input type="button" onclick="addElementInsertAdjacentHTML();" value="Añadir elto con insertAdjacentHTML" />
+		<br>
+		<input type="button" onclick="addElementCreateElement();" value="Añadir elto con createElement" />
+        <script>
+		function addElementInsertAdjacentHTML(){
+		   var lista=document.getElementById('miLista');
+		   var texto=document.getElementById('txtTexto').value;
+		   lista.insertAdjacentHTML('beforeend',"<li>" + texto + "</li>");
+		   document.getElementById('txtTexto').value="";
+		}
+		
+		function addElementCreateElement(){
+			var lista=document.getElementById('miLista');
+			var texto=document.getElementById('txtTexto').value;
+			var elemento=document.createElement('li');
+			elemento.innerHTML=texto;
+			lista.appendChild(elemento);
+			document.getElementById('txtTexto').value="";
+		}
+         
+			
+        </script>
+    </body>
+</html>

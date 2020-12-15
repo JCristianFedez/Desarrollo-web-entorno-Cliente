@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>DOM</title>
+	<meta charset="utf-8" >
+</head>
+<body>
+<script>
+	window.addEventListener('load',cargarDOM1, false);
+	function cargarDOM1(evento){
+		//alert ("window onload!");
+		//console.log("window onload!");
+		var parrafos=document.getElementsByTagName('p');
+		console.log("innerHTML: " + parrafos[0].innerHTML);
+		console.log("outerHTML: " + parrafos[0].outerHTML);
+	}
+</script>
+<div id="elementosTag">
+<h3>Modificar el DOM</h3>
+<p>Lorem ipsum dolor sit amet</p>
+
+<p>Praesent cursus sollicitudin nunc sit amet pharetra.p>
+
+<p>Cras faucibus porttitor sem id fermentum.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!-- Ingresar una oración por teclado y luego mostrar un 
+    mensaje si el string ingresado contiene al menos uno 
+    de los caracteres que son un comando o metacaracter 
+    para las expresiones regulares:
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej79</title>
+</head>
+<body>
+    <form action="">
+        <label for="valor">Valor: <br>
+            <textarea name="valor" id="valor" cols="30" rows="10"></textarea>
+        </label>
+        <br>
+        <input type="submit" value="Comprobar" id="boton">
+    </form>
+    <script>
+        function cargar(){
+            let boton=document.getElementById("boton");
+            boton.addEventListener("click",comprobar);
+        }
+
+        function comprobar(elEvent){
+            let valor=document.getElementById("valor");
+
+            let patron=/[\^$.*+?=!:|\\/()\[\]{}]/;
+
+            if(patron.test(valor.value))alert('La oración tiene al menos un carácter ^ $. * +? =! : | \ / () [] {}'); 
+            else alert('La oración no tiene ningún carácter ^ $. * +? =! : | \ / () [] {}');
+                
+        }
+
+        addEventListener("DOMContentLoaded",cargar,false);
+    </script>
+</body>
+</html>
