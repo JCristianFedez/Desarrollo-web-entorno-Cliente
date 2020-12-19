@@ -1,0 +1,46 @@
+<!-- Por ejemplo si queremos validar el ingreso de cualquier
+cadena de 5 caracteres que comience con a y finalice 
+con a podemos plantear la siguiente expresión regular: -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+
+<body>
+    <p>Por ejemplo si queremos validar el ingreso de cualquier cadena de 5 caracteres que comience con a y finalice con
+        a podemos plantear la siguiente expresión regular:</p>
+        <br>
+        <form action="">
+            <label for="texto">Texto: 
+                <input type="text" name="texto" id="texto">
+            </label>
+            <br>
+            <input type="button" value="Comprobar" id="boton">
+        </form>
+        <br>
+        <div id="respuesta"></div>
+
+        <script>
+            function cargar(){
+                let boton = document.getElementById("boton");
+                boton.addEventListener("click",comprobar);
+            }
+
+            function comprobar(){
+                let respuesta=document.getElementById("respuesta");
+                let texto=document.getElementById("texto").value;
+                let patron=/^a.{3}a$/;
+
+                if(patron.test(texto))respuesta.innerHTML="Correcto";
+                else respuesta.innerHTML="Incorrecto";
+            }
+
+            addEventListener("DOMContentLoaded",cargar);
+        </script>
+</body>
+
+</html>

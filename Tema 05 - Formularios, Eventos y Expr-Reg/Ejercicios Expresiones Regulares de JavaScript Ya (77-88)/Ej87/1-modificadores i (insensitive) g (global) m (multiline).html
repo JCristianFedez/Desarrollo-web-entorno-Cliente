@@ -1,0 +1,60 @@
+<!-- El objeto RegExp se le puede aplicar tres modificadores 
+que actúan sobre el patrón completo.
+
+i: especifica que la búsqueda se realiza sin 
+   diferenciar entre mayúsculas y minúsculas.
+
+g: indica que los caracteres a buscar pueden 
+   ser encontrados varias veces en la cadena 
+   de caracteres.
+
+m: el modificador m realiza coincidencia de
+   patrones en el modo multilínea. En este modo, 
+   si la cadena a buscar contiene varias líneas, 
+   el metacaracter ^ y $ deben coincidir con el
+   inicio y final de una línea, además de que 
+   coincida con el comienzo y el final de una cadena.
+
+Estos modificadores pueden aplicarse en forma independiente 
+o conjunta a una expresión regular. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="texto">Texto:
+            <input type="text" name="texto" id="texto" value="Administracion">
+        </label>
+        <br>
+        <input type="button" value="Comprobar" id="boton">
+    </form>
+    <br>
+    <div id="respuesta"></div>
+    <script>
+        function cargar() {
+            let boton = document.getElementById("boton");
+            boton.addEventListener("click", comprobar);
+        }
+
+        function comprobar() {
+            let respuesta = document.getElementById("respuesta");
+            let texto = document.getElementById("texto").value;
+            let patron = /adm/i;
+
+            if (patron.test(texto)) respuesta.innerHTML =
+                `La palabra ${respuesta} contiene la cadena adm sin tener en cuenta minusculas y mayusculas`;
+            else respuesta.innerHTML =
+                `La palabra ${respuesta} no contiene la cadena adm sin tener en cuenta minusculas y mayusculas`;
+        }
+
+        addEventListener("DOMContentLoaded", cargar);
+    </script>
+</body>
+
+</html>

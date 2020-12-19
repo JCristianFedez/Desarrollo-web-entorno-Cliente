@@ -1,0 +1,68 @@
+<!-- El objeto RegExp se le puede aplicar tres modificadores 
+que actúan sobre el patrón completo.
+
+i: especifica que la búsqueda se realiza sin 
+   diferenciar entre mayúsculas y minúsculas.
+
+g: indica que los caracteres a buscar pueden 
+   ser encontrados varias veces en la cadena 
+   de caracteres.
+
+m: el modificador m realiza coincidencia de
+   patrones en el modo multilínea. En este modo, 
+   si la cadena a buscar contiene varias líneas, 
+   el metacaracter ^ y $ deben coincidir con el
+   inicio y final de una línea, además de que 
+   coincida con el comienzo y el final de una cadena.
+
+Estos modificadores pueden aplicarse en forma independiente 
+o conjunta a una expresión regular. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej02</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="texto">Texto:
+            <input type="text" name="texto" id="texto" value="El auto tiene el mejor motor que elegimos">
+        </label>
+        <br>
+        <input type="button" value="Comprobar" id="boton">
+    </form>
+    <br>
+    <div id="respuesta"></div>
+    <script>
+        function cargar() {
+            let boton = document.getElementById("boton");
+            boton.addEventListener("click", comprobar);
+        }
+
+        function comprobar() {
+            let respuesta = document.getElementById("respuesta");
+            let oracion = document.getElementById("texto").value;
+            let patron = /el/gi;
+
+            let vec = patron.exec(oracion);
+            respuesta.innerHTML=vec.index; //0
+            
+            vec = patron.exec(oracion);
+            respuesta.innerHTML+="<br>"+vec.index; //14
+
+            vec = patron.exec(oracion);
+            respuesta.innerHTML+="<br>"+vec.index; //33
+
+            vec = patron.exec(oracion);
+            respuesta.innerHTML+="<br>"+vec.index; //null
+
+        }
+
+        addEventListener("DOMContentLoaded", cargar);
+    </script>
+</body>
+
+</html>

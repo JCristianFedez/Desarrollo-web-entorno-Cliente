@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej03</title>
+    <style>
+        .container{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Zona 1</h1>
+    <div id="container1" class="container">
+        <p>Parrafo 1</p>
+        <p>Parrafo 2</p>
+        <p>Parrafo 3</p>
+        <p>Parrafo 4</p>
+        <p>Parrafo 5</p>
+        <p>Parrafo 6</p>
+    </div>
+    <h1>Zona 2</h1>
+    <div id="container2" class="container"></div>
+
+    <button onclick="iniciar();">Iniciar</button>
+    <script>
+    let running=false;
+    let refInterval;
+    let auxMensaje;
+    function iniciar(){
+        if(!running){ 
+            refInterval=setInterval(intercambiarParrafo,1000); 
+            running=true; 
+        } else{
+            alert("Actualmente está iniciado el temporizador. Espera a que finalice");
+        }
+        
+    }
+
+    
+    function intercambiarParrafo(){
+        let d1=document.getElementById("container1");
+        let d2=document.getElementById("container2");
+
+        let aux=d1.firstElementChild;
+        d2.appendChild(aux);
+
+         if(d1.childElementCount<=0){
+            clearInterval(refInterval);
+            running=false;
+            //La siguiente linea es debido para que muestre el mensaje .5 segundos despues
+            //ya que si pongo directamente el alert no me cambia el ultimo "p" hasta que
+            //acepto el alert
+            auxMensaje=setInterval(mensaje,500);
+        } 
+    }
+    
+    function mensaje(){
+        alert("Completado");
+        clearInterval(auxMensaje);
+    }
+    </script>
+</body>
+</html>

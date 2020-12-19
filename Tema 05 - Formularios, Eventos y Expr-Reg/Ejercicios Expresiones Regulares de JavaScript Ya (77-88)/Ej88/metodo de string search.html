@@ -1,0 +1,22 @@
+<!-- El primer método es el search. Este método busca la primer 
+ocurrencia del string según la expresión que le hemos 
+pasado como parámetro. Devuelve un entero indicando la 
+posición donde comienza la cadena encontrada o un -1 si 
+no encuentra el patrón en el string. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejemplo de JavaScript</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<script>
+  let oracion='La noche está muy oscura y estrellada.';
+  if (oracion.search(/estrella/)!=-1)
+    alert('el string estrella está contenido en la variable oracion');
+</script>
+  
+</body>
+</html>

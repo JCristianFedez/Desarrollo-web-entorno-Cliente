@@ -1,0 +1,39 @@
+<!-- Solicitar el ingreso de la coordenada de un punto. 
+    El formato a ingresar por teclado es: (999,999)
+
+Los números pueden tener entre 1 y 3 dígitos.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej02</title>
+</head>
+<body>
+    <form action="">
+        <label for="texto">Texto (999,999): 
+            <input type="text" name="texto" id="texto">
+        </label>
+        <br>
+        <input type="button" value="Comprobar" id="boton">
+    </form>
+    <br>
+    <div id="respuesta"></div>
+    <script>
+        function cargar(){
+            let boton=document.getElementById("boton");
+            boton.addEventListener("click",comprobar);
+        }
+
+        function comprobar(){
+            let texto=document.getElementById("texto").value;
+            let respuesta=document.getElementById("respuesta");
+            let patron=/\([0-9]{1,3}\,[0-9]{1,3}\)/;
+            if(patron.test(texto))respuesta.innerHTML="Correcto";
+            else respuesta.innerHTML="Incorrecto";
+        }
+
+        addEventListener("DOMContentLoaded",cargar);
+    </script>
+</body>
+</html>

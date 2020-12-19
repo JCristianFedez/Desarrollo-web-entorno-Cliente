@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="uft-8" />
+    <title>Acceso DOM</title>
+    <style>
+      table,
+      td {
+        border: 1px solid black;
+      }
+
+      td {
+        padding: 0.25rem;
+      }
+
+      #tabla tr:nth-child(even) {
+        background-color: lightgray;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+
+  <body>
+    <span>Texto</span>
+    <input type="text" id="txtCaja" />
+    <input type="button" onclick="insertar();" value="Insertar texto nuevo" />
+    <!-- <input type="button" onclick="intercambiarPrimeroUltimo();" value="Intercambiar"> -->
+    <br /><br />
+    <label for="fila1"
+      >Fila1:
+      <input type="text" name="fila1" id="fila1" />
+    </label>
+    <label for="fila2"
+      >Fila2:
+      <input type="text" name="fila2" id="fila2" />
+    </label>
+    <button onclick="cambiarFilas();">Intercambiar Filas</button>
+    <br />
+    <h1>Tabla</h1>
+    <table id="tabla" style="border: 1px dashed greed"></table>
+    <script>
+      function insertar() {
+        var texto = document.getElementById("txtCaja").value;
+        if (texto.length > 0) {
+          var codigoFila = "<td>" + texto + "</td>";
+          codigoFila +=
+            "<td><input type='button' onclick='copiarEncima(this);' value='Copiar encima'></td>";
+          codigoFila +=
+            "<td><input type='button' onclick='borrar(this);' value='Borrar'></td>";
+          codigoFila +=
+            "<td><input type='button' onclick='actualizar(this);' value='Actualizar'></td>";
+          codigoFila +=
+            "<td><input type='button' onclick='moverArriba(this);' value='mover Arriba'></td>";
+          codigoFila +=
+            "<td><input type='button' onclick='moverAbajo(this);' value='mover Abajo'></td>";
+
+          var fila = document.createElement("tr");
+          fila.innerHTML = codigoFila;
+          document.getElementById("tabla").appendChild(fila);
+        } else {
+          alert("Debe introducir texto");
+        }
+      }
+
+      function borrar(boton) {
+        var filaABorrar = boton.parentElement.parentElement; // Será un elto tr
+
+        // Manera 1 de eliminar el elto tr
+        // filaABorrar.remove();
+
+        // Manera 2 de eliminar el elto tr
+        document.getElementById("tabla").removeChild(filaABorrar);
+      }
+
+      function copiarEncima(boton) {
+        var filaActual = boton.parentElement.parentElement;
+        var filaACopiar = boton.parentElement.parentElement.cloneNode(true);
+        document.getElementById("tabla").insertBefore(filaACopiar, filaActual);
+      }
+
+      function actualizar(boton) {
+        var texto = document.getElementById("txtCaja").value;
+        var filaActual = boton.parentElement.parentElement;
+        filaActual.firstElementChild.innerHTML = texto;
+      }
+
+      function moverArriba(boton) {
+        let tabla = document.getElementById("tabla");
+        var filaActual = boton.parentElement.parentElement;
+        if (filaActual == tabla.firstElementChild) {
+          alert("La fila no se puede mover");
+        } else {
+          let aux = filaActual.previousElementSibling;
+          tabla.insertBefore(filaActual, aux);
+        }
+      }
+
+      function moverAbajo(boton) {
+        let tabla = document.getElementById("tabla");
+        var filaActual = boton.parentElement.parentElement;
+        if (filaActual == tabla.lastElementChild) {
+          alert("La fila no se puede mover");
+        } else {
+          let aux = filaActual.nextElementSibling;
+          tabla.insertBefore(aux, filaActual);
+        }
+      }
+
+      function cambiarFilas() {
+        let fila1 = document.getElementById("fila1").value;
+        let fila2 = document.getElementById("fila2").value;
+        let tabla = document.getElementById("tabla");
+        let aux;
+        if (
+          fila1 >= 0 &&
+          fila2 >= 0 &&
+          fila1 < tabla.childElementCount &&
+          fila2 < tabla.childElementCount &&
+          !isNaN(fila1) &&
+          !isNaN(fila2)
+        ) {
+          if (Math.abs(fila1 - fila2) == 1 || Math.abs(fila1 - fila2) == 1) {
+            if (fila1 > fila2) {
+              aux = tabla.children[fila2].nextElementSibling;
+              tabla.insertBefore(aux, tabla.children[fila2]);
+            } else {
+              aux = tabla.children[fila1].nextElementSibling;
+              tabla.insertBefore(aux, tabla.children[fila1]);
+            }
+          } else {
+            if (fila1 > fila2) {
+              let elto1 = tabla.children[fila1];
+              let elto2 = tabla.children[fila2];
+              let aux = elto2.nextElementSibling;
+
+              tabla.replaceChild(elto2, elto1);
+              tabla.insertBefore(elto1, aux);
+            } else {
+              let elto1 = tabla.children[fila1];
+              let elto2 = tabla.children[fila2];
+              let aux = elto1.nextElementSibling;
+
+              tabla.replaceChild(elto1, elto2);
+              tabla.insertBefore(elto2, aux);
+            }
+          }
+        } else {
+          alert("Debe introducir fila existente");
+        }
+      }
+
+      //   function intercambiarPrimeroUltimo() {
+      //     var tabla = document.getElementById("tabla");
+      //     var clonePrimerElto = tabla.firstElementChild.cloneNode(true);
+      //     var cloneUltimoElto = tabla.lastElementChild.cloneNode(true);
+      //     tabla.firstElementChild.outerHTML = cloneUltimoElto.outerHTML;
+      //     tabla.lastElementChild.outerHTML = clonePrimerElto.outerHTML;
+      //   }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!-- El tercer método es el split que tiene por objetivo 
+subdividir un string y retornar un vector con dichas 
+partes. Para la división toma en cuenta la expresión 
+regular pasada como parámetro. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ejemplo de JavaScript</title>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+
+  <script>
+    let cadena = '(2,3)-(4,4)-(9,3)';
+    let vec = cadena.split(/-/);
+    for (let x = 0; x < vec.length; x++) {
+      document.write(vec[x] + '<br>');
+    }
+  </script>
+
+</body>
+
+</html>

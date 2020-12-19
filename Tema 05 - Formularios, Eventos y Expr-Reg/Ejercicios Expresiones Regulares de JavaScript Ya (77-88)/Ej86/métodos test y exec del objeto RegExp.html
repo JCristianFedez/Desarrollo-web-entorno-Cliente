@@ -1,0 +1,50 @@
+<!-- La clase RegExp cuenta con otro método llamado 
+exec que retorna un vector con más datos en 
+caso que el string cumpla el patrón propuesto 
+o null si no cumple el patrón. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+
+<body>
+    <p>La clase RegExp cuenta con otro método llamado exec que retorna un vector con más datos en caso que el string
+        cumpla el patrón propuesto o null si no cumple el patrón.</p>
+        <br>
+        <form action="">
+            <label for="texto">Texto: 
+                <input type="text" name="texto" id="texto" value="saliendo de la casa que esta en la montaña">
+            </label>
+            <br>
+            <input type="button" value="Comprobar" id="boton">
+        </form>
+        <br>
+        <div id="respuesta"></div>
+        <script>
+            function cargar(){
+                let boton=document.getElementById("boton");
+                boton.addEventListener("click",comprobar);
+            }
+
+            function comprobar(){
+                let respuesta=document.getElementById("respuesta");
+                let texto=document.getElementById("texto").value;
+                let patron1=/la/;
+                let vector1=patron1.exec(texto);
+                let patron2=/lax/;
+                let vector2=patron2.exec(texto);
+                respuesta.innerHTML=`Vector ${vector1} Index : `+vector1.index;
+                respuesta.innerHTML+=`<br> Vector ${vector1} Input : `+vector1.input;
+                respuesta.innerHTML+=`<br> Vector ${vector2} Index : `+vector2.index;
+                respuesta.innerHTML+=`<br> Vector ${vector2} Input : `+vector2.input;
+            }
+
+            addEventListener("DOMContentLoaded",cargar);
+        </script>
+</body>
+
+</html>

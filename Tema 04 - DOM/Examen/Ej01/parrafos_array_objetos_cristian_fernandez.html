@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+
+<body>
+<div id="container"></div>
+
+    <script>
+        let textArray=[
+            {texto:"Martillo",fuente:"Verdadna",size:"15",color:"Rojo",visible:"Si"},
+            {texto:"Sierra",fuente:"Verdadna",size:"20",color:"Azul",visible:"Si"},
+            {texto:"Percutor",fuente:"Verdadna",size:"25",color:"Amarillo",visible:"Si"},
+            {texto:"Alicates",fuente:"Courier",size:"30",color:"Negro",visible:"No"},
+            {texto:"Alicates",fuente:"Courier",size:"35",color:"Rojo",visible:"Si"}
+        ];
+        let div=document.getElementById("container");
+        for (let i = 0; i < textArray.length; i++) {
+            let myColor;
+            switch(textArray[i].color){
+                case "Rojo":myColor="red";
+                    break;
+                case "Azul":myColor="blue";
+                    break;
+                case "Amarillo":myColor="yellow";
+                    break;
+                case "Negro":myColor="black";
+                    break;
+                    default:myColor="black";//Por si se introduce color distinto
+            }
+
+            let myVisibilidad;
+            switch(textArray[i].visible){
+                case "Si":myVisibilidad="visibility";
+                    break;
+                case "No":myVisibilidad="hidden";
+                    break;
+                    default:myVisibilidad="visibility";//Por si se introduce visibilidad distinto
+            }
+
+            let p=document.createElement("p");
+            p.innerHTML=textArray[i].texto;
+            p.style.fontFamily=textArray[i].fuente;
+            p.style.color=myColor;
+            p.style.visibility=myVisibilidad;
+            p.style.fontSize=textArray[i].size+"px";
+            div.appendChild(p);
+        }
+    </script>
+</body>
+
+</html>

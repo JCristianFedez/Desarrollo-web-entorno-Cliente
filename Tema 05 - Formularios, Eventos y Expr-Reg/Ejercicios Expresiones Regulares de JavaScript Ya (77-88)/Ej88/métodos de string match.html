@@ -1,0 +1,24 @@
+<!-- Se tiene un string donde tenemos almacenados los nombres 
+de personas seguido de sus edades. Generar un 
+vector solo con las edades de todas las personas. -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let cadena = 'juan 10 luis 43 pedro 21 carlos 33';
+        let vec = cadena.match(/\d+/g);
+        for (let x = 0; x < vec.length; x++) {
+            document.write(vec[x] + '<br>');
+        }
+    </script>
+
+</body>
+
+</html>

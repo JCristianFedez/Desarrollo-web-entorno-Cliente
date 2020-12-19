@@ -1,0 +1,44 @@
+<!-- Validar si un string contiene 4 números de 3 dígitos 
+cada uno separados por coma. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+
+<body>
+    <p>Validar si un string contiene 4 números de 3 dígitos
+        cada uno separados por coma. </p>
+    <br>
+    <form action="">
+        <label for="text">Texto:
+            <input type="text" name="text" id="text">
+        </label>
+        <br>
+        <input type="button" value="Comprobar" id="boton">
+    </form>
+    <br>
+    <div id="respuesta"></div>
+    <script>
+        function cargar(){
+            let boton=document.getElementById("boton");
+            boton.addEventListener("click",comprobar)
+        }
+
+        function comprobar(){
+            let respuesta=document.getElementById("respuesta");
+            let texto=document.getElementById("text").value;
+            let patron=/^\d{3}\,\d{3}\,\d{3}\,\d{3}$/;
+
+            if(patron.test(texto))respuesta.innerHTML="Correcto";
+            else respuesta.innerHTML="Incorrecto";
+        }
+
+        addEventListener("DOMContentLoaded",cargar);
+    </script>
+</body>
+
+</html>

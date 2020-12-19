@@ -1,0 +1,46 @@
+<!-- Confeccionar una expresión regular que 
+valide el ingreso del nombre de un día 
+de la semana, un espacio y un número de 
+1 o 2 dígitos. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+
+<body>
+    <p>Confeccionar una expresión regular que valide el ingreso del nombre de un día de la semana, un espacio y un
+        número de 1 o 2 dígitos.</p>
+    <br>
+    <form action="">
+        <label for="texto">Texto: 
+            <input type="text" name="texto" id="texto">
+        </label>
+        <br>
+        <input type="button" value="Comprobar" id="boton">
+    </form>
+    <br>
+    <div id="respuesta"></div>
+
+    <script>
+        function cargar(){
+            let boton=document.getElementById("boton");
+            boton.addEventListener("click",comprobar);
+        }
+
+        function comprobar(){
+            let respuesta=document.getElementById("respuesta");
+            let texto=document.getElementById("texto").value;
+            let patron=/[lunes|martes|miercoles|jueves|viernes|sabado|domingo]\s\d{1,2}$/;
+            if(patron.test(texto))respuesta.innerHTML="Correcto";
+            else respuesta.innerHTML="Incorrecto";
+        }
+
+        addEventListener("DOMContentLoaded",cargar);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!-- Ingresar una palabra por teclado y validar que tenga 
+al menos una vocal. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej01</title>
+</head>
+<body>
+    <p>Ingresar una palabra por teclado y validar que tenga 
+        al menos una vocal.</p>
+        <br>
+    <label for="texto">Texto: 
+        <input type="text" name="texto" id="texto">
+    </label>
+    <br>
+    <input type="button" value="Comprobar" id="boton">
+    <br>
+    <div id="respuesta"></div>
+
+    <script>
+        function cargar(){
+            let boton=document.getElementById("boton");
+            boton.addEventListener("click",comprobar);
+        }
+
+        function comprobar(){
+            let texto=document.getElementById("texto").value;
+            let respuesta=document.getElementById("respuesta");
+            let patron=/[aeiouAEIOUáéíóú]+/;
+            if(patron.test(texto))respuesta.innerHTML="Correcto";
+            else respuesta.innerHTML="Incorrecto";
+        }
+
+    addEventListener("DOMContentLoaded",cargar);
+    </script>
+</body>
+</html>
