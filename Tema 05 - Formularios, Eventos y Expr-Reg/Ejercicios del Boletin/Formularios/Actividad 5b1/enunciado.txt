@@ -1,0 +1,31 @@
+Crear un formulario para dar de alta a nuevos pacientes. 
+El formulario se ejecutará en navegadores modernos, por lo que puedes usar HTML5 
+para los controles y validaciones. 
+
+Requisitos:
+Debe tener un campo Nombre para introducir el nombre del paciente. Será un campo obligatorio 
+y de longitud máxima 30 caracteres.
+
+Debe tener un campo Sexo para introducir Hombre/Mujer mediante controles de tipo radio. 
+Este campo será obligatorio  
+
+Debe tener un campo Altura usando un control de tipo number que estará limitado al rango de 50 a 210. 
+Este campo será obligatorio
+
+Debe tener un campo Fecha nacimiento que permita al usuario seleccionar la fecha de un calendario. 
+Este campo será obligatorio
+
+Debe tener un campo Semana Preferente para la cita que permita al usuario seleccionar la semana 
+del año mediante un calendario gráfico. 
+Este campo será opcional
+
+Debe tener un campo Fumador que permita mediante una casilla de verificación marcar 
+si el paciente es fumador. 
+En caso de que se marque la casilla se habilitará la lista desplegable que permite seleccionar 
+el número de cigarrillos (Seleccionar, 1-5, 6-10, Más de 10). 
+Si no se marca la casilla fumador la lista desplegable deberá estar deshabilitada. 
+Si se marca la casilla fumador será obligatorio seleccionar el número de cigarrillos.
+
+Debe tener un campo Observaciones que será opcional de rellenar.
+
+El formulario deberá disponer de un botón para enviar el formulario y otro para borrar el contenido del mismo. El formulario sólo se enviará si supera todas las validaciones indicadas en los distintos campos en los apartados anteriores. En caso de que se supere la validación se invocará mediante POST al fichero procesa.php.

@@ -7,48 +7,83 @@
 </head>
 <body>
     <form action="procesa.php" method="post">
-        <label for="nombre">Nombre:</label>
+        <label for="nombre">Nombre(*): </label>
         <input type="text" name="nombre" id="nombre" required maxlength="30">
-        <br>
-        
-        <label for="sexo">Hombre:</label>
+        <br><br>
+
+        <span>Sexo(*): </span>
+        <label for="hombre">Hombre</label>
         <input type="radio" name="sexo" id="hombre" value="hombre" required>
-        <label for="sexo">Mujer:</label>
+        <label for="mujer">Mujer</label>
         <input type="radio" name="sexo" id="mujer" value="mujer" required>
-        <br>
+        <br><br>
 
-        <label for="altura">Altura:</label>
+        <label for="altura">Altura(50-210cm)(*):</label>
         <input type="number" name="altura" id="altura" min="50" max="210" required>
-        <br>
+        <br><br>
 
-        <label for="fecha_nacimiento">Fecha nacimiento:</label>
+        <label for="fecha_nacimiento">Fecha nacimiento(*):</label>
         <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" required>
-        <br>
+        <br><br>
 
-        <label for="semana_preferente">Semana preferente:</label>
+        <label for="semana_preferente">Semana preferente para la cita:</label>
         <input type="week" name="semana_preferente" id="semana_preferente">
-        <br>
+        <br><br>
 
-        <!--TODO: En caso de que se marque la casilla se habilitará la lista desplegable 
-            que permite seleccionar el número de cigarrillos 
-            (Seleccionar, 1-5, 6-10, Más de 10). Si no se marca la casilla 
-            fumador la lista desplegable deberá estar deshabilitada.
-            Si se marca la casilla fumador será obligatorio seleccionar 
-            el número de cigarrillos.-->
         <label for="fumador">Fumador</label>
         <input type="checkbox" name="fumador" id="fumador">
-        <br>
+
+        <label for="cant_cigarros">Nº Cigarillos: </label>
+        <select name="cant_cigarros" id="cant_cigarros" disabled>
+            <option value="">------</option>
+            <option value="entre 1 y 5">1-5</option>
+            <option value="entre 6 y 10">6-10</option>
+            <option value="mas De 10">Mas de 10</option>
+        </select>
+        <br><br>
 
         <label for="observaciones">Observaciones:</label>
-        <textarea name="observaciones" id="observaciones" cols="30" rows="10"></textarea>
         <br>
+        <textarea name="observaciones" id="observaciones" cols="30" rows="10"></textarea>
+        <br><br>
 
         <input type="submit" value="Enviar" id="enviar">
         <input type="reset" value="Borrar" id="borrar">
 
-        <!-- TODO: El formulario sólo se enviará si supera 
-            todas las validaciones indicadas en los distintos 
-            campos en los apartados anteriores -->
     </form>
+
+    <script>
+        function cargar(){
+            document.getElementById("fumador").addEventListener("click",addNumCigarros);
+            document.getElementById("cant_cigarros").addEventListener("change",validar);
+        }
+
+        function addNumCigarros(){
+            let fumador=document.getElementById("fumador");
+            let cant_cigarros=document.getElementById("cant_cigarros");
+
+            if(fumador.checked){
+                cant_cigarros.disabled=false;
+                if(cant_cigarros.value==""){
+                    cant_cigarros.setCustomValidity("Este campo es obligatorio");
+                }
+
+            }else{
+                cant_cigarros.disabled=true;
+            }
+        }
+
+        function validar(elEvento){
+            let evento = elEvento || window.event;
+            let cant_cigarros=document.getElementById("cant_cigarros");
+            if(evento.target.value==""){
+                cant_cigarros.setCustomValidity("Este campo es obligatorio");
+            }else{
+                cant_cigarros.setCustomValidity("");
+            }
+        }
+
+        addEventListener("DOMContentLoaded",cargar);
+    </script>
 </body>
 </html>
