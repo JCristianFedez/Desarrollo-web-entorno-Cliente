@@ -6,7 +6,7 @@
     <title>Actividad 5b1</title>
 </head>
 <body>
-    <form action="#" method="post">
+    <form action="procesa.php" method="post">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre" required maxlength="30">
         <br>
@@ -15,6 +15,40 @@
         <input type="radio" name="sexo" id="hombre" value="hombre" required>
         <label for="sexo">Mujer:</label>
         <input type="radio" name="sexo" id="mujer" value="mujer" required>
+        <br>
+
+        <label for="altura">Altura:</label>
+        <input type="number" name="altura" id="altura" min="50" max="210" required>
+        <br>
+
+        <label for="fecha_nacimiento">Fecha nacimiento:</label>
+        <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" required>
+        <br>
+
+        <label for="semana_preferente">Semana preferente:</label>
+        <input type="week" name="semana_preferente" id="semana_preferente">
+        <br>
+
+        <!--TODO: En caso de que se marque la casilla se habilitará la lista desplegable 
+            que permite seleccionar el número de cigarrillos 
+            (Seleccionar, 1-5, 6-10, Más de 10). Si no se marca la casilla 
+            fumador la lista desplegable deberá estar deshabilitada.
+            Si se marca la casilla fumador será obligatorio seleccionar 
+            el número de cigarrillos.-->
+        <label for="fumador">Fumador</label>
+        <input type="checkbox" name="fumador" id="fumador">
+        <br>
+
+        <label for="observaciones">Observaciones:</label>
+        <textarea name="observaciones" id="observaciones" cols="30" rows="10"></textarea>
+        <br>
+
+        <input type="submit" value="Enviar" id="enviar">
+        <input type="reset" value="Borrar" id="borrar">
+
+        <!-- TODO: El formulario sólo se enviará si supera 
+            todas las validaciones indicadas en los distintos 
+            campos en los apartados anteriores -->
     </form>
 </body>
 </html>
