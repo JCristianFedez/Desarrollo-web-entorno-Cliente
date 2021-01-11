@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 5a3</title>
+</head>
+<body>
+    <h1>Eventos (onChange)</h1>
+    <label for="localidad">Localidad: </label>
+    <select name="localidad" id="localidad">
+        <option value="Utrera">Utrera</option>
+        <option value="Los Palacios">Los Palacios</option>
+        <option value="Dos Hermanas">Dos Hermanas</option>
+    </select>
+    <span id="answer"></span>
+
+    <script>
+        function cargar(){
+            document.getElementById("localidad").addEventListener("change",selectLocalidad);
+        }
+
+        function selectLocalidad(elEvento){
+            let evento = elEvento || window.event;
+            let answer=document.getElementById("answer");
+
+            answer.innerHTML=`Localidad seleccionada: 
+            ${evento.target.value}`;
+        }
+        addEventListener("DOMContentLoaded",cargar);
+    </script>
+</body>
+</html>

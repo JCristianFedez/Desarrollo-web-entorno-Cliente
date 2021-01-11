@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 5a2</title>
+</head>
+<body>
+    <h1>Evento onchange</h1>
+
+        <label for="textoChange">Nombre (change)</label>
+        <input type="text" name="texto" id="textoChange">
+        <span id="answertextoChange"></span>
+        <br>
+        <label for="textoUpDown">Nombre (keyup & keydown)</label>
+        <input type="text" name="texto" id="textoUpDown">
+        <span id="answertextoUpDown"></span>
+        <br>
+        
+    <script>
+        function cargar(){
+            document.getElementById("textoChange").addEventListener("change",readWrite);
+            document.getElementById("textoUpDown").addEventListener("keydown",readWrite);
+            document.getElementById("textoUpDown").addEventListener("keyup",readWrite);
+        }
+
+        function readWrite(elEvento){
+            let evento = elEvento || window.event;
+
+            let writeIn=document.getElementById(`answer${evento.target.id}`);
+            writeIn.innerHTML=`Hola ${evento.target.value}`;
+        }
+        addEventListener("DOMContentLoaded",cargar);
+    </script>
+</body>
+</html>

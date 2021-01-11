@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Actividad 5a1</title>
+
+    <style>
+        div {
+            border: 1px solid black;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Manejador eventos compartido (Ver consola depuracion)</h1>
+
+    <form action="#">
+        <input type="button" value="Boton 1" id="boton1" />
+        <input type="button" value="Boton 2" id="boton2" />
+    </form>
+
+    <div id="div1">
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+    </div>
+    <div id="div2">
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+    </div>
+    <script>
+        function cargar() {
+            document
+                .getElementById("boton1")
+                .addEventListener("click", manejadorEventos);
+            document
+                .getElementById("boton2")
+                .addEventListener("click", manejadorEventos);
+            document
+                .getElementById("div1")
+                .addEventListener("mouseenter", manejadorEventos);
+            document
+                .getElementById("div2")
+                .addEventListener("mouseenter", manejadorEventos);
+        }
+
+        function manejadorEventos(elEvento) {
+            let evento = elEvento || window.event;
+            switch (evento.type) {
+                case "mouseenter":
+                    console.log(`Raton entra dentro de ${evento.target.id}`);
+                    break;
+
+                case "click":
+                    console.log(`Click sobre el ${evento.target.id}`);
+                    break;
+
+                default:
+                    console.log(`Evento : ${evento.type} en elemento con id ${evento.target.id}`);
+            }
+        }
+        
+        addEventListener("DOMContentLoaded", cargar);
+    </script>
+</body>
+
+</html>

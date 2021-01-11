@@ -1,0 +1,55 @@
+MODIFICAORES == //igms
+
+i ------ Insensible a las mayusuclas y minusculas
+g ------ Busqueda global
+m ------ Busqueda en multiples lineas de texto
+s ------ Incluye saltos de linea
+
+
+RANGOS
+
+[abc] ------ Encuentra uno de los caracteres entre corchetes
+[^abc] ----- Encuentra cualquier caracter que NO este entre corchetes
+[0-9] ------ Encuentra un digito de 0 a 9
+[^0-9] ----- Encuentra cualquier caracter que NO sea un digito de 0 a 9
+[A-Z] ------ Encuentra cualquier caracter de A mayuscula a Z mayuscula
+[a-z] ------ Encuentra cualquier caracter de a minusucla a z minuscula
+[A-z] ------ Encuentra cualquier caracter de A mayuscula a z minuscula
+(a|b) ------ Encuentra a ó b
+(...) ------ Se utilizan para agrupar partes de una expresion
+
+
+CUANTIFICADORES
+
+
+. ------ Cualquier caracter excepto salto de linea
+* ------ 0 o mas veces
++ ------ 1 o mas veces
+? ------ 0 o 1 vez
+{n} ---- n veces
+{n,} --- n o mas veces
+{n,m} -- De n a m veces
+
+
+ANCLAS
+
+^ ------ Comienzo de linea
+$ ------ Final de una linea
+
+
+
+CARACTERES ESPECIFICOS
+
+\w ------ Encuentra un caracter alfanumerico, incluido el guion bajo ----- [a-zA-Z0-9_]
+\W ------ Encuentra cualquier caracter NO alfanumerico ------ [^a-zA-Z0-9_]
+\d ------ Encuentra un digito ------ [0-9]
+\D ------ Encuentra cualquier caracter que NO es un digito ------ [^0-9]
+\s ------ Encuentra un espacio en blanco
+\S ------ Encuentra cualquier caracter que NO es un espacio en blanco
+\b ------ Encuentra una coincidencia al inicio o al final de una palabra
+\B ------ Encuentra una coincidencia que NO esta al inicio o al final de una palabra
+\n ------ Salto de linea
+\f ------ Salto de pagina
+\r ------ Retorno de carro
+\t ------ Tabulador
+\v ------ Tabulador vertical
