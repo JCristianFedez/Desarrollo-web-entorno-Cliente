@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 5c2</title>
+</head>
+<body>
+    <button id="test">Testo funcion</button>
+
+    <script>
+        function cargar(){
+            document.getElementById("test").addEventListener("click",testTerminaVocalAcentuada);
+        }
+
+        function terminaVocalAcentuada(word){
+            let pat=/[áéíóú]$/;
+            return pat.test(word);
+        }
+
+        function testTerminaVocalAcentuada(){
+            let words=["hola",1,"holá","cása","pedró"];
+            words.forEach(element => {
+                if(terminaVocalAcentuada(element)){
+                    console.log(`${element} termina en vocal accentuada`);
+                }else{
+                    console.log(`${element} no termina en vocal accentuada`);
+                }
+            });
+        }
+        addEventListener("DOMContentLoaded",cargar);
+    </script>
+</body>
+</html>

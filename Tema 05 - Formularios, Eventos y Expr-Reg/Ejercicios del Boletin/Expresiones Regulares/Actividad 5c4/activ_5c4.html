@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 5c4</title>
+</head>
+<body>
+    <button id="test">Testeo validaNumeroEntero</button>
+
+    <script>
+        function cargar(){
+            document.getElementById("test").onclick=testeoValidaNumeroEntero;
+        }
+
+        function validaNumeroEntero(num){
+            let pat=/^(\+|-)?\d+$/;
+            return pat.test(num);
+        }
+
+        function testeoValidaNumeroEntero(){
+            let numbers=["1234","+123","-1234","1+2","+"];
+            numbers.forEach(element => {
+                if(validaNumeroEntero(element)){
+                    console.log(`${element} es un numero entero VALIDO`);
+                }else{
+                    console.log(`${element} NO es un numero entero valido`);
+                }
+            });
+        }
+
+        addEventListener("DOMContentLoaded",cargar);
+    </script>
+</body>
+</html>

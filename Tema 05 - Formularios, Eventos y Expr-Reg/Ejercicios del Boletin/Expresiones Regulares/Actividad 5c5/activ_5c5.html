@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activdad 5c5</title>
+</head>
+<body>
+    <button id="test">Testeo validaNumeroDecimal</button>
+
+    <script>
+        function cargar(){
+            document.getElementById("test").addEventListener("click",testValidaNumeroDecimal);
+        }
+
+        function validaNumeroDecimal(num){
+            //Nota: Tambien permito ,25 para que no haga falta poner
+            //0,25
+            let pat=/^((\+|-)?(\d+))?(,\d+)?$/;
+            return pat.test(num);
+        }
+
+        function testValidaNumeroDecimal(){
+            let numbers=["123","-25,09","+0,23","+-2,3","1,",",25","+,25"];
+            numbers.forEach(element => {
+                if(validaNumeroDecimal(element)){
+                    console.log(`${element} es un numero VALIDO`);
+                }else{
+                    console.log(`${element} NO es un numero valido`);
+                }
+            });
+        }
+
+        addEventListener("DOMContentLoaded",cargar);
+    </script>
+</body>
+</html>

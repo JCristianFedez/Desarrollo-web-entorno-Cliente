@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 5c7</title>
+</head>
+<body>
+    <button id="test">Testeo extraerPosicionesEmails</button>
+    <button id="clearConsol">Limpiar consola</button>
+
+    <script>
+        function cargar(){
+            document.getElementById("test").addEventListener("click",testExtraerPosicionesEmails);
+            document.getElementById("clearConsol").addEventListener("click",console.clear);
+        }
+
+        function extraerPosicionesEmails(str){
+            let pat=/\b\w+@([a-zA-Z_]+\.)+[a-zA-Z]{2,6}\b/g;
+            let posiciones=[];
+
+            while((match = pat.exec(str)) !=null){
+                posiciones.push(match.index);
+            }
+
+            return posiciones;
+        }
+
+        function testExtraerPosicionesEmails(){
+            let str="asdfr@gmail.com cristian asdfr@gmail.com prueba  asdasdfr@gmail.com asasdfr@gmail.com.@aksdm aksmd asdfr@gmail.com";
+            let pos=extraerPosicionesEmails(str);
+            console.log("STRING USADO");
+            console.log(str);
+            console.log("HAY CORREOS EN LAS SIGUIENTES OCURRENCIAS");
+            console.table(pos);
+
+        }
+
+        addEventListener("DOMContentLoaded",cargar);
+    </script>
+</body>
+</html>

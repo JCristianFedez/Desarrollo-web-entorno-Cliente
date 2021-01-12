@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 5c6</title>
+</head>
+<body>
+    <button id="test">Testeo validaHora</button>
+    <button id="clearConsol">Limpiar consola</button>
+
+    <script>
+        function cargar(){
+            document.getElementById("test").addEventListener("click",testValidaHora);
+            document.getElementById("clearConsol").addEventListener("click",console.clear);
+        }
+
+        function validaHora(hora){
+            let pat=/^([0-1][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/;
+            return pat.test(hora);
+        }
+
+        function testValidaHora(){
+            console.log("RESULTADO TESTEO");
+            let horas=["01:01:01","24:59:59","23:59:59","5:4","15:54:20",":25:50"];
+            horas.forEach(element => {
+                if(validaHora(element)){
+                    console.log(`${element} es una hora VALIDA`)
+                }else{
+                    console.error(`${element} NO es una hora valida`)
+                }
+            });
+        }
+        addEventListener("DOMContentLoaded",cargar);
+    </script>
+</body>
+</html>

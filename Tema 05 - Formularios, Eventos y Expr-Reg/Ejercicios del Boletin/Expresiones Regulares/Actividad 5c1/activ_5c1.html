@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 5c1</title>
+</head>
+<body>
+    <div class="sub-container">
+        <input type="button" value="Comprobar cp" id="cpButton">
+        <input type="button" value="Extrae cp" id="extraeCPs">
+        <input type="button" value="Sustituye CP" id="sustituyeCPs">
+    </div>
+    <script>
+        //Test funccion arrow
+        // let validaCP = cp => /\s?\d{5}\s?/.test(cp);
+
+        function cargar(){
+            document.getElementById("cpButton").addEventListener("click",testValidaCP);
+            document.getElementById("extraeCPs").addEventListener("click",testExtraeCPs);
+            document.getElementById("sustituyeCPs").addEventListener("click",testSustituyeCPs);
+        }
+
+        function validaCP(cp){
+            let pat=/\b\s?\d{5}\s?\b/;
+            return pat.test(cp);
+        }
+
+        function extraeCPs(str){
+            let pat=/\b\d{5}\b/g;
+            return str.match(pat);
+        }
+
+        function sustituyeCPs(str){
+            let pat=/\b\d{5}\b/g;
+            return str.replaceAll(pat,"C.P");
+        }
+
+        function testValidaCP(){
+            let cps=[41710,58963," 55555"," 22222cristian ","2 255","asd"];
+            let todoOk=true;
+            cps.forEach(element => {
+                if(validaCP(element)){
+                    console.log(`${element} es un codigo postal`);
+                }else{
+                    console.log(`${element} no es codigo postal`);
+                }
+            });
+        }
+
+        function testExtraeCPs(){
+            let str="En un lugar 41710 de la mancha, donde44444 nacio un niño mago llamado "+
+            "44444 shrek habitaban ciratuas 44llam555555das pitufos que 14585 vivian en el colegio"+
+            "hogwarts donde aprendian a cocinar 41710";
+            let cp=extraeCPs(str);
+            console.log(`Texto: ${str}`);
+            console.log(cp);
+        }
+
+        function testSustituyeCPs(){
+            let str="En un lugar 41710 de la mancha, donde44444 nacio un niño mago llamado "+
+            "44444 shrek habitaban ciratuas 44llam555555das pitufos que 14585 vivian en el colegio"+
+            "hogwarts donde aprendian a cocinar 41710";
+            let strMod=sustituyeCPs(str);
+            console.log(`Texto sin modificar: ${str}`);
+            console.log(`Texto modificado: ${strMod}`);
+        }
+        addEventListener("DOMContentLoaded",cargar);
+    </script>
+</body>
+</html>

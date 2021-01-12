@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 5c3</title>
+</head>
+<body>
+    <button id="test">Testear validaDNI</button>
+
+    <script>
+        function cargar(){
+            document.getElementById("test").addEventListener("click",testValidaDNI);
+        }
+
+        function validaDNI(dni){
+            let pat=/^\d{8}-?[trwagmyfpdxbnjzsqvhlcke]$/i;
+            return pat.test(dni);
+        }
+
+        function testValidaDNI(){
+            let dnis=["20222255A","22222222-A","25987416-a","22222222","545856A","12345678i"];
+            dnis.forEach(element => {
+                if(validaDNI(element)){
+                    console.log(`${element} es un DNI valido`);
+                }else{
+                    console.log(`${element} no es un DNI valido`);
+                }
+            });
+        }
+
+        addEventListener("DOMContentLoaded",cargar);
+    </script>
+</body>
+</html>
