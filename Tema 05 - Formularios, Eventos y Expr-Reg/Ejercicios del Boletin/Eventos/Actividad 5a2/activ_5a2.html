@@ -16,19 +16,28 @@
         <input type="text" name="texto" id="textoUpDown">
         <span id="answertextoUpDown"></span>
         <br>
+        <label for="textoInput">Nombre (input)</label>
+        <input type="text" name="texto" id="textoInput">
+        <span id="answertextoInput"></span>
+        <br>
         
     <script>
         function cargar(){
             document.getElementById("textoChange").addEventListener("change",readWrite);
             document.getElementById("textoUpDown").addEventListener("keydown",readWrite);
             document.getElementById("textoUpDown").addEventListener("keyup",readWrite);
+            document.getElementById("textoInput").addEventListener("input",readWrite);
         }
 
         function readWrite(elEvento){
             let evento = elEvento || window.event;
 
             let writeIn=document.getElementById(`answer${evento.target.id}`);
-            writeIn.innerHTML=`Hola ${evento.target.value}`;
+            if(writeIn==""){
+                writeIn.innerHTML="";
+            }else{
+                writeIn.innerHTML=`Hola ${evento.target.value}`;
+            }
         }
         addEventListener("DOMContentLoaded",cargar);
     </script>
