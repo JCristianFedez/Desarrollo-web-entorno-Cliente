@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/script.js"></script>
+    <title>Formulario</title>
+</head>
+<body>
+    <h1>Reserva Hotel</h1>
+    <form action="#">
+        <fieldset>
+            <legend>Datos personales</legend>
+            <label for="nombre">Nombre(*):</label>
+            <input type="text" name="nombre" id="nombre" required maxlength="30">
+            <br>
+
+            <label for="dni">DNI(*):</label>
+            <input type="text" name="dni" id="dni" required>
+            <br>
+
+            <span>Sexo(*): </span>
+            <label for="hombre">Hombre</label>
+            <input type="radio" name="sexo" id="hombre" value="hombre" required>
+            <label for="mujer">Mujer</label>
+            <input type="radio" name="sexo" id="mujer" value="mujer" required>
+            <br>
+
+            <label for="fecha-nacimiento">Fecha nacimiento(*)</label>
+            <input type="date" name="fecha-nacimiento" id="fecha-nacimiento" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Datos reserva</legend>
+
+            <label for="n-adultos">Nº Adultos(*):</label>
+            <select name="n-adultos" id="n-adultos">
+                <option value="">Seleccionar</option>
+                <option value="1">Uno</option>
+                <option value="2">Dos</option>
+            </select>
+            <br>
+
+            <label for="hay-ninos">Marque si hay niños</label>
+            <input type="checkbox" name="hay-ninos" id="hay-ninos">
+            <label for="n-ninos">Nº Niños</label>
+            <select name="n-ninos" id="n-ninos" disabled>
+                <option value="">Seleccionar</option>
+                <option value="1">Uno</option>
+                <option value="2">Dos</option>
+            </select>
+            <label for="literas">¿Deseas literas?:</label>
+            <select name="literas" id="literas" disabled>
+                <option value="">Seleccionar</option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+            </select>
+            <br>
+
+            <label for="fecha-entrada">Fecha entrada(*):</label>
+            <input type="date" name="fecha-entrada" id="fecha-entrada" required>
+            <label for="fecha-salida">Fecha salida(*):</label>
+            <input type="date" name="fecha-salida" id="fecha-salida" required>
+        </fieldset>
+        <input type="submit" value="Enviar" id="enviar">
+        <input type="reset" value="Borrar">
+    </form>
+</body>
+</html>

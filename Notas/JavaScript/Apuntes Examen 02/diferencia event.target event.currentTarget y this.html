@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .box {
+            padding: 30px;
+            border: 1px solid #fff;
+            max-width: 450px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 26px;
+            text-align: center;
+        }
+
+        .outer {
+            background-color: #3977ad;
+            margin-bottom: 30px;
+        }
+
+        .middle {
+            background-color: #fe3266;
+        }
+
+        .inner {
+            background-color: #1f2531;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="outer box">
+        <div class="middle box">
+            <div class="inner box">Click me</div>
+        </div>
+    </div>
+
+    <ul>
+        <li><code>event.target</code> is the element that we actually interacted with and that triggered the event. In
+            this case, even though the event listener is bound to the outer box, event.target will be whichever box we
+            click on.</li>
+        <li><code>event.currentTarget</code> is the element we attached the event listener to. In this case, we are only
+            listening to click events on the outer box.</li>
+        <li>Within the event handler, <code>event.currentTarget = this</code></li>
+        <li>Clicking on the inner box will cause the click event to bubble up, hence being captured by our outer box and
+            running the <code>onClick</code> event handler.</li>
+    </ul>
+
+
+
+    <script>
+        console.clear();
+
+        var onClick = function (e) {
+            console.clear();
+            console.log('target', e.target.className);
+            console.log('currentTarget', e.currentTarget.className);
+            console.log('this', this.className);
+        }
+
+        document
+            .querySelector('.outer')
+            .addEventListener('click', onClick);
+    </script>
+</body>
+
+</html>

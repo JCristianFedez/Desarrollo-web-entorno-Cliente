@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h1 {
+            font-size: 32px;
+        }
+
+        #btnParar {
+            display: none;
+        }
+
+        #btnIniciar {
+            display: inline-block;
+        }
+    </style>
+    <title>Cronometro</title>
+</head>
+
+<body>
+    <button id="btnIniciar" onclick="iniciar(event)">Iniciar</button>
+    <button id="btnParar" onclick="parar(event)">Parar</button>
+    <h1 id="relogio"></h1>
+
+    <script>
+        var i = 0;
+        var relogio;
+
+        function iniciar(ev) {
+            i = 0;
+            document.getElementById("btnIniciar").style.display = "none";
+            document.getElementById("btnParar").style.display = "block";
+            relogio = setInterval(function () {
+                i++; // equivale a i = i + 1;
+                document.getElementById("relogio").innerHTML = i;
+            }, 1000);
+        }
+
+        function parar(ev) {
+            clearInterval(relogio);
+            document.getElementById("btnParar").style.display = "none";
+            document.getElementById("btnIniciar").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
