@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejemplo de AJAX</title>
+</head>
+<body>
+    <h2>Actualización del reloj con Ajax</h2>
+    <div id="contenido"></div>
+    <input type="button" onclick="enviarPeticionAJAX();" value="Actualizar">
+    <script>
+        var xhr;
+        function enviarPeticionAJAX(){
+            xhr=new XMLHttpRequest();
+            xhr.addEventListener('readystatechange',gestionarRespuesta); // gestionarRespuesta es un callback
+            xhr.open('GET','hora.php',true);
+            xhr.send();
+        }
+        function gestionarRespuesta(evento){
+            if(evento.target.readyState == 4 && evento.target.status == 200){
+                document.getElementById('contenido').innerHTML = evento.target.responseText;
+            }
+        }
+    </script>
+</body>
+</html>
