@@ -1,0 +1,5 @@
+  var x = document.getElementById("mySelect");
+
+while(x.firstElementChild){
+x.remove(x.firstElementChild);
+}
