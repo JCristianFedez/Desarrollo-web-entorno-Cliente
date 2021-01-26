@@ -1,0 +1,1 @@
+onclick="return confirm('Estas seguro de eliminar el producto?');">
