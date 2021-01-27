@@ -1,5 +1,5 @@
 <?php
-
+sleep(2);
 header('Content-Type: text/html; charset=utf-8');
 $nombre = "";
 $apellido = "";
@@ -25,7 +25,8 @@ switch($_REQUEST["dni"]){
         break;
 }
 
-echo "{'nombre':'$nombre',
-    'apellido':'$apellido',
-    'direccion':'$direccion'
-    }";
+echo "{
+    \"nombre\":\"$nombre\",
+    \"apellido\":\"$apellido\",
+    \"direccion\":\"$direccion\"
+  }";
