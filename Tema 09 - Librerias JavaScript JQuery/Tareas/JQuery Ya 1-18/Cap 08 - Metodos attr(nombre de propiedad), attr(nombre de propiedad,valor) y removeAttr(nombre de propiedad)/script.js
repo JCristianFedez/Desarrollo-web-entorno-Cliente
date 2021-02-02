@@ -48,6 +48,6 @@ function eliminarPropiedadBorder() {
     //Similar a getElementById
     let x = $("#tabla1");
 
-    //Se elimina la propiedad del elemento seleccionado
+    //Se elimina la propiedad border del elemento seleccionado
     x.removeAttr("border");
 }
