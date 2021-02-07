@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <label for="pais">Pais:</label>
+    <select name="pais" id="pais">
+    </select>
+    <br>
+    <label for="ciudades">Ciudades:</label>
+    <select name="ciudades" id="ciudades">
+    </select>
+    <br>
+    <div id="infoCiudad"></div>
+    <br>
+    <br>
+    <br>
+    <form action="insertar_pais.php" method="get" id="insertarPais">
+        <fieldset>
+            <label for="nuevoPais">Nombre:</label>
+            <input type="text" name="nuevoPais" id="nuevoPais" required>
+            <br>
+            <input type="submit" value="Guardar" id="submitNuevoPais">
+        </fieldset>
+    </form>
+    <br>
+    <br>
+    <br>
+    <form action="insertar_ciudad.php" method="get" id="insertarCiudad">
+        <fieldset>
+            <label for="nombreNuevaCiudad">Nombre:</label>
+            <input type="text" name="nombreNuevaCiudad" id="nombreNuevaCiudad" required>
+            <br>
+            <label for="poblacionNuevaCiudad">Poblacion:</label>
+            <input type="number" name="poblacionNuevaCiudad" id="poblacionNuevaCiudad" required min="0">
+            <br>
+            <label for="fechaNuevaCiudad">Fecha de creacion:</label>
+            <input type="date" name="fechaNuevaCiudad" id="fechaNuevaCiudad" required>
+            <br>
+            <label for="paisNuevaCiudad">Pais al que pertenece:</label>
+            <select name="paisNuevaCiudad" id="paisNuevaCiudad">
+            </select>
+            <br>
+            <input type="submit" value="Guardar" id="submitNuevaCiudad">
+        </fieldset>
+    </form>
+</body>
+</html>
