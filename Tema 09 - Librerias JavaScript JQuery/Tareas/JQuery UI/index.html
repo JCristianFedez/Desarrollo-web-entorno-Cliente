@@ -9,30 +9,205 @@
 </head>
 
 <body>
-    <div id="acordeon">
-        <h3>Seccion 1</h3>
-        <div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus voluptatibus ratione vel qui quae. Nam
-                quasi consequuntur hic asperiores fugiat doloribus accusamus officia debitis voluptatum unde? Quod
-                repellendus minus reiciendis.</p>
+    <h1>Widgets</h1>
+    <div>
+        <!-- Acordeon -->
+        <h3>Acordeon</h3>
+        <div id="accordion">
+            <h3>Seccion 1</h3>
+            <div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus voluptatibus ratione vel qui quae.
+                    Nam
+                    quasi consequuntur.</p>
+            </div>
+            <h3>Seccion 2</h3>
+            <div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus voluptatibus ratione vel qui quae.
+                    Nam
+                    quasi consequuntur.</p>
+            </div>
+            <h3>Seccion 3</h3>
+            <div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus voluptatibus ratione vel qui quae.
+                    Nam
+                    quasi consequuntur.</p>
+                <ul>
+                    <li>Lista 1</li>
+                    <li>Lista 2</li>
+                </ul>
+            </div>
         </div>
-        <h3>Seccion 2</h3>
+
+        <!-- Autocompletar -->
+        <h3>Autocompletar</h3>
         <div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus voluptatibus ratione vel qui quae. Nam
-                quasi consequuntur hic asperiores fugiat doloribus accusamus officia debitis voluptatum unde? Quod
-                repellendus minus reiciendis.</p>
+            <label for="autocomplete">Select a programming language: </label>
+            <input id="autocomplete">
         </div>
-        <h3>Seccion 3</h3>
+
+        <!-- Boton -->
+        <h3>Boton</h3>
         <div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus voluptatibus ratione vel qui quae. Nam
-                quasi consequuntur hic asperiores fugiat doloribus accusamus officia debitis voluptatum unde? Quod
-                repellendus minus reiciendis.</p>
-            <ul>
-                <li>Lista 1</li>
-                <li>Lista 2</li>
-                <li>Lista 3</li>
+            <button id="button">Widget Boton</button>
+            <button id="button-icon">Boton Icono</button>
+        </div>
+
+        <!-- Radio Buttons -->
+        <h3>Button Set</h3>
+        <div>
+            <form>
+                <fieldset>
+                    <legend>Radio Button</legend>
+                    <div id="radio">
+                        <input type="radio" id="tamaño" name="project">
+                        <label for="tamaño">tamaño</label>
+
+                        <input type="radio" id="peso" name="project" checked="checked">
+                        <label for="peso">peso</label>
+
+                        <input type="radio" id="color" name="project">
+                        <label for="color">color</label>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <!-- Date Picker -->
+        <h3>Date Picker</h3>
+        <div id="datepicker"></div>
+
+        <!-- Dialogo -->
+        <h3>Dialogo</h3>
+        <div>
+            <button id="opener">Abrir dialogo</button>
+            <div id="dialog" title="Aqui titulo">Soy el dialogo</div>
+        </div>
+
+        <!-- Menu -->
+        <h3>Menu</h3>
+        <div style="width: max-content;">
+            <ul id="menu">
+                <li>
+                    <div>Item 1</div>
+                </li>
+                <li>
+                    <div>Item 2</div>
+                </li>
+                <li>
+                    <div>Item 3</div>
+                    <ul>
+                        <li>
+                            <div>Item 3-1</div>
+                        </li>
+                        <li>
+                            <div>Item 3-2</div>
+                        </li>
+                        <li>
+                            <div>Item 3-3</div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div>Item 4</div>
+                </li>
+                <li>
+                    <div>Item 5</div>
+                </li>
             </ul>
         </div>
+
+
+        <!-- Progres Bar -->
+        <h3>Progres Bar</h3>
+        <div id="progressbar"></div>
+
+        <!-- Slider -->
+        <h3>Slider</h3>
+        <div id="slider"></div>
+
+        <!-- Tabs -->
+        <h3>Tabs</h3>
+        <div id="tabs">
+            <ul>
+                <li><a href="#fragment-1"><span>Uno</span></a></li>
+                <li><a href="#fragment-2"><span>Dos</span></a></li>
+                <li><a href="#fragment-3"><span>Tres</span></a></li>
+            </ul>
+            <div id="fragment-1">
+                <p>Frimera ventana por defecto</p>
+            </div>
+            <div id="fragment-2">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat.
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat.
+            </div>
+            <div id="fragment-3">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat.
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat.
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat.
+            </div>
+        </div>
+    </div>
+
+    <h1>Interactions</h1>
+    <div>
+        <!-- Draggable -->
+        <h3>Draggable</h3>
+        <div id="draggable" style="background-color: skyblue; width: 100px; height: 100px;">Arastrame</div>
+
+        <!-- droppable -->
+        <h3>Droppable</h3>
+        <div>
+            <div id="droppable" style="background-color: red; width: 150px; height: 150px;">Arrastra aqui</div>
+        </div>
+
+        <!-- Resizable -->
+        <h3>Resizable</h3>
+        <div id="resizable" style="background-color: salmon; width: 50px; height: 50px;"></div>
+
+        <!-- Selectabla -->
+        <h3>Selectable</h3>
+        <div style="width: max-content;">
+            <ul id="selectable">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+                <li>Item 5</li>
+            </ul>
+        </div>
+
+        <!-- Sortable -->
+        <h3>Sortable</h3>
+        <div style="width: max-content;">
+            <ul id="sortable">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+                <li>Item 5</li>
+            </ul>
+        </div>
+    </div>
+
+    <h1>Efects</h1>
+    <div>
+        
+        <!-- Drop Efect -->
+        <h3 id="toggleDropTitle">Pinchame para Drop Efect</h3>
+        <div id="toggleDrop" style="width: 100px; height: 100px; background-color: lightblue;"></div>
+
+        <!-- Scale Efect -->
+        <h3 id="toggleScaleTitle">Pinchame para Scale Efect</h3>
+        <div id="toggleScale" style="width: 100px; height: 100px; background-color: lightblue;"></div>
+        
+        <!-- Explode Efect -->
+        <h3 id="toggleExplodeTitle">Pinchame para Explode Efect</h3>
+        <div id="toggleExplode" style="width: 100px; height: 100px; background-color: lightblue;"></div>
     </div>
 
 
